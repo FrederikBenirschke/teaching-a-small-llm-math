@@ -64,7 +64,7 @@ def main():
         num_ppo_epochs=2,
         num_mini_batches=2,
         total_episodes=2 * args.batch_size if args.smoke else args.episodes,
-        response_length=64 if args.smoke else args.response_length,
+        response_length=args.response_length,
         kl_coef=args.kl_coef,
         stop_token="eos",
         missing_eos_penalty=1.0,
