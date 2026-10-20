@@ -7,3 +7,4 @@ adapters/
 checkpoints/
 *.safetensors
 .DS_Store
+.venv-ppo/
