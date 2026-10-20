@@ -1,0 +1,21 @@
+# Offline DPO on (correct, incorrect) pairs sampled from the base model.
+model: Qwen/Qwen2.5-0.5B-Instruct
+train: true
+fuse: false
+train_mode: dpo
+train_type: lora
+data: data/dpo
+adapter_path: adapters/dpo
+num_layers: -1
+lora_parameters: {rank: 16, scale: 10.0, dropout: 0.0}
+learning_rate: 5.0e-6
+beta: 0.1
+dpo_cpo_loss_type: sigmoid
+batch_size: 4
+epochs: 1
+max_seq_length: 1024
+steps_per_report: 10
+steps_per_eval: 50
+val_batches: 10
+save_every: 100
+seed: 0

@@ -1,0 +1,25 @@
+# Online GRPO with the same 0/1 correctness reward (rewards.py:gsm8k_correct).
+model: Qwen/Qwen2.5-0.5B-Instruct
+train: true
+fuse: false
+train_mode: grpo
+train_type: lora
+data: data/grpo
+adapter_path: adapters/grpo
+num_layers: -1
+lora_parameters: {rank: 16, scale: 10.0, dropout: 0.0}
+learning_rate: 5.0e-6
+beta: 0.04
+group_size: 8
+temperature: 0.8
+max_completion_length: 512
+reward_functions_file: rewards.py
+reward_functions: gsm8k_correct
+batch_size: 2
+iters: 250
+max_seq_length: 1024
+steps_per_report: 5
+steps_per_eval: 1000
+val_batches: 2
+save_every: 50
+seed: 0

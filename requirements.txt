@@ -1,0 +1,4 @@
+mlx-lm==0.32.2
+mlx-lm-lora==5.8.6
+datasets
+matplotlib

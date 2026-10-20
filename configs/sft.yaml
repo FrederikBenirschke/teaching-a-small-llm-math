@@ -1,0 +1,20 @@
+# Rejection-sampling SFT: fine-tune on the base model's own correct answers.
+model: Qwen/Qwen2.5-0.5B-Instruct
+train: true
+fuse: false
+train_mode: sft
+train_type: lora
+data: data/sft
+adapter_path: adapters/sft
+mask_prompt: true
+num_layers: -1
+lora_parameters: {rank: 16, scale: 10.0, dropout: 0.0}
+learning_rate: 1.0e-5
+batch_size: 8
+epochs: 2
+max_seq_length: 1024
+steps_per_report: 10
+steps_per_eval: 50
+val_batches: 10
+save_every: 100
+seed: 0

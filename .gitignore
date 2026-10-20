@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+data/
+results/
+logs/
+adapters/
+checkpoints/
+*.safetensors
+.DS_Store
