@@ -1,4 +1,4 @@
-"""Evaluate base or base+adapter on the fixed GSM8K test prompts.
+"""Evaluate a model on the dev prompts (selection) or, once, the test prompts.
 
 greedy_acc   accuracy of the temperature-0 answer
 mean_acc     average accuracy over the k sampled answers (= pass@1 estimate at temp)
@@ -10,7 +10,7 @@ import argparse
 import json
 from math import comb
 
-from common import DATA, RESULTS, is_correct, read_jsonl, write_jsonl
+from common import DATA, MODEL, RESULTS, is_correct, read_jsonl, write_jsonl
 from generation import load_model, sample
 
 
@@ -23,16 +23,18 @@ def pass_at(n: int, c: int, k: int) -> float:
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--name", required=True)
-    p.add_argument("--adapter", default=None)
+    p.add_argument("--adapter", default=None, help="MLX LoRA adapter dir")
+    p.add_argument("--model", default=MODEL, help="hub id or merged HF checkpoint (merge.py)")
+    p.add_argument("--split", choices=["dev", "test"], default="dev")
     p.add_argument("--k", type=int, default=8)
     p.add_argument("--temp", type=float, default=0.8)
     p.add_argument("--max-tokens", type=int, default=512)
     p.add_argument("--limit", type=int, default=None)
     args = p.parse_args()
 
-    tests = read_jsonl(DATA / "prompts" / "test.jsonl")[: args.limit]
+    tests = read_jsonl(DATA / "prompts" / f"{args.split}.jsonl")[: args.limit]
     qs = [t["question"] for t in tests]
-    model, tokenizer = load_model(args.adapter)
+    model, tokenizer = load_model(args.adapter, args.model)
 
     greedy, greedy_secs = sample(model, tokenizer, qs, 1, 0.0, args.max_tokens)
     sampled, sample_secs = sample(model, tokenizer, qs, args.k, args.temp, args.max_tokens)
@@ -49,7 +51,9 @@ def main():
     lengths = [len(tokenizer.encode(c)) for r in rows for c in r["samples"]]
     summary = {
         "name": args.name,
+        "model": args.model,
         "adapter": args.adapter,
+        "split": args.split,
         "n_prompts": n,
         "k": args.k,
         "temp": args.temp,

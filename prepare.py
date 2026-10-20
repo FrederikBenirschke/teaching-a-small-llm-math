@@ -1,6 +1,9 @@
 """Download GSM8K and write fixed prompt splits.
 
-data/prompts/{train,valid,test}.jsonl   {"question", "answer"}
+train/valid build the training data; dev is for comparing runs and choosing
+settings; test is read once, for the final table.
+
+data/prompts/{train,valid,dev,test}.jsonl   {"question", "answer"}
 data/grpo/{train,valid}.jsonl           mlx-lm-lora GRPO format
 """
 
@@ -17,6 +20,7 @@ def main():
     p.add_argument("--n-train", type=int, default=1000)
     p.add_argument("--n-valid", type=int, default=100)
     p.add_argument("--n-test", type=int, default=300)
+    p.add_argument("--n-dev", type=int, default=300, help="model-selection eval set, disjoint from train/valid")
     p.add_argument("--seed", type=int, default=0)
     args = p.parse_args()
 
@@ -25,6 +29,8 @@ def main():
 
     train_idx = rng.sample(range(len(ds["train"])), args.n_train + args.n_valid)
     test_idx = rng.sample(range(len(ds["test"])), args.n_test)
+    used = set(train_idx)
+    dev_idx = random.Random(args.seed + 1).sample([i for i in range(len(ds["train"])) if i not in used], args.n_dev)
 
     def rows(split, idx):
         return [
@@ -35,6 +41,7 @@ def main():
     splits = {
         "train": rows(ds["train"], train_idx[: args.n_train]),
         "valid": rows(ds["train"], train_idx[args.n_train :]),
+        "dev": rows(ds["train"], dev_idx),
         "test": rows(ds["test"], test_idx),
     }
     for name, r in splits.items():

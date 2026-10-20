@@ -8,8 +8,9 @@ from mlx_lm.sample_utils import make_sampler
 from common import MODEL, chat_prompt
 
 
-def load_model(adapter: str | None = None):
-    return load(MODEL, adapter_path=adapter)
+def load_model(adapter: str | None = None, model: str = MODEL):
+    """`model` is a hub id or a merged HF checkpoint dir; `adapter` an MLX LoRA dir."""
+    return load(model, adapter_path=adapter)
 
 
 def sample(model, tokenizer, questions, k, temp, max_tokens, batch_size=64):
