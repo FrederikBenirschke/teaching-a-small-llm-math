@@ -49,6 +49,9 @@ def main():
     p.add_argument("--lr", type=float, default=None)
     p.add_argument("--epochs", type=float, default=None)
     p.add_argument("--beta", type=float, default=0.1, help="DPO beta")
+    p.add_argument("--loss-type", default="sigmoid", help="DPO loss(es), comma-separated, e.g. sigmoid,sft (RPO)")
+    p.add_argument("--loss-weights", default=None, help="comma-separated weights matching --loss-type")
+    p.add_argument("--init", default=MODEL, help="starting model (hub id or merged dir, e.g. SFT-then-DPO)")
     args = p.parse_args()
 
     out = str(ROOT / "checkpoints" / args.name)
@@ -71,16 +74,19 @@ def main():
     if args.method == "sft":
         cfg = SFTConfig(learning_rate=args.lr or 1e-4, num_train_epochs=args.epochs or 2,
                         completion_only_loss=True, **common)
-        trainer = SFTTrainer(model=MODEL, args=cfg, train_dataset=sft_rows("train"),
+        trainer = SFTTrainer(model=args.init, args=cfg, train_dataset=sft_rows("train"),
                              eval_dataset=sft_rows("valid"), peft_config=lora)
     elif args.method == "dpo":
         cfg = DPOConfig(learning_rate=args.lr or 5e-6 * (1 if args.full else 10),
-                        num_train_epochs=args.epochs or 1, beta=args.beta, **common)
-        trainer = DPOTrainer(model=MODEL, args=cfg, train_dataset=pair_rows("train"),
+                        num_train_epochs=args.epochs or 1, beta=args.beta,
+                        loss_type=args.loss_type.split(","),
+                        loss_weights=[float(w) for w in args.loss_weights.split(",")] if args.loss_weights else None,
+                        **common)
+        trainer = DPOTrainer(model=args.init, args=cfg, train_dataset=pair_rows("train"),
                              eval_dataset=pair_rows("valid"), peft_config=lora)
     else:
         cfg = RewardConfig(learning_rate=args.lr or 1e-4, num_train_epochs=args.epochs or 2, **common)
-        trainer = RewardTrainer(model=MODEL, args=cfg, train_dataset=pair_rows("train"),
+        trainer = RewardTrainer(model=args.init, args=cfg, train_dataset=pair_rows("train"),
                                 eval_dataset=pair_rows("valid"), peft_config=lora)
 
     trainer.train()
