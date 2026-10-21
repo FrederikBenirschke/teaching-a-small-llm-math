@@ -50,6 +50,14 @@ def main():
 
     dtype = torch.float32  # MPS: bf16 matmuls are slow/unsupported for some ops
     policy = AutoModelForCausalLM.from_pretrained(MODEL, dtype=dtype)
+    # TRL reads the rollout logprobs from generate()'s PROCESSED scores, but the ref (and
+    # the PPO update) from raw forward logits / temperature. transformers merges Qwen's
+    # generation_config (repetition_penalty 1.1, top_p 0.8, top_k 20) into TRL's config,
+    # so the two disagree before any training: measured 8-21 nats KL per 128-token
+    # sequence at init (~41 at step 1 of the first run). Neutral sampling -> 0.000.
+    policy.generation_config.repetition_penalty = 1.0
+    policy.generation_config.top_k = None
+    policy.generation_config.top_p = None
     rm_path = MODEL if args.smoke else args.reward_model
     reward_model = AutoModelForSequenceClassification.from_pretrained(rm_path, num_labels=1, dtype=dtype)
     value_model = AutoModelForSequenceClassification.from_pretrained(rm_path, num_labels=1, dtype=dtype)
@@ -86,8 +94,11 @@ def main():
         peft_config=LoraConfig(r=16, lora_alpha=32, target_modules="all-linear", task_type="CAUSAL_LM"),
     )
     trainer.train()
-    if not args.smoke:
-        trainer.save_model(args.out)
+    # trainer.save_model crashes under TRL 1.12 + transformers 5.20 (missing
+    # is_distributed_loading_by_transformers); save the policy adapter directly.
+    trainer.model.policy.save_pretrained(args.out)
+    tok.save_pretrained(args.out)
+    print(f"saved policy adapter -> {args.out}")
 
 
 if __name__ == "__main__":

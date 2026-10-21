@@ -55,10 +55,13 @@ def main():
         save_strategy="no",
         report_to="none",
         bf16=False,
+        reward_weights=[1.0, 0.0] if args.reward_model else None,
     )
     trainer = GRPOTrainer(
         model=MODEL,
-        reward_funcs=args.reward_model or grader_reward,
+        # With an RM, the grader rides along at weight 0: logged as rewards/grader_reward
+        # every step (true accuracy beside RM score -> over-optimization curve), no gradient.
+        reward_funcs=[args.reward_model, grader_reward] if args.reward_model else grader_reward,
         args=cfg,
         train_dataset=ds,
         peft_config=LoraConfig(r=16, lora_alpha=32, target_modules="all-linear", task_type="CAUSAL_LM"),
