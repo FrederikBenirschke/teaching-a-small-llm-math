@@ -29,6 +29,10 @@ def main():
     p.add_argument("--response-length", type=int, default=512)
     p.add_argument("--lr", type=float, default=5e-6)
     p.add_argument("--kl-coef", type=float, default=0.05)
+    # The RM never saw unfinished text: on base dev answers cut at half length it scores
+    # them +0.98 without EOS vs -7.43 with EOS (full answers +0.78). So the penalty for no
+    # EOS must exceed that ~8-point gap, or "never finish" is optimal (first run: 90% truncated).
+    p.add_argument("--missing-eos-penalty", type=float, default=10.0)
     p.add_argument("--smoke", action="store_true")
     args = p.parse_args()
     if args.reward_model is None and not args.smoke:
@@ -75,7 +79,7 @@ def main():
         response_length=args.response_length,
         kl_coef=args.kl_coef,
         stop_token="eos",
-        missing_eos_penalty=1.0,
+        missing_eos_penalty=args.missing_eos_penalty,
         local_rollout_forward_batch_size=args.batch_size,
         num_sample_generations=0,
         temperature=0.8,
