@@ -1,11 +1,12 @@
 """Best-of-N selection with a reward model.
 
-Scores the 8 stored samples per dev question (results/<policy>_<split>.samples.jsonl),
+Scores the 8 stored samples per question (results/<policy>_<split>.samples.jsonl),
 each ending at <|im_end|> as in PPO, and reports the accuracy of the highest-scored
 sample. For reference it also prints pass@1 (random choice) and pass@8 (any sample
-correct).
+correct). The interval on best-of-8 minus pass@1 is a bootstrap over questions.
 
     .venv/bin/python bon_rm.py checkpoints/rm/merged checkpoints/rm_trunc2/merged
+    .venv/bin/python bon_rm.py checkpoints/rm_trunc2/merged --policy sft_lora --split test
 """
 
 import argparse
@@ -29,6 +30,7 @@ def main():
     p.add_argument("--policy", default="base")
     p.add_argument("--split", choices=["dev", "test", "svamp"], default="dev")
     p.add_argument("--max-new", type=int, default=512, help="generation token limit; samples of this length get no EOS")
+    p.add_argument("--boot", type=int, default=2000, help="bootstrap draws for the interval")
     args = p.parse_args()
 
     dev = "mps" if torch.backends.mps.is_available() else "cpu"
@@ -54,7 +56,7 @@ def main():
         m = AutoModelForSequenceClassification.from_pretrained(path, num_labels=1, dtype=torch.float32).to(dev).eval()
         s = np.array([[score(m, q, dev) for q in per] for per in seqs])
         pick = ok[np.arange(len(ok)), s.argmax(1)]
-        boot = [pick[i].mean() - ok[i].mean() for i in (rng.integers(0, len(ok), len(ok)) for _ in range(2000))]
+        boot = [pick[i].mean() - ok[i].mean() for i in (rng.integers(0, len(ok), len(ok)) for _ in range(args.boot))]
         print(f"  {path}  best-of-{ok.shape[1]} {pick.mean():.3f}  vs pass@1 {pick.mean() - ok.mean():+.3f} "
               f"[{np.quantile(boot, .025):+.3f}, {np.quantile(boot, .975):+.3f}]")
         out["rms"][path] = {"best_of_8": pick.mean(), "gain": pick.mean() - ok.mean(),

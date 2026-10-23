@@ -30,15 +30,23 @@ choose settings. Test (300, from the GSM8K test set) is evaluated once at the en
 
 ## Training
 
+Commands for the runs reported below (each output must be merged with
+`merge.py` before it is used as `--init` or as a reward model):
+
     .venv/bin/python train_offline.py --method sft --name sft_lora
-    .venv/bin/python train_offline.py --method dpo --name dpo_lora
-    .venv/bin/python train_offline.py --method rm --name rm_trunc --trunc-neg
+    .venv/bin/python train_offline.py --method dpo --name dpo_lr5e6 --lr 5e-6
+    .venv/bin/python train_offline.py --method dpo --name sftdpo_lr5e6 --lr 5e-6 --init checkpoints/sft_lora/merged
+    .venv/bin/python train_offline.py --method rm --name rm                                   # reward model v1
+    .venv/bin/python train_offline.py --method rm --name rm_trunc2 --trunc-neg --epochs 2
+    .venv/bin/python train_offline.py --method rm --name rm_trunc2_q --trunc-neg --epochs 0.5
     .venv/bin/python train_grpo.py --name grpo
-    .venv/bin/python train_grpo.py --name rlhf_grpo --reward-model checkpoints/rm_trunc
-    .venv-ppo/bin/python train_ppo.py --reward-model checkpoints/rm_trunc/merged
+    .venv/bin/python train_grpo.py --name rlhf_grpo --reward-model checkpoints/rm/merged
+    .venv/bin/python train_grpo.py --name sftgrpo --init checkpoints/sft_lora/merged --max-tokens 300 --grad-accum 4
+    .venv-ppo/bin/python train_ppo.py --reward-model checkpoints/rm_trunc2_q/merged --out checkpoints/ppo_rmtrunc_small \
+        --episodes 500 --batch-size 4 --response-length 300 --missing-eos-penalty 1
 
 Checkpoints are written to `checkpoints/<name>`. `--init <merged dir>` starts a
-run from an earlier one (for example SFT followed by DPO).
+run from an earlier one.
 
 `--trunc-neg` adds pairs in which a complete answer is preferred over the same
 answer cut short, with and without an end-of-sequence token. Without them the
@@ -58,7 +66,7 @@ evaluated with `evaluate.py --adapter`.
     .venv/bin/python compare.py base_dev sft_lora_dev
 
 `evaluate.py` generates one greedy answer and 8 sampled answers (temperature
-0.8) per dev question and writes `results/<name>.json` and
+0.8) per question and writes `results/<name>.json` and
 `results/<name>.samples.jsonl`. Reported metrics: greedy accuracy, mean accuracy
 of the sampled answers, pass@k (Chen et al. 2021), mean answer length in tokens,
 and the fraction of answers that hit the token limit. `--split test` evaluates
@@ -70,8 +78,8 @@ resampled questions for both runs.
 
 Reward-model diagnostics:
 
-    .venv/bin/python probe_rm.py checkpoints/rm/merged checkpoints/rm_trunc/merged
-    .venv/bin/python bon_rm.py checkpoints/rm_trunc/merged
+    .venv/bin/python probe_rm.py checkpoints/rm/merged checkpoints/rm_trunc2/merged
+    .venv/bin/python bon_rm.py checkpoints/rm_trunc2/merged
 
 `probe_rm.py` checks whether a reward model scores truncated answers above
 complete ones. `bon_rm.py` measures the accuracy obtained by letting the reward
@@ -101,8 +109,11 @@ model on the same questions, with 95% paired bootstrap intervals over questions
 
 Methods: SFT on correct base-model samples; DPO (lr 5e-6) on correct/incorrect
 pairs; SFT→DPO is DPO started from the merged SFT model; GRPO with the exact-match
-grader as reward; GRPO (RM) with the learned reward model as reward; SFT→GRPO is
-grader-reward GRPO started from SFT; PPO (RM) with `rm_trunc2`.
+grader as reward; GRPO (RM) with reward model v1 as reward; SFT→GRPO is
+grader-reward GRPO started from SFT; PPO (RM) with `rm_trunc2_q` as reward.
+Reward model v1 is trained on the DPO pairs only. `rm_trunc2` and `rm_trunc2_q`
+also get the truncated-answer pairs and differ only in training length (2 and
+0.5 epochs).
 
 ### Dev (used to choose settings)
 
@@ -175,13 +186,13 @@ was chosen on it.
   +0.060 to +0.103. The greedy intervals are about ±0.05 wide, compared with about
   ±0.025 for pass@1, which averages 8 samples per question.
 - Best-of-8 (RM) minus pass@1: +0.108 (SFT→DPO) to +0.215 (base) on test,
-  +0.140 to +0.253 on dev. Best-of-8 is 0.17 to 0.21 below pass@8 on test, i.e. on
-  those questions at least one sample is correct and the reward model selects an
-  incorrect one.
+  +0.140 to +0.253 on dev. Best-of-8 is 0.17 to 0.21 below pass@8 on test. On
+  that share of questions at least one sample is correct and the reward model
+  picks an incorrect one.
 - PPO: no improvement over base. The first run (reward model without truncated-answer
   pairs, EOS penalty 1) reached KL ≈ 21; dev greedy accuracy was 0.137 and 90% of
   answers hit the token limit (base: 2%). `probe_rm.py` shows that this reward model
-  scores truncated answers above complete ones. With `rm_trunc2` the KL was about
+  scores truncated answers above complete ones. With `rm_trunc2_q` the KL was about
   3.5 and 0.5% of answers hit the limit. Dev: greedy 0.567, pass@1 0.435 (pass@1
   vs base -0.009 [-0.034, +0.016]). Test: pass@1 vs base -0.029 [-0.053, -0.005].
 
@@ -206,9 +217,9 @@ complete, tagged, correct answers. Produced by `summarize.py`.
 | SFT→GRPO | 0.023 | 0.590 | 0.387 | 0.483 | 0.463 | 0.465 | 0.285 |
 | PPO (RM) | 0.007 | 0.926 | 0.067 | 0.351 | 0.199 | 0.339 | 0.325 |
 
-- Within each method except PPO, tagged and untagged answers have similar
-  accuracy (differences 0.00 to 0.05, GRPO (RM) excepted with 3.5% tagged), so
-  the pass@1 gains are not explained by the fallback parser.
+- Within each method except PPO and GRPO (RM), tagged and untagged answers
+  differ in accuracy by 0.00 to 0.05, so the pass@1 gains are not explained by
+  the fallback parser. GRPO (RM) tags too few answers (3.5%) to compare.
 - DPO, SFT→DPO and GRPO (RM) tag fewer answers than base. GRPO (RM) tags 3.5%.
   Under strict parsing SFT→DPO (0.167) is below base (0.240), and the highest
   strict pass@1 is PPO (0.325), followed by SFT→GRPO (0.285).
@@ -237,11 +248,12 @@ for 500 episodes.
 | PPO (RM) | 0.47 | 6.2 |
 | reward model v1 | 0.75 | |
 | reward model `rm_trunc2` | 2.04 | |
+| reward model `rm_trunc2_q` | 0.51 | |
 
 The GRPO (RM) training and dev eval times are high relative to the other arms
 and overlapped with other jobs on the machine; their share of contention was not
 measured. DPO and SFT→DPO trained on the same number of pairs and differ by 2.6×
-in time for the same reason.
+in time; contention is the likely cause but was not measured either.
 
 ### Merge bug (fixed)
 
@@ -259,13 +271,15 @@ result (greedy 0.617, pass@1 0.580) came from the wrong merge and is kept only a
   MDE not computed.
 - One seed per method. Seed variance is not measured; dev-to-test changes in
   ranking cannot be attributed to the method or to the seed.
-- 0.5B model, LoRA only, short runs sized to fit beside other work on one laptop
+- 0.5B model, LoRA only, short runs that fit beside other jobs on one laptop
   (SFT→GRPO: 250 steps, 2 prompts × 8 samples, 300 tokens, GPU memory capped at 8 GB).
 - Settings were chosen on dev, so dev numbers are biased upward. Test was read once,
   after all settings were fixed.
 - Intervals are per comparison, with no correction for the 7 comparisons against base.
-- The best-of-8 reward model `rm_trunc2` is also the PPO reward, and both were trained
-  on pairs sampled from the base model.
+- The best-of-8 reward model `rm_trunc2` and the PPO reward `rm_trunc2_q` are
+  trained on the same pairs, sampled from the base model.
+- GRPO (RM) used reward model v1, which scores truncated answers above complete
+  ones (`probe_rm.py`). GRPO (RM) has the highest truncation rate on test (0.059).
 
 ### Future work
 

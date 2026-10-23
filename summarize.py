@@ -31,7 +31,8 @@ PLOTS = RESULTS / "plots"
 # training log per arm; PPO logs no train_runtime, so its wall-clock comes from the log's first and last write
 TRAIN_LOG = {"sft_lora": "sft_lora.train", "dpo_lr5e6": "dpo_lr5e6.train", "sftdpo_lr5e6": "sftdpo_lr5e6.train",
              "grpo": "grpo.train", "rlhf_grpo": "rlhf_grpo.train", "sftgrpo": "sftgrpo.train",
-             "ppo_rmtrunc_small": "ppo_rmtrunc_small", "rm (v1)": "rm.train", "rm_trunc2": "rm_trunc2"}
+             "ppo_rmtrunc_small": "ppo_rmtrunc_small", "reward model v1": "rm.train", "reward model rm_trunc2": "rm_trunc2",
+             "reward model rm_trunc2_q": "rm_trunc2_q"}
 
 
 def load(arm, split):
@@ -52,13 +53,14 @@ def table(split):
         r = load(arm, split)
         out[arm] = r
         if arm == "base":
-            dg = dp = ""
+            d_greedy = d_pass1 = ""
         else:
             d, _ = paired_diff(f"base_{split}", f"{arm}_{split}")
-            dg = "{:+.3f} [{:+.3f}, {:+.3f}]".format(*d["greedy"][2:])
-            dp = "{:+.3f} [{:+.3f}, {:+.3f}]".format(*d["pass@1"][2:])
-        bon = f"{r['bon']['best_of_8']:.3f}" if r["bon"] else "–"
-        rows.append(f"| {LABEL[arm]} | {r['greedy_acc']:.3f} | {dg} | {r['pass@1']:.3f} | {dp} | {r['pass@8']:.3f} | {bon} |")
+            d_greedy = "{:+.3f} [{:+.3f}, {:+.3f}]".format(*d["greedy"][2:])
+            d_pass1 = "{:+.3f} [{:+.3f}, {:+.3f}]".format(*d["pass@1"][2:])
+        bon = f"{r['bon']['best_of_8']:.3f}" if r["bon"] else ""
+        rows.append(f"| {LABEL[arm]} | {r['greedy_acc']:.3f} | {d_greedy} | {r['pass@1']:.3f} | {d_pass1} | "
+                    f"{r['pass@8']:.3f} | {bon} |")
     return "\n".join(rows), out
 
 
@@ -138,9 +140,9 @@ def ppo_log(path):
 
 
 def ppo_plot():
-    # (label, train log, dev result): the first PPO run (EOS penalty 1) and the final small run on rm_trunc2
+    # (label, train log, dev result): the first PPO run on reward model v1 and the reported run on rm_trunc2_q
     runs = [("PPO, RM v1, EOS penalty 1", "logs/ppo.train.log", "ppo_eos1_dev"),
-            ("PPO, rm_trunc2", "logs/ppo_rmtrunc_small.log", "ppo_rmtrunc_small_dev")]
+            ("PPO, rm_trunc2_q", "logs/ppo_rmtrunc_small.log", "ppo_rmtrunc_small_dev")]
     base = json.loads((RESULTS / "base_dev.json").read_text())
     fig, (a1, a2) = plt.subplots(1, 2, figsize=(11, 4))
     a2.scatter([0], [base["greedy_acc"]], c="k", label="base (KL 0)")

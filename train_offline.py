@@ -68,9 +68,8 @@ def rm_tokenized_rows(split, tok, trunc_neg, seed=0):
             resp = tok(r["chosen"], add_special_tokens=False)["input_ids"]
             cut = max(1, int(len(resp) * rng.uniform(0.2, 0.9)))
             trunc.append({"chosen_input_ids": ch, "rejected_input_ids": p_ids + resp[:cut]})
-            # Same with <|im_end|> appended. Without these pairs, the presence of EOS alone
-            # separates chosen from rejected, and the reward model scored answers that stop
-            # early above the full answer (73% of the time in a short run).
+            # with <|im_end|>: without these, EOS alone separates the two answers, and a short
+            # run scored early-stopped answers above the full answer 73% of the time
             cut2 = max(1, int(len(resp) * rng.uniform(0.2, 0.9)))
             trunc.append({"chosen_input_ids": ch, "rejected_input_ids": p_ids + resp[:cut2] + [eos]})
     return Dataset.from_list(orig), (Dataset.from_list(trunc) if trunc_neg else None)

@@ -5,8 +5,8 @@ Scores the base model's greedy dev answers in four forms:
   full_nl   complete answer with the chat template's trailing "\n" (the form GRPO scores)
   half      first half of the answer, no EOS
   half_eos  first half of the answer followed by <|im_end|>
-It also scores the --policy model's greedy answers. A reward model that works as
-intended scores full above half and half_eos.
+It also scores the --policy model's greedy answers. A reward model without the
+truncation bias scores full above half and half_eos.
 
     .venv/bin/python probe_rm.py checkpoints/rm/merged checkpoints/rm_trunc/merged
 """
@@ -42,12 +42,12 @@ def main():
         p_ids = tok.apply_chat_template(msgs, add_generation_prompt=True, tokenize=True, return_dict=True)["input_ids"]
         resp = tok(r["greedy"], add_special_tokens=False)["input_ids"]
         half = resp[: len(resp) // 2]
+        pol_resp = tok(q["greedy"], add_special_tokens=False)["input_ids"]
         eos = tok.convert_tokens_to_ids("<|im_end|>")
         tmpl = tok.apply_chat_template(msgs + [{"role": "assistant", "content": r["greedy"]}],
                                        tokenize=True, return_dict=True)["input_ids"]  # ends "<|im_end|>\n"
         seqs.append(dict(full=p_ids + resp + [eos], full_nl=tmpl, half=p_ids + half, half_eos=p_ids + half + [eos],
-                         pol=p_ids + (pq := tok(q["greedy"], add_special_tokens=False)["input_ids"])
-                         + ([eos] if len(pq) < 512 else []),
+                         pol=p_ids + pol_resp + ([eos] if len(pol_resp) < 512 else []),
                          ok=is_correct(r["greedy"], r["answer"])))
 
     for path in args.rms:

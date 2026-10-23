@@ -7,5 +7,6 @@
 | GRPO (RM) | 10.84 | 132.8 |
 | SFT→GRPO | 2.55 | 12.0 |
 | PPO (RM) | 0.47 | 6.2 |
-| rm (v1) | 0.75 |  |
-| rm_trunc2 | 2.04 |  |
+| reward model v1 | 0.75 |  |
+| reward model rm_trunc2 | 2.04 |  |
+| reward model rm_trunc2_q | 0.51 |  |
