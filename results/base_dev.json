@@ -1,0 +1,18 @@
+{
+  "name": "base_dev",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "adapter": null,
+  "split": "dev",
+  "n_prompts": 300,
+  "k": 8,
+  "temp": 0.8,
+  "greedy_acc": 0.5266666666666666,
+  "mean_acc": 0.44416666666666665,
+  "pass@1": 0.44416666666666665,
+  "pass@2": 0.6064285714285714,
+  "pass@4": 0.7382380952380952,
+  "pass@8": 0.8266666666666667,
+  "mean_tokens": 218.88916666666665,
+  "truncated_frac": 0.0225,
+  "eval_secs": 339.1542387008667
+}

@@ -1,9 +1,10 @@
-"""Evaluate a model on the dev prompts (selection) or, once, the test prompts.
+"""Evaluate a model on the dev or test prompts.
 
-greedy_acc   accuracy of the temperature-0 answer
-mean_acc     average accuracy over the k sampled answers (= pass@1 estimate at temp)
-pass@j       unbiased estimator (Chen et al. 2021) from k samples, j in 1,2,4,..,k
-mean_tokens  average sampled completion length
+greedy_acc      accuracy of the temperature-0 answer
+mean_acc        accuracy averaged over the k sampled answers (pass@1 at --temp)
+pass@j          unbiased estimate from k samples (Chen et al. 2021), j = 1, 2, 4, ..., k
+mean_tokens     mean length of the sampled answers
+truncated_frac  fraction of sampled answers that reach --max-tokens
 """
 
 import argparse

@@ -1,0 +1,18 @@
+{
+  "name": "dpo_lr5e6_test",
+  "model": "checkpoints/dpo_lr5e6/merged",
+  "adapter": null,
+  "split": "test",
+  "n_prompts": 300,
+  "k": 8,
+  "temp": 0.8,
+  "greedy_acc": 0.5166666666666667,
+  "mean_acc": 0.4345833333333333,
+  "pass@1": 0.4345833333333333,
+  "pass@2": 0.5727380952380953,
+  "pass@4": 0.6884285714285715,
+  "pass@8": 0.7866666666666666,
+  "mean_tokens": 277.63708333333335,
+  "truncated_frac": 0.056666666666666664,
+  "eval_secs": 883.3736901283264
+}

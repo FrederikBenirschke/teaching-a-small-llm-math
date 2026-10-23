@@ -1,8 +1,4 @@
-"""Shared prompt, answer extraction and grader.
-
-Every stage (sampling, dataset building, GRPO reward, evaluation) imports from
-here, so all methods see exactly the same prompt and the same 0/1 signal.
-"""
+"""System prompt, answer extraction and grader used by all scripts."""
 
 import json
 import re

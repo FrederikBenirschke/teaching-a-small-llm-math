@@ -1,0 +1,18 @@
+{
+  "name": "grpo_dev",
+  "model": "checkpoints/grpo/merged",
+  "adapter": null,
+  "split": "dev",
+  "n_prompts": 300,
+  "k": 8,
+  "temp": 0.8,
+  "greedy_acc": 0.5933333333333334,
+  "mean_acc": 0.5225,
+  "pass@1": 0.5225,
+  "pass@2": 0.6740476190476191,
+  "pass@4": 0.7913809523809524,
+  "pass@8": 0.8666666666666667,
+  "mean_tokens": 258.79291666666666,
+  "truncated_frac": 0.03625,
+  "eval_secs": 960.9363112449646
+}

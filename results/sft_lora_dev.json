@@ -1,0 +1,18 @@
+{
+  "name": "sft_lora_dev",
+  "model": "checkpoints/sft_lora/merged",
+  "adapter": null,
+  "split": "dev",
+  "n_prompts": 300,
+  "k": 8,
+  "temp": 0.8,
+  "greedy_acc": 0.5866666666666667,
+  "mean_acc": 0.5491666666666667,
+  "pass@1": 0.5491666666666667,
+  "pass@2": 0.699047619047619,
+  "pass@4": 0.815,
+  "pass@8": 0.8933333333333333,
+  "mean_tokens": 226.16,
+  "truncated_frac": 0.01875,
+  "eval_secs": 551.565566778183
+}

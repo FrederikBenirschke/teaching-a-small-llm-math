@@ -1,4 +1,4 @@
-# Rejection-sampling SFT: fine-tune on the base model's own correct answers.
+# SFT on correct answers sampled from the base model (mlx-lm-lora).
 model: Qwen/Qwen2.5-0.5B-Instruct
 train: true
 fuse: false

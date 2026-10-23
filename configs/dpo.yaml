@@ -1,4 +1,4 @@
-# Offline DPO on (correct, incorrect) pairs sampled from the base model.
+# DPO on (correct, incorrect) pairs sampled from the base model (mlx-lm-lora).
 model: Qwen/Qwen2.5-0.5B-Instruct
 train: true
 fuse: false

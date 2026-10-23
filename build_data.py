@@ -1,8 +1,7 @@
-"""Sample k answers per prompt from the BASE model, grade them, and build the
-offline datasets. This is the single source of signal for SFT and DPO; GRPO
-uses the same grader online.
+"""Sample k answers per prompt from the base model, grade them, and write the
+SFT and DPO training data.
 
-data/samples/{split}.jsonl   every graded sample (kept for the write-up)
+data/samples/{split}.jsonl   all graded samples
 data/sft/{train,valid}.jsonl correct samples, chat format
 data/dpo/{train,valid}.jsonl (correct, incorrect) pairs from the same prompt
 """

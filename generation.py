@@ -14,7 +14,7 @@ def load_model(adapter: str | None = None, model: str = MODEL):
 
 
 def sample(model, tokenizer, questions, k, temp, max_tokens, batch_size=64):
-    """Return a list (per question) of k completion strings, plus wall seconds."""
+    """Return k completions per question and the elapsed time in seconds."""
     prompts = [chat_prompt(tokenizer, q) for q in questions for _ in range(k)]
     t0 = time.time()
     resp = batch_generate(

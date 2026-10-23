@@ -1,10 +1,14 @@
 .venv/
 __pycache__/
 data/
-results/
+results/*
+!results/plots/
+!results/summary_*.md
+!results/*.json
 logs/
 adapters/
 checkpoints/
 *.safetensors
 .DS_Store
 .venv-ppo/
+tools/*.dylib

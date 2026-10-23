@@ -1,10 +1,10 @@
-"""Offline post-training on the data from build_data.py (TRL).
+"""SFT, DPO and reward-model training on the data from build_data.py (TRL).
 
-    sft   SFTTrainer on correct base samples, loss on the completion only
-    dpo   DPOTrainer on (correct, incorrect) pairs from the same prompt
-    rm    RewardTrainer on the same pairs -> reward model for RLHF (PPO / GRPO)
+    sft   SFTTrainer on correct base-model samples; loss on the answer tokens only
+    dpo   DPOTrainer on (correct, incorrect) pairs for the same prompt
+    rm    RewardTrainer on the same pairs; the result is used by train_grpo.py and train_ppo.py
 
-LoRA by default; --full trains every weight (the LoRA-vs-full axis).
+Uses LoRA unless --full is given.
 
     .venv/bin/python train_offline.py --method sft --name sft_lora
     .venv/bin/python train_offline.py --method sft --name sft_full --full --lr 1e-5
@@ -12,9 +12,11 @@ LoRA by default; --full trains every weight (the LoRA-vs-full axis).
 
 import argparse
 
+import numpy as np
 import torch
-from datasets import Dataset
+from datasets import Dataset, concatenate_datasets
 from peft import LoraConfig
+from transformers import AutoTokenizer
 from trl import DPOConfig, DPOTrainer, RewardConfig, RewardTrainer, SFTConfig, SFTTrainer
 
 from common import DATA, MODEL, ROOT, read_jsonl
@@ -41,6 +43,39 @@ def pair_rows(split):
     ])
 
 
+def rm_tokenized_rows(split, tok, trunc_neg, seed=0):
+    """Tokenized reward-model pairs. Pre-tokenizing stops TRL from appending its own EOS.
+
+    If trunc_neg is set, each pair also yields two pairs in which the complete chosen
+    answer is preferred over the chosen answer cut at 20-90% of its tokens, once without
+    and once with <|im_end|>. A reward model trained without these pairs scored
+    unfinished answers above finished ones, and PPO then stopped emitting EOS.
+    """
+    rng = np.random.default_rng(seed)
+    orig, trunc = [], []
+    for r in read_jsonl(DATA / "dpo" / f"{split}.jsonl"):
+        prompt = _prompt(r["system"], r["prompt"])
+        p_ids = tok.apply_chat_template(prompt, add_generation_prompt=True, tokenize=True, return_dict=True)["input_ids"]
+        eos = tok.convert_tokens_to_ids("<|im_end|>")
+
+        def full(a):  # cut after <|im_end|> (the template adds "\n"), as in PPO's reward-model input
+            ids = tok.apply_chat_template(prompt + [{"role": "assistant", "content": a}],
+                                          tokenize=True, return_dict=True)["input_ids"]
+            return ids[: len(ids) - ids[::-1].index(eos)]
+        ch = full(r["chosen"])
+        orig.append({"chosen_input_ids": ch, "rejected_input_ids": full(r["rejected"])})
+        if trunc_neg:
+            resp = tok(r["chosen"], add_special_tokens=False)["input_ids"]
+            cut = max(1, int(len(resp) * rng.uniform(0.2, 0.9)))
+            trunc.append({"chosen_input_ids": ch, "rejected_input_ids": p_ids + resp[:cut]})
+            # Same with <|im_end|> appended. Without these pairs, the presence of EOS alone
+            # separates chosen from rejected, and the reward model scored answers that stop
+            # early above the full answer (73% of the time in a short run).
+            cut2 = max(1, int(len(resp) * rng.uniform(0.2, 0.9)))
+            trunc.append({"chosen_input_ids": ch, "rejected_input_ids": p_ids + resp[:cut2] + [eos]})
+    return Dataset.from_list(orig), (Dataset.from_list(trunc) if trunc_neg else None)
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--method", choices=["sft", "dpo", "rm"], required=True)
@@ -51,7 +86,8 @@ def main():
     p.add_argument("--beta", type=float, default=0.1, help="DPO beta")
     p.add_argument("--loss-type", default="sigmoid", help="DPO loss(es), comma-separated, e.g. sigmoid,sft (RPO)")
     p.add_argument("--loss-weights", default=None, help="comma-separated weights matching --loss-type")
-    p.add_argument("--init", default=MODEL, help="starting model (hub id or merged dir, e.g. SFT-then-DPO)")
+    p.add_argument("--trunc-neg", action="store_true", help="rm: add pairs preferring complete over truncated answers")
+    p.add_argument("--init", default=MODEL, help="initial model: hub id or merged checkpoint dir (e.g. an SFT model)")
     args = p.parse_args()
 
     out = str(ROOT / "checkpoints" / args.name)
@@ -86,8 +122,15 @@ def main():
                              eval_dataset=pair_rows("valid"), peft_config=lora)
     else:
         cfg = RewardConfig(learning_rate=args.lr or 1e-4, num_train_epochs=args.epochs or 2, **common)
-        trainer = RewardTrainer(model=args.init, args=cfg, train_dataset=pair_rows("train"),
-                                eval_dataset=pair_rows("valid"), peft_config=lora)
+        if args.trunc_neg:
+            tok = AutoTokenizer.from_pretrained(MODEL)
+            tr_o, tr_t = rm_tokenized_rows("train", tok, True)
+            va_o, va_t = rm_tokenized_rows("valid", tok, True, seed=1)
+            train_ds, eval_ds = concatenate_datasets([tr_o, tr_t]).shuffle(seed=0), {"orig": va_o, "trunc": va_t}
+        else:
+            train_ds, eval_ds = pair_rows("train"), pair_rows("valid")
+        trainer = RewardTrainer(model=args.init, args=cfg, train_dataset=train_ds,
+                                eval_dataset=eval_ds, peft_config=lora)
 
     trainer.train()
     print(trainer.evaluate())

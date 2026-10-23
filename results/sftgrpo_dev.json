@@ -1,0 +1,18 @@
+{
+  "name": "sftgrpo",
+  "model": "checkpoints/sftgrpo/merged",
+  "adapter": null,
+  "split": "dev",
+  "n_prompts": 300,
+  "k": 8,
+  "temp": 0.8,
+  "greedy_acc": 0.63,
+  "mean_acc": 0.5641666666666667,
+  "pass@1": 0.5641666666666667,
+  "pass@2": 0.7119047619047619,
+  "pass@4": 0.8189047619047619,
+  "pass@8": 0.8933333333333333,
+  "mean_tokens": 213.43333333333334,
+  "truncated_frac": 0.015833333333333335,
+  "eval_secs": 718.2615220546722
+}

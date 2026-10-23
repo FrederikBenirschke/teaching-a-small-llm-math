@@ -1,0 +1,18 @@
+{
+  "name": "grpo_test",
+  "model": "checkpoints/grpo/merged",
+  "adapter": null,
+  "split": "test",
+  "n_prompts": 300,
+  "k": 8,
+  "temp": 0.8,
+  "greedy_acc": 0.52,
+  "mean_acc": 0.43916666666666665,
+  "pass@1": 0.43916666666666665,
+  "pass@2": 0.5817857142857142,
+  "pass@4": 0.6972857142857143,
+  "pass@8": 0.78,
+  "mean_tokens": 266.83666666666664,
+  "truncated_frac": 0.042083333333333334,
+  "eval_secs": 997.4323258399963
+}

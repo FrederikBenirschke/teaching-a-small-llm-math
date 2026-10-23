@@ -1,0 +1,18 @@
+{
+  "name": "ppo_dev",
+  "model": "checkpoints/ppo/merged",
+  "adapter": null,
+  "split": "dev",
+  "n_prompts": 300,
+  "k": 8,
+  "temp": 0.8,
+  "greedy_acc": 0.13666666666666666,
+  "mean_acc": 0.11666666666666667,
+  "pass@1": 0.11666666666666667,
+  "pass@2": 0.2105952380952381,
+  "pass@4": 0.34990476190476194,
+  "pass@8": 0.52,
+  "mean_tokens": 503.3541666666667,
+  "truncated_frac": 0.90125,
+  "eval_secs": 867.0374271869659
+}

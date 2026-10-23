@@ -1,4 +1,4 @@
-# Online GRPO with the same 0/1 correctness reward (rewards.py:gsm8k_correct).
+# GRPO with the 0/1 correctness reward in rewards.py (mlx-lm-lora).
 model: Qwen/Qwen2.5-0.5B-Instruct
 train: true
 fuse: false

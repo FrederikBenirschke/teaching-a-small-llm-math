@@ -1,7 +1,4 @@
-"""GRPO reward: the same 0/1 grader used to build the SFT/DPO data and to evaluate.
-
-Loaded by mlx-lm-lora via `reward_functions_file`.
-"""
+"""GRPO reward for mlx-lm-lora (configs/grpo.yaml): 1 if the answer is correct, else 0."""
 
 import sys
 from pathlib import Path

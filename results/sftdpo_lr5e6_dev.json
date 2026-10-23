@@ -1,0 +1,18 @@
+{
+  "name": "sftdpo_lr5e6",
+  "model": "checkpoints/sftdpo_lr5e6/merged",
+  "adapter": null,
+  "split": "dev",
+  "n_prompts": 300,
+  "k": 8,
+  "temp": 0.8,
+  "greedy_acc": 0.6266666666666667,
+  "mean_acc": 0.6133333333333333,
+  "pass@1": 0.6133333333333333,
+  "pass@2": 0.7475,
+  "pass@4": 0.8465238095238096,
+  "pass@8": 0.91,
+  "mean_tokens": 254.0075,
+  "truncated_frac": 0.02375,
+  "eval_secs": 902.8708062171936
+}

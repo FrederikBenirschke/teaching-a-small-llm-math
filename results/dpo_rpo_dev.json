@@ -1,0 +1,18 @@
+{
+  "name": "dpo_rpo_dev",
+  "model": "checkpoints/dpo_rpo/merged",
+  "adapter": null,
+  "split": "dev",
+  "n_prompts": 300,
+  "k": 8,
+  "temp": 0.8,
+  "greedy_acc": 0.49666666666666665,
+  "mean_acc": 0.355,
+  "pass@1": 0.355,
+  "pass@2": 0.5036904761904762,
+  "pass@4": 0.6408095238095238,
+  "pass@8": 0.75,
+  "mean_tokens": 334.64166666666665,
+  "truncated_frac": 0.25166666666666665,
+  "eval_secs": 1071.5104098320007
+}
