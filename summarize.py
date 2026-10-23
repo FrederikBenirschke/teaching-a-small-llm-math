@@ -47,7 +47,7 @@ def table(split):
         r = load(arm, split)
         out[arm] = r
         if arm == "base":
-            dg = dp = "–"
+            dg = dp = ""
         else:
             d, _ = paired_diff(f"base_{split}", f"{arm}_{split}")
             dg = "{:+.3f} [{:+.3f}, {:+.3f}]".format(*d["greedy"][2:])

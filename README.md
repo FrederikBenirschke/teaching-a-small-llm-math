@@ -101,7 +101,7 @@ grader-reward GRPO started from SFT; PPO (RM) with `rm_trunc2`.
 
 | method | greedy | Δ greedy vs base [95% CI] | pass@1 | Δ pass@1 vs base [95% CI] | pass@8 | best-of-8 (RM) |
 |---|---|---|---|---|---|---|
-| base | 0.527 | – | 0.444 | – | 0.827 | 0.697 |
+| base | 0.527 | | 0.444 | | 0.827 | 0.697 |
 | SFT | 0.587 | +0.060 [+0.010, +0.110] | 0.549 | +0.105 [+0.081, +0.129] | 0.893 | 0.753 |
 | DPO | 0.607 | +0.080 [+0.027, +0.137] | 0.529 | +0.085 [+0.061, +0.109] | 0.870 | 0.680 |
 | SFT→DPO | 0.627 | +0.100 [+0.040, +0.160] | 0.613 | +0.169 [+0.141, +0.197] | 0.910 | 0.753 |
@@ -114,7 +114,7 @@ grader-reward GRPO started from SFT; PPO (RM) with `rm_trunc2`.
 
 | method | greedy | Δ greedy vs base [95% CI] | pass@1 | Δ pass@1 vs base [95% CI] | pass@8 | best-of-8 (RM) |
 |---|---|---|---|---|---|---|
-| base | 0.477 | – | 0.368 | – | 0.757 | 0.583 |
+| base | 0.477 | | 0.368 | | 0.757 | 0.583 |
 | SFT | 0.520 | +0.043 [-0.010, +0.097] | 0.452 | +0.084 [+0.060, +0.107] | 0.793 | 0.613 |
 | DPO | 0.517 | +0.040 [-0.013, +0.090] | 0.435 | +0.067 [+0.043, +0.090] | 0.787 | 0.593 |
 | SFT→DPO | 0.510 | +0.033 [-0.027, +0.090] | 0.508 | +0.140 [+0.115, +0.165] | 0.820 | 0.617 |
@@ -127,26 +127,28 @@ grader-reward GRPO started from SFT; PPO (RM) with `rm_trunc2`.
 
 ### Findings
 
-- Every method except PPO raises pass@1 over the base model on both splits, by
-  +0.07 to +0.14 on test. The intervals exclude zero.
-- SFT→DPO has the highest pass@1 on dev and test (+0.140 on test). Starting from
-  the SFT model raises pass@1 over the same method started from base, paired on the
-  same questions: DPO +0.074 [+0.051, +0.097] and GRPO +0.026 [+0.003, +0.049] on
-  test (+0.084 and +0.042 on dev). Greedy shows no difference (both within ±0.06).
-- Greedy accuracy rises by +0.02 to +0.05 on test, but no interval excludes zero.
-  On dev the same methods gain +0.06 to +0.10. At n=300 the greedy metric cannot
-  separate the methods from each other; pass@1, which averages 8 samples per
-  question, can.
-- Reward-model reranking (best-of-8) adds +0.11 to +0.22 over pass@1 for every
-  policy. The gain is largest for the base model (+0.215 on test) and smallest for
-  SFT→DPO (+0.108). Best-of-8 stays well below pass@8, so the
-  reward model picks a wrong answer on many questions that have a correct one.
-- PPO did not improve on the base model. The first run (reward model without
-  truncated-answer pairs, EOS penalty 1) drifted to KL ≈ 21 and greedy accuracy
-  0.137: the reward model scored unfinished answers above finished ones and PPO
-  learned to stop emitting EOS. With `rm_trunc2` the KL stayed near 3.5 and the
-  policy stayed near the base model on dev (greedy 0.567, pass@1 0.435) and
-  fell slightly below it on test (pass@1 -0.029 [-0.053, -0.005]).
+- pass@1 vs base: all methods except PPO are higher on both splits, with
+  intervals excluding zero. Range on test: +0.067 (DPO) to +0.140 (SFT→DPO).
+- SFT initialisation: DPO and GRPO started from the SFT model have higher pass@1
+  than the same methods started from base. Paired differences on test: DPO +0.074
+  [+0.051, +0.097], GRPO +0.026 [+0.003, +0.049] (dev: +0.084, +0.042). Greedy
+  differences: DPO -0.007 [-0.060, +0.047], GRPO +0.003 [-0.053, +0.060].
+- SFT→DPO has the highest pass@1 on both splits. Paired difference to the next
+  method, SFT→GRPO: test +0.043 [+0.021, +0.064], dev +0.049 [+0.027, +0.072].
+  Greedy difference: test -0.013 [-0.070, +0.043].
+- Greedy vs base: +0.023 to +0.047 on test, no interval excludes zero. Dev:
+  +0.060 to +0.103. The greedy intervals are about ±0.05 wide, compared with about
+  ±0.025 for pass@1, which averages 8 samples per question.
+- Best-of-8 (RM) minus pass@1: +0.108 (SFT→DPO) to +0.215 (base) on test,
+  +0.140 to +0.253 on dev. Best-of-8 is 0.17 to 0.21 below pass@8 on test, i.e. on
+  those questions at least one sample is correct and the reward model selects an
+  incorrect one.
+- PPO: no improvement over base. The first run (reward model without truncated-answer
+  pairs, EOS penalty 1) reached KL ≈ 21; dev greedy accuracy was 0.137 and 90% of
+  answers hit the token limit (base: 2%). `probe_rm.py` shows that this reward model
+  scores truncated answers above complete ones. With `rm_trunc2` the KL was about
+  3.5 and 0.5% of answers hit the limit. Dev: greedy 0.567, pass@1 0.435 (pass@1
+  vs base -0.009 [-0.034, +0.016]). Test: pass@1 vs base -0.029 [-0.053, -0.005].
 
 ![PPO KL](results/plots/ppo_kl.png)
 
@@ -154,7 +156,7 @@ grader-reward GRPO started from SFT; PPO (RM) with `rm_trunc2`.
 
 `merge.py` used to merge every LoRA adapter onto the hub base model. For SFT→DPO
 and SFT→GRPO the adapter was trained on top of `checkpoints/sft_lora/merged`, so
-the merged model silently dropped the SFT update (on one layer the merged weights
+the merged model did not contain the SFT update (on one layer the merged weights
 differed from base by 9.5e-5, while SFT differs from base by 8.5e-4). It now merges
 onto the adapter's recorded `base_model_name_or_path`. The earlier SFT→DPO dev
 result (greedy 0.617, pass@1 0.580) came from the wrong merge and is kept only as
@@ -162,14 +164,17 @@ result (greedy 0.617, pass@1 0.580) came from the wrong merge and is kept only a
 
 ### Limitations
 
-- n=300 questions per split: a ±0.05 interval on greedy accuracy, so differences
-  between methods below about 0.05 are not resolved.
-- One seed per method. Seed variance is not measured, and some of the dev-to-test
-  differences in ranking may be seed noise.
+- n=300 questions per split. Greedy differences below about 0.05 are not resolved.
+  MDE not computed.
+- One seed per method. Seed variance is not measured; dev-to-test changes in
+  ranking cannot be attributed to the method or to the seed.
 - 0.5B model, LoRA only, short runs sized to fit beside other work on one laptop
   (SFT→GRPO: 250 steps, 2 prompts × 8 samples, 300 tokens, GPU memory capped at 8 GB).
-- Settings were chosen on dev, so dev numbers are optimistic; test is the
-  unbiased read.
+- Settings were chosen on dev, so dev numbers are biased upward. Test was read once,
+  after all settings were fixed.
+- Intervals are per comparison, with no correction for the 7 comparisons against base.
+- The best-of-8 reward model `rm_trunc2` is also the PPO reward, and both were trained
+  on pairs sampled from the base model.
 
 ### Future work
 
