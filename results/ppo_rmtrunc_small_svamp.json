@@ -1,0 +1,18 @@
+{
+  "name": "ppo_rmtrunc_small_svamp",
+  "model": "checkpoints/ppo_rmtrunc_small/merged",
+  "adapter": null,
+  "split": "svamp",
+  "n_prompts": 300,
+  "k": 8,
+  "temp": 0.8,
+  "greedy_acc": 0.4866666666666667,
+  "mean_acc": 0.44625,
+  "pass@1": 0.44625,
+  "pass@2": 0.6052380952380952,
+  "pass@4": 0.7395714285714285,
+  "pass@8": 0.8366666666666667,
+  "mean_tokens": 82.90291666666667,
+  "truncated_frac": 0.00125,
+  "eval_secs": 324.2679944038391
+}

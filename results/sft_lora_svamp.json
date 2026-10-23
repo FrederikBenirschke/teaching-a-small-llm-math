@@ -1,0 +1,18 @@
+{
+  "name": "sft_lora_svamp",
+  "model": "checkpoints/sft_lora/merged",
+  "adapter": null,
+  "split": "svamp",
+  "n_prompts": 300,
+  "k": 8,
+  "temp": 0.8,
+  "greedy_acc": 0.5966666666666667,
+  "mean_acc": 0.5320833333333334,
+  "pass@1": 0.5320833333333334,
+  "pass@2": 0.6789285714285714,
+  "pass@4": 0.7916666666666666,
+  "pass@8": 0.8733333333333333,
+  "mean_tokens": 132.32833333333335,
+  "truncated_frac": 0.00375,
+  "eval_secs": 487.35748982429504
+}

@@ -27,7 +27,7 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("rms", nargs="+")
     p.add_argument("--policy", default="base")
-    p.add_argument("--split", choices=["dev", "test"], default="dev")
+    p.add_argument("--split", choices=["dev", "test", "svamp"], default="dev")
     p.add_argument("--max-new", type=int, default=512, help="generation token limit; samples of this length get no EOS")
     args = p.parse_args()
 

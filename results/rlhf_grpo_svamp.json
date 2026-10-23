@@ -1,0 +1,18 @@
+{
+  "name": "rlhf_grpo_svamp",
+  "model": "checkpoints/rlhf_grpo/merged",
+  "adapter": null,
+  "split": "svamp",
+  "n_prompts": 300,
+  "k": 8,
+  "temp": 0.8,
+  "greedy_acc": 0.64,
+  "mean_acc": 0.5716666666666667,
+  "pass@1": 0.5716666666666667,
+  "pass@2": 0.7121428571428571,
+  "pass@4": 0.8243809523809524,
+  "pass@8": 0.9066666666666666,
+  "mean_tokens": 205.39625,
+  "truncated_frac": 0.012916666666666667,
+  "eval_secs": 760.5165708065033
+}

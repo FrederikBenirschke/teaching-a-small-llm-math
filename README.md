@@ -82,6 +82,13 @@ Tables and plots for the results below:
     .venv/bin/python bon_rm.py checkpoints/rm_trunc2/merged --policy sft_lora --split dev
     .venv/bin/python summarize.py --split dev     # -> results/summary_dev.md, results/plots/
 
+Transfer set:
+
+    .venv/bin/python prepare_transfer.py          # SVAMP test -> data/prompts/svamp.jsonl
+    .venv/bin/python evaluate.py --name sft_lora_svamp --model checkpoints/sft_lora/merged --split svamp
+    .venv/bin/python bon_rm.py checkpoints/rm_trunc2/merged --policy sft_lora --split svamp
+    .venv/bin/python summarize.py --split svamp
+
 ## Results
 
 Qwen2.5-0.5B-Instruct, LoRA rank 16, one seed per method, n=300 questions per split.
@@ -125,6 +132,34 @@ grader-reward GRPO started from SFT; PPO (RM) with `rm_trunc2`.
 
 ![methods, test](results/plots/methods_test.png)
 
+### Transfer: SVAMP (not used for training or selection)
+
+SVAMP test split, 300 problems (`prepare_transfer.py`), same prompt, grader and
+sampling as above. SVAMP was added after the GSM8K results were known; no setting
+was chosen on it.
+
+| method | greedy | Δ greedy vs base [95% CI] | pass@1 | Δ pass@1 vs base [95% CI] | pass@8 | best-of-8 (RM) |
+|---|---|---|---|---|---|---|
+| base | 0.587 | | 0.463 | | 0.853 | 0.610 |
+| SFT | 0.597 | +0.010 [-0.043, +0.063] | 0.532 | +0.069 [+0.044, +0.095] | 0.873 | 0.597 |
+| DPO | 0.653 | +0.067 [+0.013, +0.120] | 0.556 | +0.093 [+0.068, +0.118] | 0.893 | 0.623 |
+| SFT→DPO | 0.590 | +0.003 [-0.053, +0.060] | 0.580 | +0.117 [+0.089, +0.144] | 0.903 | 0.637 |
+| GRPO (grader) | 0.613 | +0.027 [-0.027, +0.083] | 0.525 | +0.062 [+0.039, +0.086] | 0.903 | 0.603 |
+| GRPO (RM) | 0.640 | +0.053 [-0.007, +0.110] | 0.572 | +0.109 [+0.084, +0.133] | 0.907 | 0.613 |
+| SFT→GRPO | 0.633 | +0.047 [-0.007, +0.103] | 0.548 | +0.085 [+0.059, +0.112] | 0.867 | 0.600 |
+| PPO (RM) | 0.487 | -0.100 [-0.157, -0.043] | 0.446 | -0.017 [-0.041, +0.008] | 0.837 | 0.563 |
+
+- pass@1 vs base: every method except PPO is higher, intervals excluding zero,
+  +0.062 to +0.117. SFT→DPO is again highest. Paired differences on SVAMP:
+  SFT→DPO minus SFT→GRPO +0.031 [+0.006, +0.058]; SFT→DPO minus DPO +0.024
+  [+0.000, +0.048]; SFT→GRPO minus GRPO +0.023 [-0.001, +0.048].
+- PPO greedy is below base by 0.100 [-0.157, -0.043].
+- Best-of-8 (RM) minus pass@1 is +0.042 to +0.147, smaller than on GSM8K test
+  (+0.108 to +0.215); the GRPO (RM) interval includes zero (+0.042 [-0.003, +0.084]).
+  Best-of-8 is 0.24 to 0.30 below pass@8.
+- Answer format follows the GSM8K pattern: GRPO (RM) tags 12% of answers (strict
+  pass@1 0.074 vs base 0.313), PPO tags 94% (`results/summary_svamp.md`).
+
 ### Findings
 
 - pass@1 vs base: all methods except PPO are higher on both splits, with
@@ -151,6 +186,62 @@ grader-reward GRPO started from SFT; PPO (RM) with `rm_trunc2`.
   vs base -0.009 [-0.034, +0.016]). Test: pass@1 vs base -0.029 [-0.053, -0.005].
 
 ![PPO KL](results/plots/ppo_kl.png)
+
+### Answer format (test)
+
+The prompt asks for a final line `Answer: <number>`. The grader takes the last
+`Answer:` value, or the last number in the text if the tag is missing, so the
+pass@1 above counts untagged answers. Each sampled answer is classed as
+truncated (reaches 512 tokens), tagged, or untagged. Strict pass@1 counts only
+complete, tagged, correct answers. Produced by `summarize.py`.
+
+| method | truncated | tagged | untagged | acc. tagged | acc. untagged | pass@1 | strict pass@1 |
+|---|---|---|---|---|---|---|---|
+| base | 0.029 | 0.613 | 0.358 | 0.392 | 0.353 | 0.368 | 0.240 |
+| SFT | 0.033 | 0.545 | 0.421 | 0.483 | 0.444 | 0.452 | 0.263 |
+| DPO | 0.057 | 0.372 | 0.571 | 0.461 | 0.460 | 0.435 | 0.172 |
+| SFT→DPO | 0.030 | 0.311 | 0.659 | 0.535 | 0.518 | 0.508 | 0.167 |
+| GRPO (grader) | 0.042 | 0.452 | 0.506 | 0.482 | 0.432 | 0.439 | 0.218 |
+| GRPO (RM) | 0.059 | 0.035 | 0.906 | 0.393 | 0.479 | 0.450 | 0.014 |
+| SFT→GRPO | 0.023 | 0.590 | 0.387 | 0.483 | 0.463 | 0.465 | 0.285 |
+| PPO (RM) | 0.007 | 0.926 | 0.067 | 0.351 | 0.199 | 0.339 | 0.325 |
+
+- Within each method except PPO, tagged and untagged answers have similar
+  accuracy (differences 0.00 to 0.05, GRPO (RM) excepted with 3.5% tagged), so
+  the pass@1 gains are not explained by the fallback parser.
+- DPO, SFT→DPO and GRPO (RM) tag fewer answers than base. GRPO (RM) tags 3.5%.
+  Under strict parsing SFT→DPO (0.167) is below base (0.240), and the highest
+  strict pass@1 is PPO (0.325), followed by SFT→GRPO (0.285).
+- The grader reward used by GRPO and SFT→GRPO is `is_correct`, which accepts
+  untagged answers. DPO and reward-model pairs are chosen by correctness only.
+  None of these training signals rewards the tag directly.
+- Dev shows the same pattern (`results/summary_dev.md`).
+
+### Wall-clock
+
+Training time from the TRL logs (`train_runtime`; for PPO, first to last write of
+the log). All runs were on one M3 Max laptop that also ran unrelated jobs, so
+these are measured times, not controlled throughput. The three GRPO runs each
+generated about 4,000 completions (500 prompts × 8). SFT trained on 1,507 correct
+base-model answers for 2 epochs, DPO and SFT→DPO on 1,295 pairs for 1 epoch, PPO
+for 500 episodes.
+
+| arm | training (h) | dev eval (min) |
+|---|---|---|
+| SFT | 0.41 | 9.2 |
+| DPO | 1.29 | 14.8 |
+| SFT→DPO | 0.49 | 15.0 |
+| GRPO (grader) | 3.89 | 16.0 |
+| GRPO (RM) | 10.84 | 132.8 |
+| SFT→GRPO | 2.55 | 12.0 |
+| PPO (RM) | 0.47 | 6.2 |
+| reward model v1 | 0.75 | |
+| reward model `rm_trunc2` | 2.04 | |
+
+The GRPO (RM) training and dev eval times are high relative to the other arms
+and overlapped with other jobs on the machine; their share of contention was not
+measured. DPO and SFT→DPO trained on the same number of pairs and differ by 2.6×
+in time for the same reason.
 
 ### Merge bug (fixed)
 

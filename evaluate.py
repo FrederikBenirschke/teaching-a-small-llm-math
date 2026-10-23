@@ -26,7 +26,7 @@ def main():
     p.add_argument("--name", required=True)
     p.add_argument("--adapter", default=None, help="MLX LoRA adapter dir")
     p.add_argument("--model", default=MODEL, help="hub id or merged HF checkpoint (merge.py)")
-    p.add_argument("--split", choices=["dev", "test"], default="dev")
+    p.add_argument("--split", choices=["dev", "test", "svamp"], default="dev")
     p.add_argument("--k", type=int, default=8)
     p.add_argument("--temp", type=float, default=0.8)
     p.add_argument("--max-tokens", type=int, default=512)

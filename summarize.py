@@ -14,12 +14,13 @@ import json
 import re
 
 import matplotlib
+from transformers import AutoTokenizer
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from common import RESULTS, ROOT
+from common import _TAGGED, MODEL, RESULTS, ROOT, read_jsonl
 from compare import paired_diff
 
 ARMS = ["base", "sft_lora", "dpo_lr5e6", "sftdpo_lr5e6", "grpo", "rlhf_grpo", "sftgrpo", "ppo_rmtrunc_small"]
@@ -27,6 +28,10 @@ LABEL = {"base": "base", "sft_lora": "SFT", "dpo_lr5e6": "DPO", "sftdpo_lr5e6": 
          "rlhf_grpo": "GRPO (RM)", "sftgrpo": "SFT→GRPO", "ppo_rmtrunc_small": "PPO (RM)"}
 RM = "checkpoints/rm_trunc2/merged"
 PLOTS = RESULTS / "plots"
+# training log per arm; PPO logs no train_runtime, so its wall-clock comes from the log's first and last write
+TRAIN_LOG = {"sft_lora": "sft_lora.train", "dpo_lr5e6": "dpo_lr5e6.train", "sftdpo_lr5e6": "sftdpo_lr5e6.train",
+             "grpo": "grpo.train", "rlhf_grpo": "rlhf_grpo.train", "sftgrpo": "sftgrpo.train",
+             "ppo_rmtrunc_small": "ppo_rmtrunc_small", "rm (v1)": "rm.train", "rm_trunc2": "rm_trunc2"}
 
 
 def load(arm, split):
@@ -55,6 +60,51 @@ def table(split):
         bon = f"{r['bon']['best_of_8']:.3f}" if r["bon"] else "–"
         rows.append(f"| {LABEL[arm]} | {r['greedy_acc']:.3f} | {dg} | {r['pass@1']:.3f} | {dp} | {r['pass@8']:.3f} | {bon} |")
     return "\n".join(rows), out
+
+
+def format_table(split, max_tokens=512):
+    """Share of sampled answers that are truncated, end with 'Answer: N', or lack the tag.
+
+    The grader falls back to the last number when the tag is missing, so pass@1 counts
+    untagged answers. strict pass@1 counts only complete, tagged, correct answers.
+    """
+    tok = AutoTokenizer.from_pretrained(MODEL)
+    rows = ["| method | truncated | tagged | untagged | acc. tagged | acc. untagged | pass@1 | strict pass@1 |",
+            "|---|---|---|---|---|---|---|---|"]
+    for arm in ARMS:
+        path = RESULTS / f"{arm}_{split}.samples.jsonl"
+        if not path.exists():
+            continue
+        cnt = {"trunc": [0, 0], "tag": [0, 0], "untag": [0, 0]}
+        for r in read_jsonl(path):
+            for s, ok in zip(r["samples"], r["correct"]):
+                k = "trunc" if len(tok.encode(s)) >= max_tokens else ("tag" if _TAGGED.search(s) else "untag")
+                cnt[k][0] += 1
+                cnt[k][1] += ok
+        n = sum(v[0] for v in cnt.values())
+        frac = {k: v[0] / n for k, v in cnt.items()}
+        acc = {k: (f"{v[1] / v[0]:.3f}" if v[0] else "") for k, v in cnt.items()}
+        rows.append(f"| {LABEL[arm]} | {frac['trunc']:.3f} | {frac['tag']:.3f} | {frac['untag']:.3f} | {acc['tag']} | "
+                    f"{acc['untag']} | {sum(v[1] for v in cnt.values()) / n:.3f} | {cnt['tag'][1] / n:.3f} |")
+    return "\n".join(rows)
+
+
+def train_secs(log):
+    text = (ROOT / "logs" / f"{log}.log").read_text()
+    m = re.findall(r"'train_runtime': '([0-9.e+]+)'", text)
+    if m:
+        return float(m[-1])
+    st = (ROOT / "logs" / f"{log}.log").stat()
+    return st.st_mtime - st.st_birthtime
+
+
+def compute_table():
+    rows = ["| arm | training wall-clock (h) | dev eval wall-clock (min) |", "|---|---|---|"]
+    for arm, log in TRAIN_LOG.items():
+        ev = RESULTS / f"{arm}_dev.json"
+        ev = f"{json.loads(ev.read_text())['eval_secs'] / 60:.1f}" if ev.exists() else ""
+        rows.append(f"| {LABEL.get(arm, arm)} | {train_secs(log) / 3600:.2f} | {ev} |")
+    return "\n".join(rows)
 
 
 def bars(res, split):
@@ -116,15 +166,19 @@ def ppo_plot():
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--split", choices=["dev", "test"], default="dev")
+    p.add_argument("--split", choices=["dev", "test", "svamp"], default="dev")
     args = p.parse_args()
     PLOTS.mkdir(exist_ok=True)
     md, res = table(args.split)
-    (RESULTS / f"summary_{args.split}.md").write_text(md + "\n")
-    print(md)
+    fmt = format_table(args.split)
+    (RESULTS / f"summary_{args.split}.md").write_text(md + "\n\n" + fmt + "\n")
+    print(md + "\n\n" + fmt)
     bars(res, args.split)
     if args.split == "dev":
         ppo_plot()
+        comp = compute_table()
+        (RESULTS / "summary_compute.md").write_text(comp + "\n")
+        print("\n" + comp)
 
 
 if __name__ == "__main__":

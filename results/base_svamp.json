@@ -1,0 +1,18 @@
+{
+  "name": "base_svamp",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "adapter": null,
+  "split": "svamp",
+  "n_prompts": 300,
+  "k": 8,
+  "temp": 0.8,
+  "greedy_acc": 0.5866666666666667,
+  "mean_acc": 0.46291666666666664,
+  "pass@1": 0.46291666666666664,
+  "pass@2": 0.6278571428571429,
+  "pass@4": 0.7616666666666667,
+  "pass@8": 0.8533333333333334,
+  "mean_tokens": 129.85041666666666,
+  "truncated_frac": 0.00625,
+  "eval_secs": 310.57983922958374
+}

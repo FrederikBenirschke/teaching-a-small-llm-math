@@ -1,0 +1,18 @@
+{
+  "name": "dpo_lr5e6_svamp",
+  "model": "checkpoints/dpo_lr5e6/merged",
+  "adapter": null,
+  "split": "svamp",
+  "n_prompts": 300,
+  "k": 8,
+  "temp": 0.8,
+  "greedy_acc": 0.6533333333333333,
+  "mean_acc": 0.5558333333333333,
+  "pass@1": 0.5558333333333333,
+  "pass@2": 0.7033333333333334,
+  "pass@4": 0.8182380952380952,
+  "pass@8": 0.8933333333333333,
+  "mean_tokens": 171.485,
+  "truncated_frac": 0.012916666666666667,
+  "eval_secs": 595.0983476638794
+}

@@ -1,0 +1,18 @@
+{
+  "name": "sftdpo_lr5e6_svamp",
+  "model": "checkpoints/sftdpo_lr5e6/merged",
+  "adapter": null,
+  "split": "svamp",
+  "n_prompts": 300,
+  "k": 8,
+  "temp": 0.8,
+  "greedy_acc": 0.59,
+  "mean_acc": 0.5795833333333333,
+  "pass@1": 0.5795833333333333,
+  "pass@2": 0.7086904761904762,
+  "pass@4": 0.8194761904761905,
+  "pass@8": 0.9033333333333333,
+  "mean_tokens": 157.70875,
+  "truncated_frac": 0.00875,
+  "eval_secs": 527.3904731273651
+}
