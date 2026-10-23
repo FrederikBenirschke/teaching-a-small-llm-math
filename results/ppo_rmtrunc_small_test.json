@@ -1,0 +1,18 @@
+{
+  "name": "ppo_rmtrunc_small_test",
+  "model": "checkpoints/ppo_rmtrunc_small/merged",
+  "adapter": null,
+  "split": "test",
+  "n_prompts": 300,
+  "k": 8,
+  "temp": 0.8,
+  "greedy_acc": 0.4266666666666667,
+  "mean_acc": 0.33875,
+  "pass@1": 0.33875,
+  "pass@2": 0.4709523809523809,
+  "pass@4": 0.5968095238095238,
+  "pass@8": 0.71,
+  "mean_tokens": 145.65166666666667,
+  "truncated_frac": 0.006666666666666667,
+  "eval_secs": 540.1587479114532
+}

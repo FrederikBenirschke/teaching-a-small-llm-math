@@ -121,7 +121,7 @@ grader-reward GRPO started from SFT; PPO (RM) with `rm_trunc2`.
 | GRPO (grader) | 0.520 | +0.043 [-0.010, +0.097] | 0.439 | +0.071 [+0.049, +0.094] | 0.780 | 0.573 |
 | GRPO (RM) | 0.500 | +0.023 [-0.030, +0.077] | 0.450 | +0.083 [+0.057, +0.108] | 0.770 | 0.580 |
 | SFT→GRPO | 0.523 | +0.047 [-0.010, +0.103] | 0.465 | +0.098 [+0.072, +0.122] | 0.797 | 0.597 |
-| PPO (RM) | not evaluated: the test run was aborted by a Metal GPU fault | | | | | |
+| PPO (RM) | 0.427 | -0.050 [-0.110, +0.007] | 0.339 | -0.029 [-0.053, -0.005] | 0.710 | 0.510 |
 
 ![methods, test](results/plots/methods_test.png)
 
@@ -145,7 +145,8 @@ grader-reward GRPO started from SFT; PPO (RM) with `rm_trunc2`.
   truncated-answer pairs, EOS penalty 1) drifted to KL ≈ 21 and greedy accuracy
   0.137: the reward model scored unfinished answers above finished ones and PPO
   learned to stop emitting EOS. With `rm_trunc2` the KL stayed near 3.5 and the
-  policy stayed near the base model (greedy 0.567, pass@1 0.435 on dev).
+  policy stayed near the base model on dev (greedy 0.567, pass@1 0.435) and
+  fell slightly below it on test (pass@1 -0.029 [-0.053, -0.005]).
 
 ![PPO KL](results/plots/ppo_kl.png)
 
