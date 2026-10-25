@@ -105,7 +105,9 @@ answers sampled at temperature 0.8; pass@8 is the fraction of questions where at
 least one of the 8 is correct. Best-of-8 (RM) is the accuracy when the reward model
 `rm_trunc2` picks one of the 8 samples. Δ columns are differences from the base
 model on the same questions, with 95% paired bootstrap intervals over questions
-(`compare.py`).
+(`compare.py`, 10,000 draws). For best-of-8, `bon_rm.py` saves whether the picked
+sample is correct for each question, and `compare.py` bootstraps that difference
+the same way.
 
 Methods: SFT on correct base-model samples; DPO (lr 5e-6) on correct/incorrect
 pairs; SFT→DPO is DPO started from the merged SFT model; GRPO with the exact-match
@@ -117,29 +119,29 @@ also get the truncated-answer pairs and differ only in training length (2 and
 
 ### Dev (used to choose settings)
 
-| method | greedy | Δ greedy vs base [95% CI] | pass@1 | Δ pass@1 vs base [95% CI] | pass@8 | best-of-8 (RM) |
-|---|---|---|---|---|---|---|
-| base | 0.527 | | 0.444 | | 0.827 | 0.697 |
-| SFT | 0.587 | +0.060 [+0.010, +0.110] | 0.549 | +0.105 [+0.081, +0.129] | 0.893 | 0.753 |
-| DPO | 0.607 | +0.080 [+0.027, +0.137] | 0.529 | +0.085 [+0.061, +0.109] | 0.870 | 0.680 |
-| SFT→DPO | 0.627 | +0.100 [+0.040, +0.160] | 0.613 | +0.169 [+0.141, +0.197] | 0.910 | 0.753 |
-| GRPO (grader) | 0.593 | +0.067 [+0.017, +0.120] | 0.522 | +0.078 [+0.055, +0.102] | 0.867 | 0.683 |
-| GRPO (RM) | 0.630 | +0.103 [+0.050, +0.160] | 0.545 | +0.101 [+0.077, +0.126] | 0.860 | 0.710 |
-| SFT→GRPO | 0.630 | +0.103 [+0.050, +0.157] | 0.564 | +0.120 [+0.095, +0.145] | 0.893 | 0.750 |
-| PPO (RM) | 0.567 | +0.040 [-0.023, +0.107] | 0.435 | -0.009 [-0.034, +0.016] | 0.827 | 0.663 |
+| method | greedy | Δ greedy vs base [95% CI] | pass@1 | Δ pass@1 vs base [95% CI] | pass@8 | Δ pass@8 vs base [95% CI] | best-of-8 (RM) | Δ best-of-8 vs base [95% CI] |
+|---|---|---|---|---|---|---|---|---|
+| base | 0.527 |  | 0.444 |  | 0.827 |  | 0.697 |  |
+| SFT | 0.587 | +0.060 [+0.010, +0.110] | 0.549 | +0.105 [+0.081, +0.129] | 0.893 | +0.067 [+0.030, +0.103] | 0.753 | +0.057 [+0.007, +0.107] |
+| DPO | 0.607 | +0.080 [+0.027, +0.137] | 0.529 | +0.085 [+0.061, +0.109] | 0.870 | +0.043 [+0.010, +0.077] | 0.680 | -0.017 [-0.070, +0.037] |
+| SFT→DPO | 0.627 | +0.100 [+0.040, +0.160] | 0.613 | +0.169 [+0.141, +0.197] | 0.910 | +0.083 [+0.050, +0.117] | 0.753 | +0.057 [+0.007, +0.110] |
+| GRPO (grader) | 0.593 | +0.067 [+0.017, +0.120] | 0.522 | +0.078 [+0.055, +0.102] | 0.867 | +0.040 [+0.003, +0.077] | 0.683 | -0.013 [-0.067, +0.040] |
+| GRPO (RM) | 0.630 | +0.103 [+0.050, +0.160] | 0.545 | +0.101 [+0.077, +0.126] | 0.860 | +0.033 [+0.000, +0.067] | 0.710 | +0.013 [-0.040, +0.067] |
+| SFT→GRPO | 0.630 | +0.103 [+0.050, +0.157] | 0.564 | +0.120 [+0.095, +0.145] | 0.893 | +0.067 [+0.030, +0.103] | 0.750 | +0.053 [+0.000, +0.107] |
+| PPO (RM) | 0.567 | +0.040 [-0.023, +0.107] | 0.435 | -0.009 [-0.034, +0.016] | 0.827 | +0.000 [-0.040, +0.040] | 0.663 | -0.033 [-0.083, +0.017] |
 
 ### Test (read once, no selection on it)
 
-| method | greedy | Δ greedy vs base [95% CI] | pass@1 | Δ pass@1 vs base [95% CI] | pass@8 | best-of-8 (RM) |
-|---|---|---|---|---|---|---|
-| base | 0.477 | | 0.368 | | 0.757 | 0.583 |
-| SFT | 0.520 | +0.043 [-0.010, +0.097] | 0.452 | +0.084 [+0.060, +0.107] | 0.793 | 0.613 |
-| DPO | 0.517 | +0.040 [-0.013, +0.090] | 0.435 | +0.067 [+0.043, +0.090] | 0.787 | 0.593 |
-| SFT→DPO | 0.510 | +0.033 [-0.027, +0.090] | 0.508 | +0.140 [+0.115, +0.165] | 0.820 | 0.617 |
-| GRPO (grader) | 0.520 | +0.043 [-0.010, +0.097] | 0.439 | +0.071 [+0.049, +0.094] | 0.780 | 0.573 |
-| GRPO (RM) | 0.500 | +0.023 [-0.030, +0.077] | 0.450 | +0.083 [+0.057, +0.108] | 0.770 | 0.580 |
-| SFT→GRPO | 0.523 | +0.047 [-0.010, +0.103] | 0.465 | +0.098 [+0.072, +0.122] | 0.797 | 0.597 |
-| PPO (RM) | 0.427 | -0.050 [-0.110, +0.007] | 0.339 | -0.029 [-0.053, -0.005] | 0.710 | 0.510 |
+| method | greedy | Δ greedy vs base [95% CI] | pass@1 | Δ pass@1 vs base [95% CI] | pass@8 | Δ pass@8 vs base [95% CI] | best-of-8 (RM) | Δ best-of-8 vs base [95% CI] |
+|---|---|---|---|---|---|---|---|---|
+| base | 0.477 |  | 0.368 |  | 0.757 |  | 0.583 |  |
+| SFT | 0.520 | +0.043 [-0.010, +0.097] | 0.452 | +0.084 [+0.060, +0.107] | 0.793 | +0.037 [-0.007, +0.080] | 0.613 | +0.030 [-0.023, +0.083] |
+| DPO | 0.517 | +0.040 [-0.013, +0.090] | 0.435 | +0.067 [+0.043, +0.090] | 0.787 | +0.030 [-0.017, +0.073] | 0.593 | +0.010 [-0.047, +0.067] |
+| SFT→DPO | 0.510 | +0.033 [-0.027, +0.090] | 0.508 | +0.140 [+0.115, +0.165] | 0.820 | +0.063 [+0.020, +0.107] | 0.617 | +0.033 [-0.020, +0.087] |
+| GRPO (grader) | 0.520 | +0.043 [-0.010, +0.097] | 0.439 | +0.071 [+0.049, +0.094] | 0.780 | +0.023 [-0.023, +0.067] | 0.573 | -0.010 [-0.060, +0.040] |
+| GRPO (RM) | 0.500 | +0.023 [-0.030, +0.077] | 0.450 | +0.083 [+0.057, +0.108] | 0.770 | +0.013 [-0.030, +0.057] | 0.580 | -0.003 [-0.057, +0.050] |
+| SFT→GRPO | 0.523 | +0.047 [-0.010, +0.103] | 0.465 | +0.098 [+0.072, +0.122] | 0.797 | +0.040 [-0.007, +0.083] | 0.597 | +0.013 [-0.037, +0.063] |
+| PPO (RM) | 0.427 | -0.050 [-0.110, +0.007] | 0.339 | -0.029 [-0.053, -0.005] | 0.710 | -0.047 [-0.100, +0.007] | 0.510 | -0.073 [-0.130, -0.017] |
 
 ![methods, test](results/plots/methods_test.png)
 
@@ -149,16 +151,16 @@ SVAMP test split, 300 problems (`prepare_transfer.py`), same prompt, grader and
 sampling as above. SVAMP was added after the GSM8K results were known; no setting
 was chosen on it.
 
-| method | greedy | Δ greedy vs base [95% CI] | pass@1 | Δ pass@1 vs base [95% CI] | pass@8 | best-of-8 (RM) |
-|---|---|---|---|---|---|---|
-| base | 0.587 | | 0.463 | | 0.853 | 0.610 |
-| SFT | 0.597 | +0.010 [-0.043, +0.063] | 0.532 | +0.069 [+0.044, +0.095] | 0.873 | 0.597 |
-| DPO | 0.653 | +0.067 [+0.013, +0.120] | 0.556 | +0.093 [+0.068, +0.118] | 0.893 | 0.623 |
-| SFT→DPO | 0.590 | +0.003 [-0.053, +0.060] | 0.580 | +0.117 [+0.089, +0.144] | 0.903 | 0.637 |
-| GRPO (grader) | 0.613 | +0.027 [-0.027, +0.083] | 0.525 | +0.062 [+0.039, +0.086] | 0.903 | 0.603 |
-| GRPO (RM) | 0.640 | +0.053 [-0.007, +0.110] | 0.572 | +0.109 [+0.084, +0.133] | 0.907 | 0.613 |
-| SFT→GRPO | 0.633 | +0.047 [-0.007, +0.103] | 0.548 | +0.085 [+0.059, +0.112] | 0.867 | 0.600 |
-| PPO (RM) | 0.487 | -0.100 [-0.157, -0.043] | 0.446 | -0.017 [-0.041, +0.008] | 0.837 | 0.563 |
+| method | greedy | Δ greedy vs base [95% CI] | pass@1 | Δ pass@1 vs base [95% CI] | pass@8 | Δ pass@8 vs base [95% CI] | best-of-8 (RM) | Δ best-of-8 vs base [95% CI] |
+|---|---|---|---|---|---|---|---|---|
+| base | 0.587 |  | 0.463 |  | 0.853 |  | 0.610 |  |
+| SFT | 0.597 | +0.010 [-0.043, +0.063] | 0.532 | +0.069 [+0.044, +0.095] | 0.873 | +0.020 [-0.020, +0.060] | 0.597 | -0.013 [-0.070, +0.043] |
+| DPO | 0.653 | +0.067 [+0.013, +0.120] | 0.556 | +0.093 [+0.068, +0.118] | 0.893 | +0.040 [-0.003, +0.083] | 0.623 | +0.013 [-0.043, +0.067] |
+| SFT→DPO | 0.590 | +0.003 [-0.053, +0.060] | 0.580 | +0.117 [+0.089, +0.144] | 0.903 | +0.050 [+0.007, +0.093] | 0.637 | +0.027 [-0.023, +0.080] |
+| GRPO (grader) | 0.613 | +0.027 [-0.027, +0.083] | 0.525 | +0.062 [+0.039, +0.086] | 0.903 | +0.050 [+0.010, +0.090] | 0.603 | -0.007 [-0.060, +0.043] |
+| GRPO (RM) | 0.640 | +0.053 [-0.007, +0.110] | 0.572 | +0.109 [+0.084, +0.133] | 0.907 | +0.053 [+0.013, +0.097] | 0.613 | +0.003 [-0.050, +0.057] |
+| SFT→GRPO | 0.633 | +0.047 [-0.007, +0.103] | 0.548 | +0.085 [+0.059, +0.112] | 0.867 | +0.013 [-0.033, +0.057] | 0.600 | -0.010 [-0.060, +0.040] |
+| PPO (RM) | 0.487 | -0.100 [-0.157, -0.043] | 0.446 | -0.017 [-0.041, +0.008] | 0.837 | -0.017 [-0.060, +0.027] | 0.563 | -0.047 [-0.100, +0.007] |
 
 - pass@1 vs base: every method except PPO is higher, intervals excluding zero,
   +0.062 to +0.117. SFT→DPO is again highest. Paired differences on SVAMP:
@@ -185,6 +187,12 @@ was chosen on it.
 - Greedy vs base: +0.023 to +0.047 on test, no interval excludes zero. Dev:
   +0.060 to +0.103. The greedy intervals are about ±0.05 wide, compared with about
   ±0.025 for pass@1, which averages 8 samples per question.
+- pass@8 vs base on test: only SFT→DPO has an interval excluding zero, +0.063
+  [+0.020, +0.107]. The others are -0.047 (PPO) to +0.040, intervals including zero.
+- Best-of-8 (RM) vs base on test: -0.010 to +0.033 for every method except PPO,
+  all intervals including zero; PPO is -0.073 [-0.130, -0.017]. On dev only the
+  three SFT-initialised arms exclude zero (+0.053 to +0.057). Best-of-8 on the base
+  model (test 0.583) is above the pass@1 of every trained model (at most 0.508).
 - Best-of-8 (RM) minus pass@1: +0.108 (SFT→DPO) to +0.215 (base) on test,
   +0.140 to +0.253 on dev. Best-of-8 is 0.17 to 0.21 below pass@8 on test. On
   that share of questions at least one sample is correct and the reward model
@@ -206,16 +214,16 @@ pass@1 above counts untagged answers. Each sampled answer is classed as
 truncated (reaches 512 tokens), tagged, or untagged. Strict pass@1 counts only
 complete, tagged, correct answers. Produced by `summarize.py`.
 
-| method | truncated | tagged | untagged | acc. tagged | acc. untagged | pass@1 | strict pass@1 |
-|---|---|---|---|---|---|---|---|
-| base | 0.029 | 0.613 | 0.358 | 0.392 | 0.353 | 0.368 | 0.240 |
-| SFT | 0.033 | 0.545 | 0.421 | 0.483 | 0.444 | 0.452 | 0.263 |
-| DPO | 0.057 | 0.372 | 0.571 | 0.461 | 0.460 | 0.435 | 0.172 |
-| SFT→DPO | 0.030 | 0.311 | 0.659 | 0.535 | 0.518 | 0.508 | 0.167 |
-| GRPO (grader) | 0.042 | 0.452 | 0.506 | 0.482 | 0.432 | 0.439 | 0.218 |
-| GRPO (RM) | 0.059 | 0.035 | 0.906 | 0.393 | 0.479 | 0.450 | 0.014 |
-| SFT→GRPO | 0.023 | 0.590 | 0.387 | 0.483 | 0.463 | 0.465 | 0.285 |
-| PPO (RM) | 0.007 | 0.926 | 0.067 | 0.351 | 0.199 | 0.339 | 0.325 |
+| method | truncated | tagged | untagged | acc. tagged | acc. untagged | pass@1 | strict pass@1 | Δ strict pass@1 vs base [95% CI] |
+|---|---|---|---|---|---|---|---|---|
+| base | 0.029 | 0.613 | 0.358 | 0.392 | 0.353 | 0.368 | 0.240 |  |
+| SFT | 0.033 | 0.545 | 0.421 | 0.483 | 0.444 | 0.452 | 0.263 | +0.023 [+0.000, +0.046] |
+| DPO | 0.057 | 0.372 | 0.571 | 0.461 | 0.460 | 0.435 | 0.172 | -0.068 [-0.093, -0.044] |
+| SFT→DPO | 0.030 | 0.311 | 0.659 | 0.535 | 0.518 | 0.508 | 0.167 | -0.073 [-0.101, -0.047] |
+| GRPO (grader) | 0.042 | 0.452 | 0.506 | 0.482 | 0.432 | 0.439 | 0.218 | -0.022 [-0.047, +0.001] |
+| GRPO (RM) | 0.059 | 0.035 | 0.906 | 0.393 | 0.479 | 0.450 | 0.014 | -0.226 [-0.253, -0.200] |
+| SFT→GRPO | 0.023 | 0.590 | 0.387 | 0.483 | 0.463 | 0.465 | 0.285 | +0.045 [+0.021, +0.069] |
+| PPO (RM) | 0.007 | 0.926 | 0.067 | 0.351 | 0.199 | 0.339 | 0.325 | +0.085 [+0.061, +0.110] |
 
 - Within each method except PPO and GRPO (RM), tagged and untagged answers
   differ in accuracy by 0.00 to 0.05, so the pass@1 gains are not explained by
@@ -223,6 +231,10 @@ complete, tagged, correct answers. Produced by `summarize.py`.
 - DPO, SFT→DPO and GRPO (RM) tag fewer answers than base. GRPO (RM) tags 3.5%.
   Under strict parsing SFT→DPO (0.167) is below base (0.240), and the highest
   strict pass@1 is PPO (0.325), followed by SFT→GRPO (0.285).
+- Strict pass@1 vs base on test, paired intervals: above base PPO +0.085
+  [+0.061, +0.110], SFT→GRPO +0.045 [+0.021, +0.069], SFT +0.023 [+0.000, +0.046];
+  below base DPO -0.068 [-0.093, -0.044], SFT→DPO -0.073 [-0.101, -0.047], GRPO (RM)
+  -0.226 [-0.253, -0.200]; GRPO (grader) -0.022 [-0.047, +0.001].
 - The grader reward used by GRPO and SFT→GRPO is `is_correct`, which accepts
   untagged answers. DPO and reward-model pairs are chosen by correctness only.
   None of these training signals rewards the tag directly.
@@ -275,7 +287,8 @@ result (greedy 0.617, pass@1 0.580) came from the wrong merge and is kept only a
   (SFT→GRPO: 250 steps, 2 prompts × 8 samples, 300 tokens, GPU memory capped at 8 GB).
 - Settings were chosen on dev, so dev numbers are biased upward. Test was read once,
   after all settings were fixed.
-- Intervals are per comparison, with no correction for the 7 comparisons against base.
+- Intervals are per comparison, with no correction for the 7 comparisons against
+  base per metric, or for the 5 metrics per comparison.
 - The best-of-8 reward model `rm_trunc2` and the PPO reward `rm_trunc2_q` are
   trained on the same pairs, sampled from the base model.
 - GRPO (RM) used reward model v1, which scores truncated answers above complete

@@ -4,6 +4,7 @@ Scores the 8 stored samples per question (results/<policy>_<split>.samples.jsonl
 each ending at <|im_end|> as in PPO, and reports the accuracy of the highest-scored
 sample. For reference it also prints pass@1 (random choice) and pass@8 (any sample
 correct). The interval on best-of-8 minus pass@1 is a bootstrap over questions.
+Whether each question's picked sample is correct is saved for compare.py.
 
     .venv/bin/python bon_rm.py checkpoints/rm/merged checkpoints/rm_trunc2/merged
     .venv/bin/python bon_rm.py checkpoints/rm_trunc2/merged --policy sft_lora --split test
@@ -60,7 +61,8 @@ def main():
         print(f"  {path}  best-of-{ok.shape[1]} {pick.mean():.3f}  vs pass@1 {pick.mean() - ok.mean():+.3f} "
               f"[{np.quantile(boot, .025):+.3f}, {np.quantile(boot, .975):+.3f}]")
         out["rms"][path] = {"best_of_8": pick.mean(), "gain": pick.mean() - ok.mean(),
-                            "gain_ci": [np.quantile(boot, .025), np.quantile(boot, .975)]}
+                            "gain_ci": [np.quantile(boot, .025), np.quantile(boot, .975)],
+                            "picked_correct": {r["question"]: bool(c) for r, c in zip(rows, pick)}}
     (ROOT / "results" / f"{args.policy}_{args.split}.bon.json").write_text(json.dumps(out, indent=1, default=float))
 
 

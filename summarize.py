@@ -43,24 +43,25 @@ def load(arm, split):
 
 
 def table(split):
-    rows = ["| method | greedy | Δ greedy vs base [95% CI] | pass@1 | Δ pass@1 vs base [95% CI] | pass@8 | best-of-8 (RM) |",
-            "|---|---|---|---|---|---|---|"]
+    rows = ["| method | greedy | Δ greedy vs base [95% CI] | pass@1 | Δ pass@1 vs base [95% CI] | pass@8 | "
+            "Δ pass@8 vs base [95% CI] | best-of-8 (RM) | Δ best-of-8 vs base [95% CI] |",
+            "|---|---|---|---|---|---|---|---|---|"]
     out = {}
     for arm in ARMS:
         if not (RESULTS / f"{arm}_{split}.json").exists():
-            rows.append(f"| {LABEL[arm]} | not evaluated on {split} | | | | | |")
+            rows.append(f"| {LABEL[arm]} | not evaluated on {split} | | | | | | | |")
             continue
         r = load(arm, split)
         out[arm] = r
-        if arm == "base":
-            d_greedy = d_pass1 = ""
-        else:
+        delta = dict.fromkeys(["greedy", "pass@1", "pass@8", "bo8"], "")
+        if arm != "base":
             d, _ = paired_diff(f"base_{split}", f"{arm}_{split}")
-            d_greedy = "{:+.3f} [{:+.3f}, {:+.3f}]".format(*d["greedy"][2:])
-            d_pass1 = "{:+.3f} [{:+.3f}, {:+.3f}]".format(*d["pass@1"][2:])
+            for k in delta:
+                if k in d:
+                    delta[k] = "{:+.3f} [{:+.3f}, {:+.3f}]".format(*d[k][2:])
         bon = f"{r['bon']['best_of_8']:.3f}" if r["bon"] else ""
-        rows.append(f"| {LABEL[arm]} | {r['greedy_acc']:.3f} | {d_greedy} | {r['pass@1']:.3f} | {d_pass1} | "
-                    f"{r['pass@8']:.3f} | {bon} |")
+        rows.append(f"| {LABEL[arm]} | {r['greedy_acc']:.3f} | {delta['greedy']} | {r['pass@1']:.3f} | {delta['pass@1']} | "
+                    f"{r['pass@8']:.3f} | {delta['pass@8']} | {bon} | {delta['bo8']} |")
     return "\n".join(rows), out
 
 
@@ -71,8 +72,9 @@ def format_table(split, max_tokens=512):
     untagged answers. strict pass@1 counts only complete, tagged, correct answers.
     """
     tok = AutoTokenizer.from_pretrained(MODEL)
-    rows = ["| method | truncated | tagged | untagged | acc. tagged | acc. untagged | pass@1 | strict pass@1 |",
-            "|---|---|---|---|---|---|---|---|"]
+    rows = ["| method | truncated | tagged | untagged | acc. tagged | acc. untagged | pass@1 | strict pass@1 | "
+            "Δ strict pass@1 vs base [95% CI] |",
+            "|---|---|---|---|---|---|---|---|---|"]
     for arm in ARMS:
         path = RESULTS / f"{arm}_{split}.samples.jsonl"
         if not path.exists():
@@ -86,8 +88,12 @@ def format_table(split, max_tokens=512):
         n = sum(v[0] for v in cnt.values())
         frac = {k: v[0] / n for k, v in cnt.items()}
         acc = {k: (f"{v[1] / v[0]:.3f}" if v[0] else "") for k, v in cnt.items()}
+        d_strict = ""
+        if arm != "base":
+            d, _ = paired_diff(f"base_{split}", f"{arm}_{split}")
+            d_strict = "{:+.3f} [{:+.3f}, {:+.3f}]".format(*d["strict@1"][2:])
         rows.append(f"| {LABEL[arm]} | {frac['trunc']:.3f} | {frac['tag']:.3f} | {frac['untag']:.3f} | {acc['tag']} | "
-                    f"{acc['untag']} | {sum(v[1] for v in cnt.values()) / n:.3f} | {cnt['tag'][1] / n:.3f} |")
+                    f"{acc['untag']} | {sum(v[1] for v in cnt.values()) / n:.3f} | {cnt['tag'][1] / n:.3f} | {d_strict} |")
     return "\n".join(rows)
 
 
