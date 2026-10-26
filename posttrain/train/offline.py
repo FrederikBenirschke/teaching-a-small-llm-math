@@ -8,6 +8,7 @@ Uses LoRA unless --full is given.
 
     .venv/bin/python -m posttrain.train.offline --method sft --name sft_lora
     .venv/bin/python -m posttrain.train.offline --method sft --name sft_full --full --lr 1e-5
+    .venv/bin/python -m posttrain.train.offline --method sft --name sft_gold --sft-data sft_gold
 """
 
 import argparse
@@ -26,9 +27,10 @@ def _prompt(system, question):
     return [{"role": "system", "content": system}, {"role": "user", "content": question}]
 
 
-def sft_rows(split):
+def sft_rows(split, data="sft"):
     out = []
-    for r in read_jsonl(DATA / "sft" / f"{split}.jsonl"):
+    rows = [r for d in data.split(",") for r in read_jsonl(DATA / d / f"{split}.jsonl")]
+    for r in rows:
         sys_msg, user, asst = r["messages"]
         out.append({"prompt": [sys_msg, user], "completion": [asst]})
     return Dataset.from_list(out)
@@ -86,6 +88,7 @@ def main():
     p.add_argument("--loss-type", default="sigmoid", help="DPO loss(es), comma-separated, e.g. sigmoid,sft (RPO)")
     p.add_argument("--loss-weights", default=None, help="comma-separated weights matching --loss-type")
     p.add_argument("--trunc-neg", action="store_true", help="rm: add pairs preferring complete over truncated answers")
+    p.add_argument("--sft-data", default="sft", help="sft: data/<dir>[,<dir>...] to train on; sft_gold = GSM8K reference solutions")
     p.add_argument("--init", default=MODEL, help="initial model: hub id or merged checkpoint dir (e.g. an SFT model)")
     args = p.parse_args()
 
@@ -109,8 +112,8 @@ def main():
     if args.method == "sft":
         cfg = SFTConfig(learning_rate=args.lr or 1e-4, num_train_epochs=args.epochs or 2,
                         completion_only_loss=True, **common)
-        trainer = SFTTrainer(model=args.init, args=cfg, train_dataset=sft_rows("train"),
-                             eval_dataset=sft_rows("valid"), peft_config=lora)
+        trainer = SFTTrainer(model=args.init, args=cfg, train_dataset=sft_rows("train", args.sft_data),
+                             eval_dataset=sft_rows("valid", args.sft_data), peft_config=lora)
     elif args.method == "dpo":
         cfg = DPOConfig(learning_rate=args.lr or 5e-6 * (1 if args.full else 10),
                         num_train_epochs=args.epochs or 1, beta=args.beta,

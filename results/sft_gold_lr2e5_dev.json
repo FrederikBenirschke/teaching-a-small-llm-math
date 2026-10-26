@@ -1,0 +1,18 @@
+{
+  "name": "sft_gold_lr2e5_dev",
+  "model": "checkpoints/sft_gold_lr2e5/merged",
+  "adapter": null,
+  "split": "dev",
+  "n_prompts": 300,
+  "k": 8,
+  "temp": 0.8,
+  "greedy_acc": 0.5133333333333333,
+  "mean_acc": 0.345,
+  "pass@1": 0.345,
+  "pass@2": 0.49154761904761907,
+  "pass@4": 0.6328571428571429,
+  "pass@8": 0.75,
+  "mean_tokens": 96.35708333333334,
+  "truncated_frac": 0.00125,
+  "eval_secs": 1327.9958460330963
+}

@@ -1,0 +1,18 @@
+{
+  "name": "sft_gold_test",
+  "model": "checkpoints/sft_gold/merged",
+  "adapter": null,
+  "split": "test",
+  "n_prompts": 300,
+  "k": 8,
+  "temp": 0.8,
+  "greedy_acc": 0.3333333333333333,
+  "mean_acc": 0.27791666666666665,
+  "pass@1": 0.27791666666666665,
+  "pass@2": 0.4075,
+  "pass@4": 0.546952380952381,
+  "pass@8": 0.6866666666666666,
+  "mean_tokens": 98.24083333333333,
+  "truncated_frac": 0.0016666666666666668,
+  "eval_secs": 414.6176381111145
+}

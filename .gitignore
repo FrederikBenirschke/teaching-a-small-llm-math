@@ -1,6 +1,9 @@
 .venv/
 __pycache__/
-data/
+data/*
+!data/sft_teacher/
+data/sft_teacher/*
+!data/sft_teacher/batches/
 results/*
 !results/plots/
 !results/summary_*.md

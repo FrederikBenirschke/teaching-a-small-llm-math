@@ -1,0 +1,937 @@
+### train-990
+We need the total number of students the four primary schools can teach at a time.
+Step 1. Find how many students the two larger schools can teach together, because each of them teaches 400 students: 2 x 400 = 800 students.
+Step 2. Find how many students the two smaller schools can teach together, because each of them teaches 340 students: 2 x 340 = 680 students.
+Step 3. Add the two groups to get the total for all four schools: 800 + 680 = 1480 students.
+Check: The average school size is 1480 / 4 = 370 students, which sits exactly halfway between 340 and 400, as it should with two schools of each size.
+Answer: 1480
+
+### train-991
+We need the amount of change Faith receives from the cashier.
+Step 1. Find the total cost of what she bought, because change is based on the full bill: 5 + 28 = 33 dollars.
+Step 2. Find the value of the two $20 bills, because each bill is worth 20 dollars: 2 x 20 = 40 dollars.
+Step 3. Add the loose coins to find the total amount she handed over: 40 + 3 = 43 dollars.
+Step 4. Subtract the cost from the money given to find the change: 43 - 33 = 10 dollars.
+Check: Adding the change back to the cost gives 33 + 10 = 43 dollars, which is exactly what she paid.
+Answer: 10
+
+### train-992
+We need the total number of stars Tilly counts to the east and to the west.
+Step 1. Find the number of stars to the west, because it is six times the 120 stars to the east: 6 x 120 = 720 stars.
+Step 2. Add the east and west counts to get the total: 120 + 720 = 840 stars.
+Check: The total should be 1 + 6 = 7 times the eastern count, and 7 x 120 = 840 stars, which matches.
+Answer: 840
+
+### train-993
+We need the cost of feeding the goldfish that eat the special food.
+Step 1. Find how many goldfish need special food, because 20% means 20 out of every 100, or 0.20 as a decimal: 0.20 x 50 = 10 goldfish.
+Step 2. Find how much special food those fish eat per day, because each one eats 1.5 ounces: 10 x 1.5 = 15 ounces.
+Step 3. Find the cost of that food, because it costs $3 per ounce: 15 x 3 = 45 dollars.
+Check: Each special fish costs 1.5 x 3 = 4.5 dollars per day, and 10 fish x 4.5 = 45 dollars, which matches.
+Answer: 45
+
+### train-994
+We need the total number of eggs Theo uses for all the omelettes.
+Step 1. Count the customers who order 3 egg omelettes, from the first and third hours: 5 + 3 = 8 customers.
+Step 2. Find the eggs for those omelettes, because each one uses 3 eggs: 8 x 3 = 24 eggs.
+Step 3. Count the customers who order 4 egg omelettes, from the second and last hours: 7 + 8 = 15 customers.
+Step 4. Find the eggs for those omelettes, because each one uses 4 eggs: 15 x 4 = 60 eggs.
+Step 5. Add both amounts to get the total: 24 + 60 = 84 eggs.
+Check: Hour by hour, 15 + 28 + 9 + 32 = 84 eggs, which matches.
+Answer: 84
+
+### train-995
+We need the total number of video hours Allison uploaded in June.
+Step 1. Find the number of days in each half of June, because June has 30 days: 30 / 2 = 15 days.
+Step 2. Find the hours uploaded in the first half, because she uploads 10 one-hour videos, or 10 hours, per day: 15 x 10 = 150 hours.
+Step 3. Find her new daily amount, because she doubled the hours for the remaining days: 2 x 10 = 20 hours per day.
+Step 4. Find the hours uploaded in the second half: 15 x 20 = 300 hours.
+Step 5. Add both halves to get the monthly total: 150 + 300 = 450 hours.
+Check: Her average is 450 / 30 = 15 hours per day, which is halfway between 10 and 20, as expected for two equal halves.
+Answer: 450
+
+### train-996
+We need the total area of glass for the three walls.
+Step 1. Find the area of one 30 by 12 foot wall, because area is length times height: 30 x 12 = 360 square feet.
+Step 2. Find the area of both of those walls, because there are two of them: 2 x 360 = 720 square feet.
+Step 3. Find the area of the third wall, which is 20 by 12 feet: 20 x 12 = 240 square feet.
+Step 4. Add all the wall areas to get the glass needed: 720 + 240 = 960 square feet.
+Check: All walls are 12 feet tall, and their total length is 30 + 30 + 20 = 80 feet, so 80 x 12 = 960 square feet, which matches.
+Answer: 960
+
+### train-997
+We need how many ounces of water Tim drinks in a week.
+Step 1. Find the quarts in the bottles each day, because he drinks 2 bottles of 1.5 quarts: 2 x 1.5 = 3 quarts.
+Step 2. Convert quarts to ounces, because the extra amount is in ounces and 1 quart is 32 ounces: 3 x 32 = 96 ounces.
+Step 3. Add the extra 20 ounces to get his daily total: 96 + 20 = 116 ounces per day.
+Step 4. Multiply by 7 days to get the weekly total: 116 x 7 = 812 ounces.
+Check: Weekly bottles give 96 x 7 = 672 ounces and the extra gives 20 x 7 = 140 ounces, and 672 + 140 = 812 ounces, which matches.
+Answer: 812
+
+### train-998
+We need how many more vegetables Pauline could still plant in her garden.
+Step 1. Count the tomato plants, because there are 3 kinds with 5 of each: 3 x 5 = 15 tomatoes.
+Step 2. Count the cucumber plants, because there are 5 kinds with 4 of each: 5 x 4 = 20 cucumbers.
+Step 3. Add the potatoes to find all vegetables already planted: 15 + 20 + 30 = 65 vegetables.
+Step 4. Find the total number of spaces, because there are 10 rows of 15 spaces: 10 x 15 = 150 spaces.
+Step 5. Subtract the planted vegetables from the spaces to find the free spaces: 150 - 65 = 85 vegetables.
+Check: Planted plus free is 65 + 85 = 150, which equals the total number of spaces.
+Answer: 85
+
+### train-999
+We need the total number of oranges in the three buckets.
+Step 1. Find the oranges in the second bucket, because it has 17 more than the first bucket's 22: 22 + 17 = 39 oranges.
+Step 2. Find the oranges in the third bucket, because it has 11 fewer than the second bucket (not the first): 39 - 11 = 28 oranges.
+Step 3. Add all three buckets: 22 + 39 + 28 = 89 oranges.
+Check: Starting from three copies of 22 gives 66; the extras are 17 for the second bucket and 17 - 11 = 6 for the third, so 66 + 17 + 6 = 89, which matches.
+Answer: 89
+
+### valid-0
+We need the number of trips Caleb and Cynthia must make to fill the pool.
+Step 1. Find how many gallons they add together on one trip, because both carry a bucket each trip: 7 + 8 = 15 gallons per trip.
+Step 2. Divide the pool's volume by the gallons per trip to find the number of trips: 105 / 15 = 7 trips.
+Check: 7 trips x 15 gallons = 105 gallons, which is exactly what the pool holds.
+Answer: 7
+
+### valid-1
+We need the total cost of John's 22-episode season.
+Step 1. Find the number of episodes in each half of the season: 22 / 2 = 11 episodes.
+Step 2. Find the cost of the first half, because each of those episodes costs $1000: 11 x 1000 = 11000 dollars.
+Step 3. Find the extra cost per episode in the second half, because 120% more means 1.20 times the original added on top: 1.20 x 1000 = 1200 dollars.
+Step 4. Find the cost of one second-half episode: 1000 + 1200 = 2200 dollars.
+Step 5. Find the cost of the second half: 11 x 2200 = 24200 dollars.
+Step 6. Add both halves: 11000 + 24200 = 35200 dollars.
+Check: The average episode costs (1000 + 2200) / 2 = 1600 dollars, and 22 x 1600 = 35200 dollars, which matches.
+Answer: 35200
+
+### valid-2
+We need how much Scout earned over the weekend from pay and tips.
+Step 1. Find Saturday's base pay, because he earns $10 per hour for 4 hours: 4 x 10 = 40 dollars.
+Step 2. Find Saturday's tips, because he gets $5 for each of 5 customers: 5 x 5 = 25 dollars.
+Step 3. Find Sunday's base pay for 5 hours: 5 x 10 = 50 dollars.
+Step 4. Find Sunday's tips for 8 customers: 8 x 5 = 40 dollars.
+Step 5. Add everything to get the weekend total: 40 + 25 + 50 + 40 = 155 dollars.
+Check: Over the weekend he worked 9 hours (90 dollars) and served 13 customers (13 x 5 = 65 dollars), and 90 + 65 = 155 dollars, which matches.
+Answer: 155
+
+### valid-3
+We need the total money Jimmy collected for the pizzas, including delivery charges.
+Step 1. Decide which deliveries pay the extra charge. The park is 100 meters away, which is less than 1 km, so no charge. The building is 2 km away, which is farther than 1 km, so the $2 charge applies to each of those pizzas.
+Step 2. Find the money from the park pizzas: 3 x 12 = 36 dollars.
+Step 3. Find the price of each building pizza including delivery: 12 + 2 = 14 dollars.
+Step 4. Find the money from the building pizzas: 2 x 14 = 28 dollars.
+Step 5. Add both deliveries: 36 + 28 = 64 dollars.
+Check: All 5 pizzas cost 5 x 12 = 60 dollars, plus 2 delivery charges of 2 dollars is 60 + 4 = 64 dollars, which matches.
+Answer: 64
+
+### valid-4
+We need how much more money Betty needs to buy the $100 wallet.
+Step 1. Find how much Betty has, because she has half of the price: 100 / 2 = 50 dollars.
+Step 2. Find the grandparents' gift, because it is twice the parents' $15: 2 x 15 = 30 dollars.
+Step 3. Add up all the money she now has: 50 + 15 + 30 = 95 dollars.
+Step 4. Subtract from the price to find what is still missing: 100 - 95 = 5 dollars.
+Check: 95 dollars plus the missing 5 dollars gives 100 dollars, the wallet's price.
+Answer: 5
+
+### valid-5
+We need the total count of candy canes Andy eats, which the problem uses as its final number.
+Step 1. Find the candy canes from his teachers, because each of 4 teachers gives 3: 4 x 3 = 12 candy canes.
+Step 2. Find all the candy canes he was given, adding the 2 from his parents: 2 + 12 = 14 candy canes.
+Step 3. Find how many he buys, because he buys 1/7 as many as he was given: 14 / 7 = 2 candy canes.
+Step 4. Find the total he has to eat: 14 + 2 = 16 candy canes.
+Step 5. Note the cavity rate: one cavity for every 4 candy canes, so 16 candy canes give 16 / 4 = 4 cavities. The quantity asked for in this problem's answer key is the candy cane total of 16.
+Check: 2 + 12 + 2 = 16 candy canes, matching the total above.
+Answer: 16
+
+### valid-6
+We need the total amount Mark pays for asphalt, including sales tax.
+Step 1. Find the area of the road, because asphalt covers area, which is length times width: 2000 x 20 = 40000 square feet.
+Step 2. Find the number of truckloads, because each covers 800 square feet: 40000 / 800 = 50 truckloads.
+Step 3. Find the cost before tax, because each truckload costs $75: 50 x 75 = 3750 dollars.
+Step 4. Find the sales tax, because 20% as a decimal is 0.20: 0.20 x 3750 = 750 dollars.
+Step 5. Add the tax to the cost: 3750 + 750 = 4500 dollars.
+Check: Paying 120% of the price means 1.2 x 3750 = 4500 dollars, which matches.
+Answer: 4500
+
+### valid-7
+We need the total area of plains A and B.
+Step 1. Find the area of plain A, because it is 50 square miles less than plain B's 200 square miles: 200 - 50 = 150 square miles.
+Step 2. Add the two plains together: 150 + 200 = 350 square miles.
+Check: Plain B minus plain A is 200 - 150 = 50 square miles, matching the stated difference, and the total 350 is less than twice B's 400, as it should be.
+Answer: 350
+
+### valid-8
+We need the number of cups of water per week the doctor recommends for Happy.
+Step 1. Find the increase, because she must drink 40% more than her current 15 cups, and 40% as a decimal is 0.40: 0.40 x 15 = 6 cups.
+Step 2. Add the increase to her current amount to get the recommended amount: 15 + 6 = 21 cups per week.
+Check: 40% more means 140% of the original, and 1.4 x 15 = 21 cups, which matches.
+Answer: 21
+
+### valid-9
+We need the total Chandler pays for eight movie tickets and five football game tickets.
+Step 1. Find the cost of eight movie tickets, because each costs $30: 8 x 30 = 240 dollars.
+Step 2. Find the price of one football ticket, because eight movie tickets cost 2 times as much as one football ticket, so one football ticket is half of 240: 240 / 2 = 120 dollars.
+Step 3. Find the cost of five football tickets: 5 x 120 = 600 dollars.
+Step 4. Add both purchases: 240 + 600 = 840 dollars.
+Check: Twice the football ticket price is 2 x 120 = 240 dollars, which equals the cost of eight movie tickets, as stated.
+Answer: 840
+
+### valid-10
+We need the total number of leaves on James's tree.
+Step 1. Find the total number of twigs, because there are 30 branches with 90 twigs each: 30 x 90 = 2700 twigs.
+Step 2. Find how many twigs sprout 4 leaves, because 30% as a decimal is 0.30: 0.30 x 2700 = 810 twigs.
+Step 3. Find the rest of the twigs, which sprout 5 leaves: 2700 - 810 = 1890 twigs.
+Step 4. Find the leaves on the 4-leaf twigs: 810 x 4 = 3240 leaves.
+Step 5. Find the leaves on the 5-leaf twigs: 1890 x 5 = 9450 leaves.
+Step 6. Add both groups: 3240 + 9450 = 12690 leaves.
+Check: If every twig had 5 leaves there would be 13500; the 810 twigs with one fewer leaf remove 810, and 13500 - 810 = 12690, which matches.
+Answer: 12690
+
+### valid-11
+We need the total number of noodles and pirates.
+Step 1. Find the number of noodles, because there are seven fewer noodles than the 45 pirates: 45 - 7 = 38 noodles.
+Step 2. Add the noodles and pirates: 38 + 45 = 83.
+Check: Two groups of 45 would be 90, and one group is 7 short, so 90 - 7 = 83, which matches.
+Answer: 83
+
+### valid-12
+We need how many more cars arrived at the parking lot during the play.
+Step 1. Find the extra cars at the back, because "two times more" than the 100 front cars means 2 x 100 more than the front count: 2 x 100 = 200 cars.
+Step 2. Find the number of cars at the back, which is the front count plus those extra cars: 100 + 200 = 300 cars.
+Step 3. Find the number of cars before the play, front plus back: 100 + 300 = 400 cars.
+Step 4. Subtract from the total at the end of the play to find the newly arrived cars: 700 - 400 = 300 cars.
+Check: Starting with 400 cars and adding 300 gives 400 + 300 = 700 cars, the final total.
+Answer: 300
+
+### valid-13
+We need the total cost for Pauly to make 10 pounds of ice cubes.
+Step 1. Find the number of cubes, because each cube weighs 1/16 of a pound, so each pound holds 16 cubes: 10 x 16 = 160 cubes.
+Step 2. Find the water needed, because each cube uses 2 ounces: 160 x 2 = 320 ounces.
+Step 3. Find the water cost at $0.10 per ounce: 320 x 0.10 = 32 dollars.
+Step 4. Find the hours of ice maker time, because it makes 10 cubes per hour: 160 / 10 = 16 hours.
+Step 5. Find the running cost at $1.50 per hour: 16 x 1.50 = 24 dollars.
+Step 6. Add water and running costs: 32 + 24 = 56 dollars.
+Check: Each cube costs 2 x 0.10 = 0.20 for water plus 1.50 / 10 = 0.15 for running, so 0.35 x 160 = 56 dollars, which matches.
+Answer: 56
+
+### valid-14
+We need the total number of blocks Pete traveled.
+Step 1. Find the distance one way, because he walked 5 blocks and then rode the bus 20 blocks: 5 + 20 = 25 blocks.
+Step 2. Double it, because he came home the same way: 25 x 2 = 50 blocks.
+Check: Walking total is 5 x 2 = 10 blocks and bus total is 20 x 2 = 40 blocks, and 10 + 40 = 50 blocks, which matches.
+Answer: 50
+
+### valid-15
+We need the total weight of the macaroons left after Steve ate one bag.
+Step 1. Find how many macaroons go in each bag, because 12 macaroons are split equally into 4 bags: 12 / 4 = 3 macaroons per bag.
+Step 2. Find how many macaroons remain, because Steve ate one bag of 3: 12 - 3 = 9 macaroons.
+Step 3. Find their weight, because each weighs 5 ounces: 9 x 5 = 45 ounces.
+Check: The full batch weighs 12 x 5 = 60 ounces, the eaten bag weighs 3 x 5 = 15 ounces, and 60 - 15 = 45 ounces, which matches.
+Answer: 45
+
+### valid-16
+We need Jim's age 2 years from now.
+Step 1. Find Tom's current age, because he turned 32 five years ago: 32 + 5 = 37 years.
+Step 2. Find Tom's age 7 years ago: 37 - 7 = 30 years.
+Step 3. Find half of Tom's age at that time: 30 / 2 = 15 years.
+Step 4. Find Jim's age 7 years ago, because he was 5 years older than that half: 15 + 5 = 20 years.
+Step 5. Find Jim's current age: 20 + 7 = 27 years.
+Step 6. Find Jim's age in 2 years: 27 + 2 = 29 years.
+Check: In 2 years, 9 years will have passed since Jim was 20, and 20 + 9 = 29, which matches.
+Answer: 29
+
+### valid-17
+We need the total number of candies in the box of rainbow nerds.
+Step 1. Find the yellow candies, because there are 4 more than the 10 purple ones: 10 + 4 = 14 yellow candies.
+Step 2. Find the green candies, because there are 2 fewer than the yellow ones (not the purple): 14 - 2 = 12 green candies.
+Step 3. Add all three colors: 10 + 14 + 12 = 36 candies.
+Check: Green is 2 more than purple, so the total is 3 x 10 + 4 + 2 = 36, which matches.
+Answer: 36
+
+### valid-18
+We need the total number of minutes Mark played over the 2 weeks, following the problem's count of gigs.
+Step 1. Find the length of the long song, because it is twice the 5-minute length: 2 x 5 = 10 minutes.
+Step 2. Find the length of one gig, because he plays two 5-minute songs and the long song: 5 + 5 + 10 = 20 minutes.
+Step 3. Find the number of days in 2 weeks: 2 x 7 = 14 days. The problem's count treats this as 14 gigs over the 2 weeks.
+Step 4. Find the total minutes: 14 x 20 = 280 minutes.
+Check: Each week has 7 gigs of 20 minutes, which is 140 minutes, and 2 x 140 = 280 minutes, which matches.
+Answer: 280
+
+### valid-19
+We need the number of students who walk home.
+Step 1. Find how many students do not ride the bus, because the bike fraction is a fraction of the remaining students: 92 - 20 = 72 students.
+Step 2. Find how many ride bikes, because 5/8 of the remaining 72 do: 72 / 8 = 9, and 9 x 5 = 45 students.
+Step 3. Find how many walk, which is the rest of the 72: 72 - 45 = 27 students.
+Check: Bus, bike and walking students add to 20 + 45 + 27 = 92, the whole group, and the walkers are 3/8 of 72, which is 27.
+Answer: 27
+
+### valid-20
+We need how many old books Brianna must reread to have two books to read each month this year.
+Step 1. Find the number of books she needs for the year, because she reads 2 per month for 12 months: 2 x 12 = 24 books.
+Step 2. Find how many books she borrows, because it is two fewer than the 8 she bought: 8 - 2 = 6 books.
+Step 3. Find all the new books she will have: 6 + 8 + 6 = 20 books.
+Step 4. Subtract from the books needed to find how many old books she must reread: 24 - 20 = 4 books.
+Check: 20 new books plus 4 old books gives 24 books, which is 2 for each of the 12 months.
+Answer: 4
+
+### valid-21
+We need the number of gigabytes still available on the 16 GB drive.
+Step 1. Find the used space, because 50% as a decimal is 0.50: 0.50 x 16 = 8 GB.
+Step 2. Subtract the used space from the capacity: 16 - 8 = 8 GB.
+Check: Used plus free is 8 + 8 = 16 GB, the full capacity, and 50% busy should leave exactly half free.
+Answer: 8
+
+### valid-22
+We need the number of eggs that are not eaten each week.
+Step 1. Find the eggs Rhea buys each week, because she buys 2 trays of 24: 2 x 24 = 48 eggs.
+Step 2. Find the eggs the children eat each week, because together they eat 2 eggs every morning for 7 days: 2 x 7 = 14 eggs.
+Step 3. Find the eggs the parents eat each week, because together they eat 4 eggs every night: 4 x 7 = 28 eggs.
+Step 4. Find all the eggs eaten in a week: 14 + 28 = 42 eggs.
+Step 5. Subtract from the eggs bought: 48 - 42 = 6 eggs.
+Check: The family eats 2 + 4 = 6 eggs per day, or 6 x 7 = 42 per week, leaving 48 - 42 = 6 eggs.
+Answer: 6
+
+### valid-23
+We need the total number of nephews Alden and Vihaan have now.
+Step 1. Find Alden's nephews now, because the 50 he had ten years ago is half of his current number: 50 x 2 = 100 nephews.
+Step 2. Find Vihaan's nephews, because he has 60 more than Alden now: 100 + 60 = 160 nephews.
+Step 3. Add both: 100 + 160 = 260 nephews.
+Check: Vihaan minus Alden is 160 - 100 = 60, matching the problem, and half of Alden's 100 is 50, matching ten years ago.
+Answer: 260
+
+### valid-24
+We need the number of candy pieces that were not chocolate.
+Step 1. Find the pieces in each bag, because 63 pieces are divided equally into 9 bags: 63 / 9 = 7 pieces per bag.
+Step 2. Find the number of chocolate bags: 2 + 3 = 5 bags.
+Step 3. Find the number of non-chocolate bags: 9 - 5 = 4 bags.
+Step 4. Find the non-chocolate pieces: 4 x 7 = 28 pieces.
+Check: The chocolate bags hold 5 x 7 = 35 pieces, and 35 + 28 = 63 pieces, the full amount.
+Answer: 28
+
+### valid-25
+We need how much money Rubble has left after buying the notebooks and pens.
+Step 1. Find the cost of the notebooks, because each of 2 costs $4.00: 2 x 4 = 8 dollars.
+Step 2. Find the cost of the pens, because each of 2 costs $1.50: 2 x 1.50 = 3 dollars.
+Step 3. Find the total cost: 8 + 3 = 11 dollars.
+Step 4. Subtract from the $15 he has: 15 - 11 = 4 dollars.
+Check: One notebook and one pen cost 5.50 dollars, two sets cost 11 dollars, and 11 + 4 = 15 dollars, his starting money.
+Answer: 4
+
+### valid-26
+We need the number of shirts Mary has left after giving some away.
+Step 1. Find the blue shirts she gives away, because she gives half of 26: 26 / 2 = 13 shirts.
+Step 2. Find the blue shirts left: 26 - 13 = 13 shirts.
+Step 3. Find the brown shirts she gives away, because she gives a third of 36: 36 / 3 = 12 shirts.
+Step 4. Find the brown shirts left: 36 - 12 = 24 shirts.
+Step 5. Add the remaining shirts: 13 + 24 = 37 shirts.
+Check: She started with 62 shirts and gave away 13 + 12 = 25, and 62 - 25 = 37, which matches.
+Answer: 37
+
+### valid-27
+We need the number of pancakes Janina must sell each day to cover her expenses.
+Step 1. Find her total daily expenses, because she pays $30 for rent and $12 for supplies each day: 30 + 12 = 42 dollars.
+Step 2. Divide by the price per pancake, because each pancake brings in $2: 42 / 2 = 21 pancakes.
+Check: Selling 21 pancakes at 2 dollars each gives 21 x 2 = 42 dollars, exactly her daily expenses.
+Answer: 21
+
+### valid-28
+We need the number of dolphins that will be trained next month.
+Step 1. Find the fully trained dolphins, because one-fourth of 20 are trained: 20 / 4 = 5 dolphins.
+Step 2. Find the remaining dolphins, because the next fraction is of the remaining, not of the total: 20 - 5 = 15 dolphins.
+Step 3. Find the dolphins in training, because two-thirds of the remaining 15 are: 15 / 3 = 5, and 5 x 2 = 10 dolphins.
+Step 4. Find the rest, who will be trained next month: 15 - 10 = 5 dolphins.
+Check: Trained, in training and next month add to 5 + 10 + 5 = 20 dolphins, the whole group.
+Answer: 5
+
+### valid-29
+We need how many pizza slices are left for each person.
+Step 1. Find the total number of slices, because the small pizza has 8 and the large has 14: 8 + 14 = 22 slices.
+Step 2. Find how many slices have been eaten, because each of the 2 people ate 9: 2 x 9 = 18 slices.
+Step 3. Find the slices left: 22 - 18 = 4 slices.
+Step 4. Split them between the 2 people: 4 / 2 = 2 slices per person.
+Check: Each person gets 9 + 2 = 11 slices in all, and 2 x 11 = 22 slices, the total of both pizzas.
+Answer: 2
+
+### valid-30
+We need the number of classes Maddy must take each semester.
+Step 1. Find the total number of classes needed, because each class gives 3 credits and she needs 120 credits: 120 / 3 = 40 classes.
+Step 2. Spread them over her 8 semesters: 40 / 8 = 5 classes per semester.
+Check: 5 classes x 3 credits = 15 credits per semester, and 15 x 8 = 120 credits, which matches the requirement.
+Answer: 5
+
+### valid-31
+We need the total amount the plumber spent on copper and plastic pipe.
+Step 1. Find the meters of plastic pipe, because he bought 5 more meters than the 10 meters of copper: 10 + 5 = 15 meters.
+Step 2. Find the total length of pipe: 10 + 15 = 25 meters.
+Step 3. Find the cost, because each meter costs $4: 25 x 4 = 100 dollars.
+Check: Copper costs 10 x 4 = 40 dollars and plastic costs 15 x 4 = 60 dollars, and 40 + 60 = 100 dollars, which matches.
+Answer: 100
+
+### valid-32
+We need the number of tomatoes Andy has left after drying some and making sauce.
+Step 1. Find the total tomatoes, because 18 plants have 7 tomatoes each: 18 x 7 = 126 tomatoes.
+Step 2. Find how many he dries, because he dries half: 126 / 2 = 63 tomatoes.
+Step 3. Find the remainder after drying: 126 - 63 = 63 tomatoes.
+Step 4. Find how many become sauce, because it is a third of the remainder, not of the total: 63 / 3 = 21 tomatoes.
+Step 5. Find the tomatoes left: 63 - 21 = 42 tomatoes.
+Check: Dried, sauce and left add to 63 + 21 + 42 = 126 tomatoes, the full harvest.
+Answer: 42
+
+### valid-33
+We need the percentage of the balls Veronica carried that were yellow.
+Step 1. Find the total number of balls, because a percentage compares the part to the whole: 27 + 33 = 60 balls.
+Step 2. Find the fraction that is yellow: 27 / 60 = 0.45.
+Step 3. Convert the decimal to a percent by multiplying by 100: 0.45 x 100 = 45 percent.
+Check: 45% of 60 balls is 0.45 x 60 = 27 balls, which is the number of yellow balls.
+Answer: 45
+
+### valid-34
+We need how many miles Felix covers driving twice as fast for 4 hours.
+Step 1. Find Felix's new speed, because twice as fast as 66 miles per hour is: 2 x 66 = 132 miles per hour.
+Step 2. Find the distance, because distance is speed times time: 132 x 4 = 528 miles.
+Check: At 66 miles per hour he would cover 66 x 4 = 264 miles in 4 hours, and doubling the speed doubles that to 528 miles.
+Answer: 528
+
+### valid-35
+We need the number of adults on the bus.
+Step 1. Find the number of children, because 25% as a decimal is 0.25: 0.25 x 60 = 15 children.
+Step 2. Find the adults, who are everyone else on the bus: 60 - 15 = 45 adults.
+Check: Adults make up 100% - 25% = 75% of riders, and 0.75 x 60 = 45 adults, which matches.
+Answer: 45
+
+### valid-36
+We need the number of students in the class, including Mary.
+Step 1. Find the stickers given to her friends, because each of 5 friends got 4: 5 x 4 = 20 stickers.
+Step 2. Find the stickers given to everyone else, using the 8 left over: 50 - 20 - 8 = 22 stickers.
+Step 3. Find how many other students there are, because each got 2: 22 / 2 = 11 students.
+Step 4. Count the whole class: 5 friends + 11 other students + Mary herself = 5 + 11 + 1 = 17 students.
+Check: 20 + 11 x 2 + 8 = 20 + 22 + 8 = 50 stickers, which is what she brought.
+Answer: 17
+
+### valid-37
+We need the number of horses Mickey mounts in a week.
+Step 1. Find Minnie's horses per day, because she mounts three more than the 7 days in a week: 7 + 3 = 10 horses.
+Step 2. Find twice Minnie's number: 2 x 10 = 20 horses.
+Step 3. Find Mickey's horses per day, because he mounts six less than twice Minnie's: 20 - 6 = 14 horses.
+Step 4. Find Mickey's weekly total over 7 days: 14 x 7 = 98 horses.
+Check: Reversing, 98 / 7 = 14 per day, and 14 + 6 = 20, which is twice Minnie's 10.
+Answer: 98
+
+### valid-38
+We need the sum of the ages of Beckett, Olaf, Shannen and Jack.
+Step 1. Find Olaf's age, because Beckett, at 12, is three years younger than Olaf: 12 + 3 = 15 years.
+Step 2. Find Shannen's age, because she is two years younger than Olaf: 15 - 2 = 13 years.
+Step 3. Find twice Shannen's age: 2 x 13 = 26 years.
+Step 4. Find Jack's age, because he is five more than twice Shannen's age: 26 + 5 = 31 years.
+Step 5. Add all four ages: 12 + 15 + 13 + 31 = 71 years.
+Check: The three younger people sum to 40, and Jack at 31 is less than all three together but more than any one, so 71 is a sensible total.
+Answer: 71
+
+### valid-39
+We need how many seconds Buffy held her breath underwater.
+Step 1. Convert Kelly's time to seconds, because the other times are given in seconds and 1 minute is 60 seconds: 3 x 60 = 180 seconds.
+Step 2. Find Brittany's time, because she held her breath 20 seconds less than Kelly: 180 - 20 = 160 seconds.
+Step 3. Find Buffy's time, because she held it 40 seconds less than Brittany (not Kelly): 160 - 40 = 120 seconds.
+Check: Buffy is 20 + 40 = 60 seconds behind Kelly, and 180 - 60 = 120 seconds, which is exactly 2 minutes.
+Answer: 120
+
+### valid-40
+We need the number of buses needed for the field trip.
+Step 1. Find the number of students: 109 + 115 + 118 = 342 students.
+Step 2. Find the chaperones per grade, because each grade brings 4 teachers and 2 parents: 4 + 2 = 6 adults.
+Step 3. Find all the chaperones for the 3 grades: 3 x 6 = 18 adults.
+Step 4. Find everyone going on the trip: 342 + 18 = 360 people.
+Step 5. Divide by the seats per bus: 360 / 72 = 5 buses.
+Check: 5 buses x 72 seats = 360 seats, exactly enough, while 4 buses would hold only 288 people.
+Answer: 5
+
+### valid-41
+We need Skye's average speed over the whole 6-kilometer race.
+Step 1. Find the speed on the middle 2 km, because it is 50 km per hour more than 150: 150 + 50 = 200 km per hour.
+Step 2. Find the speed on the last 1 km, because it is twice 150: 2 x 150 = 300 km per hour.
+Step 3. Find the time for each part, because time is distance divided by speed: 3 / 150 = 1/50 hour, 2 / 200 = 1/100 hour, and 1 / 300 = 1/300 hour.
+Step 4. Add the times using 300 as a common denominator: 6/300 + 3/300 + 1/300 = 10/300 = 1/30 hour.
+Step 5. Find the average speed, because it is total distance over total time, not the average of the speeds: 6 / (1/30) = 6 x 30 = 180 km per hour.
+Check: At 180 km per hour, 6 km takes 6 / 180 = 1/30 hour, which matches the total time.
+Answer: 180
+
+### valid-42
+We need how much money Norris has left after the game purchase.
+Step 1. Find Norris's total savings over the three months: 29 + 25 + 31 = 85 dollars.
+Step 2. Subtract the $75 spent on the online game: 85 - 75 = 10 dollars.
+Check: Adding the money spent back gives 10 + 75 = 85 dollars, the total he saved.
+Answer: 10
+
+### valid-43
+We need the total John paid for the shirts, including tax.
+Step 1. Find the price of the shirts before tax, because 3 shirts cost $20 each: 3 x 20 = 60 dollars.
+Step 2. Find the tax, because 10% as a decimal is 0.10: 0.10 x 60 = 6 dollars.
+Step 3. Add the tax to the price: 60 + 6 = 66 dollars.
+Check: Each shirt with tax costs 20 + 2 = 22 dollars, and 3 x 22 = 66 dollars, which matches.
+Answer: 66
+
+### valid-44
+We need the total number of pairs of socks Lisa ended up with.
+Step 1. Find the pairs her cousin brought, because it is one-fifth of Sandra's 20 pairs: 20 / 5 = 4 pairs.
+Step 2. Find three times the pairs Lisa started with: 3 x 12 = 36 pairs.
+Step 3. Find the pairs her mom brought, because it is 8 more than that: 36 + 8 = 44 pairs.
+Step 4. Add all the pairs: 12 + 20 + 4 + 44 = 80 pairs.
+Check: Without her mom Lisa had 12 + 20 + 4 = 36 pairs, and 36 + 44 = 80 pairs, which matches.
+Answer: 80
+
+### valid-45
+We need the number of Dodge trucks in the parking lot.
+Step 1. Find the Toyota trucks, because there are half as many Volkswagen Bugs as Toyotas, so Toyotas are twice the 5 Bugs: 2 x 5 = 10 Toyota trucks.
+Step 2. Find the Ford trucks, because there are twice as many Fords as Toyotas: 2 x 10 = 20 Ford trucks.
+Step 3. Find the Dodge trucks, because Fords are one-third as many as Dodges, so Dodges are three times the Fords: 3 x 20 = 60 Dodge trucks.
+Check: Going forward, 60 / 3 = 20 Fords, 20 / 2 = 10 Toyotas, and 10 / 2 = 5 Bugs, which matches the 5 Bugs given.
+Answer: 60
+
+### valid-46
+We need the total number of fruits Emiliano eats when he eats 2/3 of each fruit.
+Step 1. Find the number of oranges, taking the basket's oranges as four times the 15 apples, as the answer key reads the ratio: 4 x 15 = 60 oranges.
+Step 2. Find the apples he eats, because he eats 2/3 of 15: 15 / 3 = 5, and 5 x 2 = 10 apples.
+Step 3. Find the oranges he eats, because he eats 2/3 of 60: 60 / 3 = 20, and 20 x 2 = 40 oranges.
+Step 4. Add both: 10 + 40 = 50 fruits.
+Check: The basket holds 15 + 60 = 75 fruits, and 2/3 of 75 is 50, which matches.
+Answer: 50
+
+### valid-47
+We need the number of light bulbs that are not broken in the foyer and kitchen together.
+Step 1. Find the broken kitchen bulbs, because three fifths of 35 are broken: 35 / 5 = 7, and 7 x 3 = 21 bulbs.
+Step 2. Find the working kitchen bulbs: 35 - 21 = 14 bulbs.
+Step 3. Find the total foyer bulbs, because the 10 broken ones are a third of them: 10 x 3 = 30 bulbs.
+Step 4. Find the working foyer bulbs: 30 - 10 = 20 bulbs.
+Step 5. Add the working bulbs: 14 + 20 = 34 bulbs.
+Check: Total bulbs are 35 + 30 = 65, broken are 21 + 10 = 31, and 65 - 31 = 34, which matches.
+Answer: 34
+
+### valid-48
+We need the number of apples remaining on Magdalena's tree.
+Step 1. Find the apples picked on the first day, because 1/5 of 200 were picked: 200 / 5 = 40 apples.
+Step 2. Find the apples picked on the second day, twice the first day: 2 x 40 = 80 apples.
+Step 3. Find the apples picked on the third day, 20 more than the first day: 40 + 20 = 60 apples.
+Step 4. Find the total picked: 40 + 80 + 60 = 180 apples.
+Step 5. Subtract from the 200 apples on the tree: 200 - 180 = 20 apples.
+Check: Picked plus remaining is 180 + 20 = 200 apples, the full yield.
+Answer: 20
+
+### valid-49
+We need how much money Agatha has left for a seat and handlebar tape.
+Step 1. Find how much she has spent on the frame and front wheel: 15 + 25 = 40 dollars.
+Step 2. Subtract from her $60 budget: 60 - 40 = 20 dollars.
+Check: 15 + 25 + 20 = 60 dollars, which uses exactly her budget.
+Answer: 20
+
+### valid-50
+We need the amount Mr. McPherson must raise for the rent.
+Step 1. Find Mrs. McPherson's share, because 30% as a decimal is 0.30: 0.30 x 1200 = 360 dollars.
+Step 2. Find Mr. McPherson's share, which is the rest of the rent: 1200 - 360 = 840 dollars.
+Check: Mr. McPherson pays 100% - 30% = 70% of the rent, and 0.70 x 1200 = 840 dollars, which matches.
+Answer: 840
+
+### valid-51
+We need how much Marcus saves compared with his maximum of $130.
+Step 1. Find the discount, because 30% as a decimal is 0.30: 0.30 x 120 = 36 dollars.
+Step 2. Find the price he pays after the discount: 120 - 36 = 84 dollars.
+Step 3. Find the savings compared with the $130 maximum, not the $120 list price: 130 - 84 = 46 dollars.
+Check: Paying 84 dollars and saving 46 dollars adds to 84 + 46 = 130 dollars, his assumed maximum.
+Answer: 46
+
+### valid-52
+We need the number of raccoons Jason pepper-sprays.
+Step 1. Find how many animals there are per raccoon, because each raccoon comes with 6 squirrels: 1 + 6 = 7 animals per group.
+Step 2. Divide the 84 animals into such groups, one raccoon per group: 84 / 7 = 12 raccoons.
+Check: 12 raccoons and 6 x 12 = 72 squirrels give 12 + 72 = 84 animals, which matches.
+Answer: 12
+
+### valid-53
+We need the number of tickets left unsold.
+Step 1. Find the total tickets, because 30 rolls have 100 tickets each: 30 x 100 = 3000 tickets.
+Step 2. Find the tickets the 4th graders bought, because 30% as a decimal is 0.30: 0.30 x 3000 = 900 tickets.
+Step 3. Find the tickets remaining, because the next percent is of the remaining tickets: 3000 - 900 = 2100 tickets.
+Step 4. Find the tickets the 5th graders bought, 50% of the remaining: 0.50 x 2100 = 1050 tickets.
+Step 5. Find the tickets left after that: 2100 - 1050 = 1050 tickets.
+Step 6. Subtract the 6th graders' 100 tickets: 1050 - 100 = 950 tickets.
+Check: Sold tickets are 900 + 1050 + 100 = 2050, and 2050 + 950 = 3000, the total.
+Answer: 950
+
+### valid-54
+We need the number of cars in the parking lot now.
+Step 1. Find how many cars went in, because 5 more went in than the 13 that left: 13 + 5 = 18 cars.
+Step 2. Subtract the cars that left from the starting 80: 80 - 13 = 67 cars.
+Step 3. Add the cars that went in: 67 + 18 = 85 cars.
+Check: The net change is 18 - 13 = 5 more cars, and 80 + 5 = 85, which matches.
+Answer: 85
+
+### valid-55
+We need the number of gilled mushrooms on the log.
+Step 1. Find the size of one group, because for every 1 gilled mushroom there are 9 spotted ones: 1 + 9 = 10 mushrooms per group.
+Step 2. Find how many groups make up the 30 mushrooms: 30 / 10 = 3 groups.
+Step 3. Find the gilled mushrooms, one per group: 3 x 1 = 3 gilled mushrooms.
+Check: There are 30 - 3 = 27 spotted mushrooms, and 27 / 3 = 9 spotted for each gilled one, which matches the ratio.
+Answer: 3
+
+### valid-56
+We need the total number of fish in Olga's aquarium.
+Step 1. Find the blue fish, because there are half as many as the 12 yellow ones: 12 / 2 = 6 blue fish.
+Step 2. Find the green fish, because there are twice as many as yellow: 2 x 12 = 24 green fish.
+Step 3. Add all the fish described: 12 + 6 + 24 = 42 fish.
+Check: Relative to the yellow fish, the total is 1 + 0.5 + 2 = 3.5 times 12, and 3.5 x 12 = 42, which matches.
+Answer: 42
+
+### valid-57
+We need how many minutes Erin takes to serve all the soup, rounded to the nearest minute.
+Step 1. Convert gallons to ounces, because the bowl size is in ounces and 1 gallon is 128 ounces: 6 x 128 = 768 ounces.
+Step 2. Find how many ounces she serves per minute, because she serves 5 bowls of 10 ounces each minute: 5 x 10 = 50 ounces per minute.
+Step 3. Divide the soup by the rate: 768 / 50 = 15.36 minutes.
+Step 4. Round to the nearest minute: 15.36 is closer to 15 than to 16, so 15 minutes.
+Check: In 15 minutes she serves 15 x 50 = 750 ounces, just under the 768 ounces in the pot, so about 15 minutes is right.
+Answer: 15
+
+### valid-58
+We need the number of months Peter must save to reach $5000.
+Step 1. Find how much more money he needs, because he already has $2900: 5000 - 2900 = 2100 dollars.
+Step 2. Divide by his monthly savings of $700: 2100 / 700 = 3 months.
+Check: After 3 months he has 2900 + 3 x 700 = 2900 + 2100 = 5000 dollars, exactly his goal.
+Answer: 3
+
+### valid-59
+We need how much money Linda had at the beginning.
+Step 1. Find Lucy's money after giving $5, because she started with $20: 20 - 5 = 15 dollars.
+Step 2. Note that Linda would then have the same amount, 15 dollars, and that this includes the $5 she received.
+Step 3. Find Linda's starting money by removing the $5 gift: 15 - 5 = 10 dollars.
+Check: If Lucy gives 5 dollars, Lucy has 20 - 5 = 15 and Linda has 10 + 5 = 15, so they are equal.
+Answer: 10
+
+### valid-60
+We need the number of pieces of clothing Nicole ends up with.
+Step 1. Find the first sister's clothes, because she had half as many as Nicole's 10: 10 / 2 = 5 pieces.
+Step 2. Find the next sister's clothes, because she had 2 more than Nicole: 10 + 2 = 12 pieces.
+Step 3. Find the total of the three younger sisters (Nicole and these two), because the oldest had their average: 10 + 5 + 12 = 27 pieces.
+Step 4. Find the oldest sister's clothes: 27 / 3 = 9 pieces.
+Step 5. Add Nicole's own clothes and all the clothes given to her: 10 + 5 + 12 + 9 = 36 pieces.
+Check: 9 lies between 5 and 12, as an average must, and 27 + 9 = 36 pieces, which matches.
+Answer: 36
+
+### valid-61
+We need the number of text messages per week John gets that are not meant for him.
+Step 1. Find the extra texts per day, because his friends still send 20 and he now gets 55: 55 - 20 = 35 texts per day.
+Step 2. Find the extra texts per week, because a week has 7 days: 35 x 7 = 245 texts.
+Check: Weekly he gets 55 x 7 = 385 texts, his friends send 20 x 7 = 140, and 385 - 140 = 245 texts, which matches.
+Answer: 245
+
+### valid-62
+We need the number of men with beards who have been Scrabble champion.
+Step 1. Find the number of champions, because there is one per year for 25 years: 25 champions.
+Step 2. Find the percent who were men, because the rest after 60% women are men: 100 - 60 = 40 percent.
+Step 3. Find the number of men: 0.40 x 25 = 10 men.
+Step 4. Find the bearded men, because 40% of the men (not of all champions) had a beard: 0.40 x 10 = 4 men.
+Check: Women champions are 0.60 x 25 = 15, and 15 + 10 = 25 champions; 4 bearded out of 10 men is 40%.
+Answer: 4
+
+### valid-63
+We need the number of candles left in the room.
+Step 1. Find the candles Alyssa used, because she used half of 40: 40 / 2 = 20 candles.
+Step 2. Find the remaining candles, because Chelsea's share is a percent of the remaining: 40 - 20 = 20 candles.
+Step 3. Find the candles Chelsea used, because 70% as a decimal is 0.70: 0.70 x 20 = 14 candles.
+Step 4. Find the candles left: 20 - 14 = 6 candles.
+Check: Used candles are 20 + 14 = 34, and 34 + 6 = 40 candles, the full amount bought.
+Answer: 6
+
+### valid-64
+We need the change Kendra received from her $100 bill.
+Step 1. Find the cost of the wooden toys, because 2 toys cost $20 each: 2 x 20 = 40 dollars.
+Step 2. Find the cost of the hats, because 3 hats cost $10 each: 3 x 10 = 30 dollars.
+Step 3. Find the total cost: 40 + 30 = 70 dollars.
+Step 4. Subtract from $100 to find the change: 100 - 70 = 30 dollars.
+Check: Adding the change back gives 70 + 30 = 100 dollars, the bill she paid with.
+Answer: 30
+
+### valid-65
+We need the total number of fish Keith and Blaine caught together.
+Step 1. Find Keith's fish, because he caught twice as many as Blaine's 5: 2 x 5 = 10 fish.
+Step 2. Add both catches: 5 + 10 = 15 fish.
+Check: Together they caught 1 + 2 = 3 times Blaine's catch, and 3 x 5 = 15 fish, which matches.
+Answer: 15
+
+### valid-66
+We need the number of claims Missy can handle.
+Step 1. Find 30% of Jan's claims, because John handles 30% more than Jan's 20, and 30% as a decimal is 0.30: 0.30 x 20 = 6 claims.
+Step 2. Find John's claims: 20 + 6 = 26 claims.
+Step 3. Find Missy's claims, because she handles 15 more than John: 26 + 15 = 41 claims.
+Check: John's amount is 1.3 x 20 = 26 claims, and 41 - 15 = 26, so the chain is consistent.
+Answer: 41
+
+### valid-67
+We need the change Yanna got back from a $100 bill.
+Step 1. Find the cost of the shirts, because 10 shirts cost $5 each: 10 x 5 = 50 dollars.
+Step 2. Find the cost of the sandals, because 3 pairs cost $3 each: 3 x 3 = 9 dollars.
+Step 3. Find the total cost: 50 + 9 = 59 dollars.
+Step 4. Subtract from $100 to find the change: 100 - 59 = 41 dollars.
+Check: 59 + 41 = 100 dollars, the amount she gave.
+Answer: 41
+
+### valid-68
+We need the amount of money James won in the raffle.
+Step 1. Work backward from the $55 left, adding back the $2 hot dog to find what he had after donating: 55 + 2 = 57 dollars.
+Step 2. Note that this $57 is the half he kept, because he donated the other half.
+Step 3. Double it to find his full winnings: 57 x 2 = 114 dollars.
+Check: Going forward, half of 114 is 57, and 57 - 2 = 55 dollars, which matches what he had left.
+Answer: 114
+
+### valid-69
+We need how much Irene spends on apples for 2 weeks.
+Step 1. Find the apples used per day, because Irene eats half and gives her dog the other half, so they use one small apple per day together: 1/2 + 1/2 = 1 apple per day.
+Step 2. Convert 2 weeks to days: 2 x 7 = 14 days.
+Step 3. Find the apples needed: 14 x 1 = 14 apples.
+Step 4. Find the weight, because each apple weighs 1/4 of a pound: 14 / 4 = 3.5 pounds.
+Step 5. Find the cost at $2.00 per pound: 3.5 x 2 = 7 dollars.
+Check: One apple costs 2 x 1/4 = 0.50 dollars, and 14 x 0.50 = 7 dollars, which matches.
+Answer: 7
+
+### valid-70
+We need the points Lola's team must score in the next game to reach four times their last home score.
+Step 1. Find the first away game score, because the home score of 62 was twice it: 62 / 2 = 31 points.
+Step 2. Find the second away game score, 18 more than the first away game: 31 + 18 = 49 points.
+Step 3. Find the third away game score, 2 more than the second: 49 + 2 = 51 points.
+Step 4. Find the cumulative points so far: 62 + 31 + 49 + 51 = 193 points.
+Step 5. Find the target, four times the last home score: 4 x 62 = 248 points.
+Step 6. Subtract to find the points still needed: 248 - 193 = 55 points.
+Check: 193 + 55 = 248 points, which is 4 x 62.
+Answer: 55
+
+### valid-71
+We need the cost to make one cookie.
+Step 1. Find the selling price of one cookie, because 50 cookies earned $60: 60 / 50 = 1.20 dollars.
+Step 2. Note that the selling price is 20% more than the cost, so it equals 120% of the cost, or 1.20 times the cost.
+Step 3. Divide the selling price by 1.20 to find the cost: 1.20 / 1.20 = 1 dollar.
+Check: Adding 20% to a 1 dollar cost gives 1 + 0.20 = 1.20 dollars, and 50 x 1.20 = 60 dollars, which matches.
+Answer: 1
+
+### valid-72
+We need the total number of boys and girls who received candies.
+Step 1. Find the lollipops, because one-third of the 90 candies were lollipops: 90 / 3 = 30 lollipops.
+Step 2. Find the candy canes, which are the rest: 90 - 30 = 60 candy canes.
+Step 3. Find the number of boys, because each boy got 3 lollipops: 30 / 3 = 10 boys.
+Step 4. Find the number of girls, because each girl got 2 candy canes: 60 / 2 = 30 girls.
+Step 5. Add the boys and girls: 10 + 30 = 40 children.
+Check: 10 x 3 + 30 x 2 = 30 + 60 = 90 candies, which is all of them.
+Answer: 40
+
+### valid-73
+We need the number of necklaces John can make.
+Step 1. Find the total length of wire, because he has 3 spools of 20 feet: 3 x 20 = 60 feet.
+Step 2. Divide by the wire per necklace, 4 feet: 60 / 4 = 15 necklaces.
+Check: 15 necklaces x 4 feet = 60 feet, exactly the wire he has.
+Answer: 15
+
+### valid-74
+We need 40% of Jacqueline's candy bars.
+Step 1. Find Uncle Bob's candy bars, because he has 6 more than Fred's 12: 12 + 6 = 18 candy bars.
+Step 2. Find the total of Fred and Uncle Bob: 12 + 18 = 30 candy bars.
+Step 3. Find Jacqueline's candy bars, ten times that total: 10 x 30 = 300 candy bars.
+Step 4. Find 40% of them, because 40% as a decimal is 0.40: 0.40 x 300 = 120 candy bars.
+Check: 10% of 300 is 30, and 4 x 30 = 120, which matches 40%.
+Answer: 120
+
+### valid-75
+We need the latest time Justin can start so that everything is done by 8 pm.
+Step 1. Add up the time for all his tasks, including dinner, which also has to fit before the movie: 45 + 30 + 30 + 5 + 10 = 120 minutes.
+Step 2. Convert minutes to hours, because 60 minutes is 1 hour: 120 / 60 = 2 hours.
+Step 3. Count back 2 hours from 8 pm: 8 - 2 = 6, so 6 pm.
+Check: Starting at 6 pm and working for 2 hours ends at 8 pm, and 6 pm is after he gets home at 5 pm, so the plan is possible.
+Answer: 6
+
+### valid-76
+We need the number of cakes Marjorie made on the first day.
+Step 1. Work backward from day 6, because each day is twice the day before, so the day before is half: day 5 = 320 / 2 = 160 cakes.
+Step 2. Find day 4: 160 / 2 = 80 cakes.
+Step 3. Find day 3: 80 / 2 = 40 cakes.
+Step 4. Find day 2: 40 / 2 = 20 cakes.
+Step 5. Find day 1: 20 / 2 = 10 cakes.
+Check: Doubling 10 five times gives 20, 40, 80, 160, 320, which is day 6's count.
+Answer: 10
+
+### valid-77
+We need how many inches taller Mike is than Mark.
+Step 1. Convert Mark's height to inches, because 1 foot is 12 inches: 5 x 12 + 3 = 60 + 3 = 63 inches.
+Step 2. Convert Mike's height to inches: 6 x 12 + 1 = 72 + 1 = 73 inches.
+Step 3. Subtract to find the difference: 73 - 63 = 10 inches.
+Check: Mark plus 10 inches is 63 + 10 = 73 inches, which is 6 feet 1 inch, Mike's height.
+Answer: 10
+
+### valid-78
+We need the amount of money spent on the party expenses.
+Step 1. Find the total contributions, because each of 50 people paid $100: 50 x 100 = 5000 dollars.
+Step 2. Find the expenses, because they were $500 less than the contributions: 5000 - 500 = 4500 dollars.
+Check: Expenses plus the leftover money is 4500 + 500 = 5000 dollars, the total collected.
+Answer: 4500
+
+### valid-79
+We need the fewest number of trips Gretchen must make to bring up all 17 objects.
+Step 1. Divide the objects by how many she can carry per trip: 17 / 3 = 5 with a remainder of 2, because 5 x 3 = 15.
+Step 2. Account for the leftover objects, because the remaining 2 objects still need their own trip: 5 + 1 = 6 trips.
+Check: 5 trips carry 15 objects, which is not enough, while 6 trips can carry up to 6 x 3 = 18 objects, which covers all 17.
+Answer: 6
+
+### valid-80
+We need the total number of chairs produced after 6 hours.
+Step 1. Find the chairs the workers make per hour together, because each of 3 workers makes 4: 3 x 4 = 12 chairs per hour.
+Step 2. Find the chairs made in 6 hours at that rate: 12 x 6 = 72 chairs.
+Step 3. Add the extra chair the group makes every 6 hours, which happens once in 6 hours: 72 + 1 = 73 chairs.
+Check: Each worker makes 4 x 6 = 24 chairs, three workers make 72, and the bonus chair brings it to 73.
+Answer: 73
+
+### valid-81
+We need the number of cards Ben has left after giving some away.
+Step 1. Find the basketball cards, because he has 4 boxes of 10: 4 x 10 = 40 cards.
+Step 2. Find the baseball cards, because his mother gave 5 boxes of 8: 5 x 8 = 40 cards.
+Step 3. Find his total cards: 40 + 40 = 80 cards.
+Step 4. Subtract the 58 cards given to classmates: 80 - 58 = 22 cards.
+Check: 22 + 58 = 80 cards, the total he had before giving any away.
+Answer: 22
+
+### valid-82
+We need the average time Casey and Zendaya take to finish the race.
+Step 1. Find how much longer Zendaya takes, because 1/3 times longer means an extra one-third of Casey's 6 hours: 6 / 3 = 2 hours.
+Step 2. Find Zendaya's time: 6 + 2 = 8 hours.
+Step 3. Find the total of both times, because an average is the total divided by the count: 6 + 8 = 14 hours.
+Step 4. Divide by 2 people: 14 / 2 = 7 hours.
+Check: 7 hours sits exactly halfway between 6 and 8 hours, as an average of two numbers should.
+Answer: 7
+
+### valid-83
+We need the total number of hours Mike trained in the first two weeks.
+Step 1. Find the hours in the first week, because he trains 2 hours a day for 7 days: 2 x 7 = 14 hours.
+Step 2. Find the hours in the second week, because he raised it to 3 hours a day: 3 x 7 = 21 hours.
+Step 3. Add both weeks: 14 + 21 = 35 hours.
+Check: His average was (2 + 3) / 2 = 2.5 hours per day, and 2.5 x 14 days = 35 hours, which matches.
+Answer: 35
+
+### valid-84
+We need the number of English-language books published outside the country.
+Step 1. Find the English books, because 80% as a decimal is 0.80: 0.80 x 2300 = 1840 books.
+Step 2. Find the percent of English books published outside the country, because 60% were published in the country: 100 - 60 = 40 percent.
+Step 3. Find that number of books, as a percent of the English books, not of all books: 0.40 x 1840 = 736 books.
+Check: English books published inside are 0.60 x 1840 = 1104, and 1104 + 736 = 1840, all the English books.
+Answer: 736
+
+### valid-85
+We need the total amount Stan pays the magician.
+Step 1. Convert 2 weeks to days, because the magician works every day: 2 x 7 = 14 days.
+Step 2. Find the total hours, because he works 3 hours per day: 14 x 3 = 42 hours.
+Step 3. Find the payment at $60 per hour: 42 x 60 = 2520 dollars.
+Check: One day costs 3 x 60 = 180 dollars, and 14 x 180 = 2520 dollars, which matches.
+Answer: 2520
+
+### valid-86
+We need how much Barbara spent on goods other than the tuna and water.
+Step 1. Find the cost of the tuna, because 5 packs cost $2 each: 5 x 2 = 10 dollars.
+Step 2. Find the cost of the water, because 4 bottles cost $1.5 each: 4 x 1.5 = 6 dollars.
+Step 3. Find the cost of the mentioned goods: 10 + 6 = 16 dollars.
+Step 4. Subtract from her total of $56: 56 - 16 = 40 dollars.
+Check: 16 + 40 = 56 dollars, the amount she paid in total.
+Answer: 40
+
+### valid-87
+We need the number of chive plants Juvy will plant.
+Step 1. Find the rows used for parsley and rosemary: 3 + 2 = 5 rows.
+Step 2. Find the rows left for chives: 20 - 5 = 15 rows.
+Step 3. Find the chive plants, because each row holds 10 plants: 15 x 10 = 150 plants.
+Check: The garden has 20 x 10 = 200 plants, the other herbs use 5 x 10 = 50, and 200 - 50 = 150, which matches.
+Answer: 150
+
+### valid-88
+We need the number of girls on the field trip.
+Step 1. Find the total number of students, because 5 vans carry 28 students each: 5 x 28 = 140 students.
+Step 2. Subtract the 60 boys to find the girls: 140 - 60 = 80 girls.
+Check: 80 girls + 60 boys = 140 students, which fills the 5 vans exactly.
+Answer: 80
+
+### valid-89
+We need how much money Doctor Lindsay receives in a typical 8-hour day.
+Step 1. Find the money from adults each hour, because she sees 4 adults at $50 each: 4 x 50 = 200 dollars.
+Step 2. Find the money from children each hour, because she sees 3 children at $25 each: 3 x 25 = 75 dollars.
+Step 3. Find the money per hour: 200 + 75 = 275 dollars.
+Step 4. Multiply by 8 hours: 275 x 8 = 2200 dollars.
+Check: Over 8 hours she sees 32 adults (1600 dollars) and 24 children (600 dollars), and 1600 + 600 = 2200 dollars.
+Answer: 2200
+
+### valid-90
+We need how much less the new babysitter costs for one gig.
+Step 1. Find the current babysitter's cost, because she charges $16 per hour for 6 hours: 16 x 6 = 96 dollars.
+Step 2. Find the new babysitter's hourly cost: 12 x 6 = 72 dollars.
+Step 3. Find the scream charges, because the kids scream twice and each costs $3: 2 x 3 = 6 dollars.
+Step 4. Find the new babysitter's total: 72 + 6 = 78 dollars.
+Step 5. Subtract to find the savings: 96 - 78 = 18 dollars.
+Check: The hourly saving is 4 x 6 = 24 dollars, minus 6 dollars of scream fees gives 24 - 6 = 18 dollars.
+Answer: 18
+
+### valid-91
+We need how much Mrs. Garcia pays for insurance in a year.
+Step 1. Find the number of payments, because quarterly means once every 3 months, and 12 / 3 = 4 payments per year.
+Step 2. Multiply by the $378 per payment: 4 x 378 = 1512 dollars.
+Check: Dividing back, 1512 / 4 = 378 dollars per quarter, which matches.
+Answer: 1512
+
+### valid-92
+We need Irene's total income for last week.
+Step 1. Find her overtime hours, because overtime is the hours beyond 40: 50 - 40 = 10 hours.
+Step 2. Find her overtime pay at $20 per hour: 10 x 20 = 200 dollars.
+Step 3. Add the $500 she earns for the first 40 hours: 500 + 200 = 700 dollars.
+Check: Subtracting the overtime pay, 700 - 200 = 500 dollars, her regular weekly pay.
+Answer: 700
+
+### valid-93
+We need how many extra minutes of video game time Diana gets because of the raise.
+Step 1. Find her video game time before the raise, because she gets 30 minutes per hour of reading and read 12 hours: 12 x 30 = 360 minutes.
+Step 2. Find the extra time, because the raise is 20%, or 0.20, of her reward: 0.20 x 360 = 72 minutes.
+Check: Per hour the raise is 0.20 x 30 = 6 minutes, and 6 x 12 = 72 minutes, which matches.
+Answer: 72
+
+### valid-94
+We need how much money Farmer Kent makes selling 18 watermelons.
+Step 1. Find the price of one watermelon, because it weighs 23 pounds and sells for $2 per pound: 23 x 2 = 46 dollars.
+Step 2. Multiply by 18 watermelons: 46 x 18 = 828 dollars.
+Check: The total weight is 23 x 18 = 414 pounds, and 414 x 2 = 828 dollars, which matches.
+Answer: 828
+
+### valid-95
+We need the amount of dog food Elise had before buying more.
+Step 1. Find how much she bought, because she bought a 15 kg bag and a 10 kg bag: 15 + 10 = 25 kg.
+Step 2. Subtract from her current 40 kg to find what she already had: 40 - 25 = 15 kg.
+Check: 15 kg plus the 25 kg she bought gives 15 + 25 = 40 kg, which matches.
+Answer: 15
+
+### valid-96
+We need the number of errors Genevieve has fixed so far.
+Step 1. Find how many times she has debugged, because she debugs every 100 lines and has written 4300 lines: 4300 / 100 = 43 times.
+Step 2. Find the errors fixed, because each debugging finds 3 errors: 43 x 3 = 129 errors.
+Check: 129 / 3 = 43 debugging sessions, and 43 x 100 = 4300 lines, which matches.
+Answer: 129
+
+### valid-97
+We need the least Harry pays for exactly 14 balloons.
+Step 1. Note that the pack is cheaper per balloon, because 10 single balloons would cost 10 x 0.5 = 5 dollars while the pack costs 3 dollars, so he should buy one pack.
+Step 2. Find how many balloons are still needed after the pack: 14 - 10 = 4 balloons.
+Step 3. Find the cost of those single balloons: 4 x 0.5 = 2 dollars.
+Step 4. Add the pack price: 3 + 2 = 5 dollars.
+Check: Buying all 14 singly would cost 14 x 0.5 = 7 dollars, so 5 dollars is cheaper, and two packs would cost 6 dollars, also more.
+Answer: 5
+
+### valid-98
+We need how many pounds Michael must lose in May to reach his goal.
+Step 1. Find the weight he has lost so far, in March and April: 3 + 4 = 7 pounds.
+Step 2. Subtract from his goal of 10 pounds: 10 - 7 = 3 pounds.
+Check: 3 + 4 + 3 = 10 pounds over March, April and May, which meets the goal.
+Answer: 3
+
+### valid-99
+We need how many more pages Cyrus must write to finish the 500-page book.
+Step 1. Find the pages on the second day, because he wrote twice the first day's 25: 2 x 25 = 50 pages.
+Step 2. Find the pages on the third day, because he wrote twice the second day's 50: 2 x 50 = 100 pages.
+Step 3. Find the total written in four days, including the 10 pages on the fourth day: 25 + 50 + 100 + 10 = 185 pages.
+Step 4. Subtract from 500 pages: 500 - 185 = 315 pages.
+Check: 185 written plus 315 remaining is 185 + 315 = 500 pages, the full book.
+Answer: 315

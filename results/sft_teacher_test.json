@@ -1,0 +1,18 @@
+{
+  "name": "sft_teacher_test",
+  "model": "checkpoints/sft_teacher/merged",
+  "adapter": null,
+  "split": "test",
+  "n_prompts": 300,
+  "k": 8,
+  "temp": 0.8,
+  "greedy_acc": 0.39,
+  "mean_acc": 0.3258333333333333,
+  "pass@1": 0.3258333333333333,
+  "pass@2": 0.4472619047619047,
+  "pass@4": 0.5661904761904762,
+  "pass@8": 0.6766666666666666,
+  "mean_tokens": 180.7275,
+  "truncated_frac": 0.0004166666666666667,
+  "eval_secs": 557.9020349979401
+}

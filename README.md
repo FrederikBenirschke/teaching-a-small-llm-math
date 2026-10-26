@@ -8,7 +8,9 @@ correct.
 
 The project uses only post-training, with two ingredients: the model's own
 sampled answers, and a checker that compares the final number with the GSM8K
-answer key. There is no stronger teacher model and no human-written solutions.
+answer key. The method comparison uses no stronger teacher model and no
+written solutions; a separate experiment ([Training on written
+solutions](#training-on-written-solutions)) tests what written solutions add.
 The questions are how much math the model learns this way, whether the gain holds
 on problems it never trained on, and which post-training method teaches it best.
 Every method gets the same model, data and checker:
@@ -101,24 +103,37 @@ Reward model v1 is trained on the DPO pairs only. `rm_trunc2` and `rm_trunc2_q`
 also get the truncated-answer pairs and differ only in training length (2 and
 0.5 epochs).
 
-### Gain over the base model
+### Accuracy by method
 
-![difference from base, GSM8K test and SVAMP](results/plots/gains.png)
+![accuracy by method, GSM8K test](results/plots/methods_test.png)
 
-Each dot is a method's accuracy minus the base model's, with its 95% interval.
-pass@1 (orange) rises for every method except PPO, on GSM8K test and on SVAMP.
-Greedy (blue) and pass@8 (green) move less, and most of their intervals cross zero.
+![accuracy by method, SVAMP](results/plots/methods_svamp.png)
+
+pass@1 (orange) rises over base for every method except PPO, on GSM8K test and on
+SVAMP. Greedy (blue) and pass@8 (green) move less; most of those differences have
+95% intervals that cross zero (see All tables).
 
 ### What each method adds on top of SFT
 
-![difference from SFT, GSM8K test and SVAMP](results/plots/vs_sft.png)
-
-The same comparison with the SFT model as the reference. DPO started from SFT
+Paired differences against the SFT model. DPO started from SFT
 adds +0.057 [+0.034, +0.080] pass@1 on test and +0.048 [+0.022, +0.073] on SVAMP.
 GRPO started from SFT adds +0.014 [-0.010, +0.037] on test. On test, no method
 improves greedy accuracy over SFT. DPO, GRPO and GRPO (RM) started from base are
 level with SFT on test pass@1 (intervals include zero) and took longer to train
 (1.3 to 10.8 h, against 0.4 h for SFT; see Wall-clock).
+
+### Training time against result
+
+![pass@1 gain against training hours, GSM8K test](results/plots/cost_test.png)
+
+Each point is a method's test pass@1 minus base, with its 95% interval, against
+its training time. The time includes the stages a method builds on: SFT for
+SFT→DPO and SFT→GRPO, the reward model for GRPO (RM) and PPO. It leaves out
+sampling the base-model answers that SFT, DPO and the reward models train on.
+SFT→DPO gives the largest gain in under an hour. SFT alone reaches about the same
+gain as DPO, GRPO (grader) and GRPO (RM) in a third to a thirtieth of their time.
+All runs shared one laptop with other jobs, so the times are rough (see
+Wall-clock).
 
 ### Answer format
 
@@ -142,6 +157,61 @@ complete ones (`probe_rm.py`). KL reached about 21, 90% of dev answers hit the
 token limit, and dev greedy accuracy fell to 0.137. With `rm_trunc2_q` KL stayed
 near 3.5 and 0.5% of answers hit the limit, but pass@1 did not beat base (test
 -0.029 [-0.053, -0.005]).
+
+### Training on written solutions
+
+Every SFT run above trains on the model's own correct answers. Two extra runs
+train on written solutions to the same 1,000 training questions instead, with
+the same SFT settings (LoRA, lr 1e-4, 2 epochs):
+
+- **GSM8K references** (`sft_gold`): the dataset's own solutions, which are terse
+  (51 words on average) and skip explanation.
+- **Teacher solutions** (`sft_teacher`): step-by-step solutions written by Claude
+  for this project, about 100 words each. Each states the goal, numbers the steps,
+  says why each step is taken, and ends with a check. Example:
+
+      We need the total cost of replacing Tom's floor.
+      Step 1. Find the area of the room, because area is length times width: 8 x 7 = 56 square feet.
+      Step 2. Find the cost of the new floor, because it costs $1.25 per square foot: 56 x 1.25 = $70.
+      Step 3. Add the $50 cost of removing the old floor: 70 + 50 = $120.
+      Check: 120 - 50 = 70, and 70 / 56 = 1.25 dollars per square foot, which matches the price.
+      Answer: 120
+
+Test differences against base (paired, 95% intervals):
+
+| Training data | greedy | pass@1 | pass@8 | answer length |
+|---|---|---|---|---|
+| Own correct answers (SFT) | +0.043 [-0.010, +0.097] | +0.084 [+0.060, +0.107] | +0.037 [-0.007, +0.080] | 155 words |
+| Teacher solutions | -0.087 [-0.153, -0.023] | -0.042 [-0.072, -0.014] | -0.080 [-0.133, -0.027] | 100 words |
+| GSM8K references | -0.143 [-0.210, -0.077] | -0.090 [-0.118, -0.062] | -0.070 [-0.123, -0.017] | 52 words |
+
+Both kinds of written solution make the model worse than base. Teacher solutions
+are better than the GSM8K references (pass@1 +0.048 [+0.022, +0.075]) but
+0.126 below own-answer SFT. Both raise strict pass@1, because every written
+solution ends with the `Answer:` line.
+
+The model copies the form of the written solutions more than the reasoning. Its
+answers take on their length (100 and 52 words, against 153 for base), and 298 of
+300 teacher-trained greedy answers end with a check. The checks do not catch
+errors: none of the 183 wrong greedy answers has a check that reports a problem.
+Most checks redo the previous step backwards (`6 x 5 = 30, and 30 / 5 = 6, which
+matches`) or state agreement after a mismatch. Own-answer SFT keeps the model's
+own style and reinforces only its correct answers; written solutions ask a 0.5B
+model to adopt a new style at the same time. This matches Li et al. (2025) (see
+Related work).
+
+A dev run of GSM8K-reference SFT at a lower learning rate (2e-5, 1 epoch) gave
+the same drop (pass@1 -0.099 [-0.127, -0.072] against base), so a too-large update
+is an unlikely cause. One configuration was run on the teacher solutions; a
+template that varies, or corrections that keep the model's wording, may do better
+(see Future work).
+
+Writing the solutions turned up GSM8K label errors in the 1,100 training and
+validation questions. For example, "double a number and add 5, that's 20 more than
+half the number" is labelled 4 (the answer is 10), and a two-hive honey problem is
+labelled 2460 (the answer is 1060). Fourteen questions with wrong labels or labels
+that need a strained reading were dropped from the teacher data; they are listed
+in `check_teacher.py`. The own-answer SFT and DPO data still include them.
 
 ### All tables
 
@@ -309,6 +379,66 @@ onto the adapter's recorded `base_model_name_or_path`. The earlier SFT→DPO dev
 result (greedy 0.617, pass@1 0.580) came from the wrong merge and is kept only as
 `results/sftdpo_lr5e6_wrongbase_dev.json`.
 
+## Related work
+
+Is a 0.5B model too small for RL methods such as GRPO to help beyond SFT? The
+papers below do not say size alone rules it out. They do predict the pattern seen
+here.
+
+- RL mostly sharpens what the base model can already do. Yue et al. (2025) find
+  that RL-trained models beat their base model at pass@1 but not at pass@k for
+  large k, and that the correct answers RL produces are already among the base
+  model's samples. Here pass@1 rises for every method except PPO, while pass@8
+  moves little. On test, each method solves 24 to 32 questions that base never
+  solves in 8 samples. Each also fails 13 to 20 questions that base does solve;
+  PPO solves 25 base misses and fails 39 base solves. With 8 samples per question,
+  part of this swap is sampling noise.
+- Training on the model's own correct answers is a strong baseline. The SFT here
+  is rejection-sampling fine-tuning (RFT, Yuan et al. 2023; STaR, Zelikman et al.
+  2022). It trains on the base model's correct samples, not on the GSM8K
+  reference solutions. Like every method here it trains a LoRA adapter. Xiong et al. (2025) find RAFT, the same idea run online, competitive with
+  GRPO and PPO on math. GRPO's advantage there comes mainly from discarding prompts
+  where every sample is wrong. Yuan et al. also find RFT helps weaker models more.
+  SFT matching GRPO here fits both.
+- What RL can amplify depends on the base model. Gandhi et al. (2025) trace RL
+  gains to behaviours the base model already shows, such as checking its work and
+  backtracking. Under the same RL, Qwen-2.5-3B has them and improves; Llama-3.2-3B
+  lacks them and does not. A 0.5B model likely shows fewer of these behaviours.
+- Small models learn reasoning better by imitation. DeepSeek-R1 (DeepSeek-AI 2025)
+  reports that distilling a large reasoning model into small models beats running
+  RL on the small models directly. Li et al. (2025) find that models of 3B and
+  below learn better from short reasoning chains than from long ones or from a
+  much larger teacher. The written-solution runs above fit this.
+- RL from the base model does work at this size. SimpleRL-Zoo (Zeng et al. 2025)
+  runs it on every Qwen2.5 size from 0.5B to 32B, with many more prompts and steps
+  than here.
+- LoRA is unlikely to be the limit. Schulman et al. (2025, "LoRA Without Regret")
+  find that even rank-1 LoRA matches full fine-tuning for RL, at a learning rate
+  about 10 times the best full-fine-tuning one.
+
+Model size may be part of the answer, but these runs do not show it. A more direct
+cause is visible in the GRPO logs: the runs barely moved the policy. Each saw 500
+of the 1,000 training questions once (250 steps × 2 prompts × 8 samples) at
+learning rate 5e-6, which was not tuned. (DPO was tuned on dev: at 5e-5 it
+collapsed to 0.30 greedy, at 5e-6 it reached 0.607.) KL to the
+starting model stayed at about 0.006 for GRPO (grader) and 0.002 for SFT→GRPO.
+Training reward went from 0.43 in the first fifth of steps to 0.48 in the last.
+For about a quarter of the prompts, all 8 samples got the same grade, which
+gives no gradient. Telling the two causes apart needs a GRPO run that does move
+(a higher LoRA learning rate, more prompts), repeated on Qwen2.5-1.5B.
+
+References:
+
+- Yue et al. 2025, Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model? [arXiv:2504.13837](https://arxiv.org/abs/2504.13837)
+- Yuan et al. 2023, Scaling Relationship on Learning Mathematical Reasoning with Large Language Models. [arXiv:2308.01825](https://arxiv.org/abs/2308.01825)
+- Zelikman et al. 2022, STaR: Bootstrapping Reasoning With Reasoning. [arXiv:2203.14465](https://arxiv.org/abs/2203.14465)
+- Xiong et al. 2025, A Minimalist Approach to LLM Reasoning: from Rejection Sampling to Reinforce. [arXiv:2504.11343](https://arxiv.org/abs/2504.11343)
+- Gandhi et al. 2025, Cognitive Behaviors that Enable Self-Improving Reasoners. [arXiv:2503.01307](https://arxiv.org/abs/2503.01307)
+- DeepSeek-AI 2025, DeepSeek-R1. [arXiv:2501.12948](https://arxiv.org/abs/2501.12948)
+- Li et al. 2025, Small Models Struggle to Learn from Strong Reasoners. [arXiv:2502.12143](https://arxiv.org/abs/2502.12143)
+- Zeng et al. 2025, SimpleRL-Zoo. [arXiv:2503.18892](https://arxiv.org/abs/2503.18892)
+- Schulman et al. 2025, LoRA Without Regret. [thinkingmachines.ai/blog/lora](https://thinkingmachines.ai/blog/lora/)
+
 ## Limitations
 
 - n=300 questions per split. Greedy differences below about 0.05 are not resolved.
@@ -325,6 +455,9 @@ result (greedy 0.617, pass@1 0.580) came from the wrong merge and is kept only a
   base per metric, or for the 5 metrics per comparison.
 - The best-of-8 reward model `rm_trunc2` and the PPO reward `rm_trunc2_q` are
   trained on the same pairs, sampled from the base model.
+- The written solutions come from a much stronger model (Claude) and follow one
+  fixed template. One SFT configuration was run on them (the same settings as
+  own-answer SFT), so the result bounds that configuration only.
 - GRPO (RM) used reward model v1, which scores truncated answers above complete
   ones (`probe_rm.py`). GRPO (RM) has the highest truncation rate on test (0.059).
 
@@ -337,7 +470,17 @@ Toward teaching the model more math:
 - Full rejection-sampling pipeline: best-of-8 with the reward model to build SFT data.
 - Full fine-tuning instead of LoRA.
 
+- Written solutions that keep the model's own wording: take its wrong answers
+  and fix only the broken step, so training corrects mistakes without changing
+  the style (see Training on written solutions).
+- Written solutions mixed with the model's own correct answers, and written
+  solutions only for the questions the base model never solves.
+
 Toward a cleaner method comparison:
+
+- GRPO tuned until it moves the policy: a learning-rate sweep (5e-6, 1e-5,
+  2e-5, 5e-5) checked on dev and KL, all 1,000 training questions, then the same recipe on Qwen2.5-1.5B, to test whether
+  model size limits RL here (see Related work).
 
 - More seeds per method, to separate method from seed.
 - Longer PPO with KL snapshots along the run, to trace accuracy against KL.
@@ -349,7 +492,8 @@ Toward a cleaner method comparison:
 
     posttrain/
       common.py, generation.py   prompt, grader, file helpers; batched sampling with mlx-lm
-      prep/      prepare.py (GSM8K splits), prepare_transfer.py (SVAMP), build_data.py (SFT and DPO data)
+      prep/      prepare.py (GSM8K splits), prepare_transfer.py (SVAMP), build_data.py (SFT and DPO data),
+                 build_gold.py and check_teacher.py (SFT data from written solutions)
       train/     offline.py (SFT, DPO, reward model), grpo.py, ppo.py, merge.py (LoRA -> full checkpoint)
       eval/      evaluate.py, compare.py (paired bootstrap), bon_rm.py (best-of-8), probe_rm.py
       report/    summarize.py (tables and figures for this README)
@@ -371,6 +515,12 @@ Two virtual environments, because PPO needs an older TRL:
 
     .venv/bin/python -m posttrain.prep.prepare      # GSM8K -> data/prompts/{train,valid,dev,test}.jsonl
     .venv/bin/python -m posttrain.prep.build_data   # 8 base-model samples per prompt, graded -> data/sft, data/dpo
+    .venv/bin/python -m posttrain.prep.build_gold   # GSM8K reference solutions -> data/sft_gold
+    .venv/bin/python -m posttrain.prep.check_teacher  # written solutions, checked -> data/sft_teacher
+
+The written solutions are in `data/sft_teacher/batches/out_*.txt`;
+`check_teacher.py` keeps those whose final answer matches GSM8K and lists the
+questions dropped for wrong GSM8K labels.
 
 ### Training
 
@@ -378,6 +528,8 @@ Commands for the runs reported above (each output must be merged with
 `merge.py` before it is used as `--init` or as a reward model):
 
     .venv/bin/python -m posttrain.train.offline --method sft --name sft_lora
+    .venv/bin/python -m posttrain.train.offline --method sft --name sft_gold --sft-data sft_gold
+    .venv/bin/python -m posttrain.train.offline --method sft --name sft_teacher --sft-data sft_teacher
     .venv/bin/python -m posttrain.train.offline --method dpo --name dpo_lr5e6 --lr 5e-6
     .venv/bin/python -m posttrain.train.offline --method dpo --name sftdpo_lr5e6 --lr 5e-6 --init checkpoints/sft_lora/merged
     .venv/bin/python -m posttrain.train.offline --method rm --name rm    # reward model v1
@@ -433,7 +585,8 @@ Tables and plots:
 
     .venv/bin/python -m posttrain.eval.bon_rm checkpoints/rm_trunc2/merged --policy sft_lora --split dev
     .venv/bin/python -m posttrain.report.summarize --split dev     # -> results/summary_dev.md, results/plots/
-    .venv/bin/python -m posttrain.report.summarize --figures       # README figures: gains, vs_sft, format_test
+    .venv/bin/python -m posttrain.report.summarize --split test    # also writes plots/format_test.png
+    .venv/bin/python -m posttrain.report.summarize --split svamp
 
 Transfer set:
 

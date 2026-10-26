@@ -1,0 +1,18 @@
+{
+  "name": "sft_teacher_dev",
+  "model": "checkpoints/sft_teacher/merged",
+  "adapter": null,
+  "split": "dev",
+  "n_prompts": 300,
+  "k": 8,
+  "temp": 0.8,
+  "greedy_acc": 0.5,
+  "mean_acc": 0.41083333333333333,
+  "pass@1": 0.41083333333333333,
+  "pass@2": 0.5488095238095237,
+  "pass@4": 0.6754761904761905,
+  "pass@8": 0.7766666666666666,
+  "mean_tokens": 178.48041666666666,
+  "truncated_frac": 0.0008333333333333334,
+  "eval_secs": 1202.0002281665802
+}

@@ -1,0 +1,939 @@
+### train-770
+We need the number of kitchens on the whole space station.
+Step 1. Find the number of rooms in one cylinder, because the three cylinders are identical and share the 72 rooms equally: 72 / 3 = 24 rooms per cylinder.
+Step 2. Find the bedrooms and bathrooms in one cylinder, because these are the rooms that are not kitchens: 12 + 7 = 19 rooms.
+Step 3. Find the kitchens in one cylinder by subtracting the non-kitchen rooms from all rooms in that cylinder: 24 - 19 = 5 kitchens.
+Step 4. Find the kitchens on the whole station, because there are 3 identical cylinders: 5 x 3 = 15 kitchens.
+Check: Each cylinder has 12 + 7 + 5 = 24 rooms, and 3 x 24 = 72 rooms, which matches the total.
+Answer: 15
+
+### train-771
+We need how many candies Susan ate during the week.
+Step 1. Find the total number of candies she bought, because she can only eat candies she bought: 3 + 5 + 2 = 10 candies.
+Step 2. Subtract the candies she still has, because the ones left were not eaten: 10 - 4 = 6 candies.
+Check: 6 eaten plus 4 left is 6 + 4 = 10, which matches what she bought.
+Answer: 6
+
+### train-772
+We need the number of weeks until Jed has 40 cards.
+Step 1. Find how many cards Jed gets in two weeks, because the giving away happens every two weeks, so two weeks is a full cycle: 6 x 2 = 12 cards.
+Step 2. Find his net gain in each two-week cycle after giving 2 cards away: 12 - 2 = 10 cards.
+Step 3. Find how many more cards he needs to reach 40: 40 - 20 = 20 cards.
+Step 4. Find how many two-week cycles give 20 cards: 20 / 10 = 2 cycles.
+Step 5. Convert cycles to weeks, because each cycle is 2 weeks: 2 x 2 = 4 weeks.
+Check: Week 1: 26, week 2: 32 - 2 = 30, week 3: 36, week 4: 42 - 2 = 40 cards.
+Answer: 4
+
+### train-773
+We need Anna's age on the day she and Josh got married.
+Step 1. Find Josh's age today, because 30 years have passed since he was 22: 22 + 30 = 52 years.
+Step 2. Find their combined age today, which is 5 times Josh's age at the wedding: 5 x 22 = 110 years.
+Step 3. Find Anna's age today by subtracting Josh's age from the combined age: 110 - 52 = 58 years.
+Step 4. Find Anna's age at the wedding, because the wedding was 30 years ago: 58 - 30 = 28 years.
+Check: At the wedding they were 22 and 28; today they are 52 and 58, and 52 + 58 = 110 = 5 x 22.
+Answer: 28
+
+### train-774
+We need how many gigs the band has played.
+Step 1. Find how much the whole band earns per gig, because each of the 4 members earns $20 at every gig: 20 x 4 = $80 per gig.
+Step 2. Divide the total earnings by the earnings per gig to count the gigs: 400 / 80 = 5 gigs.
+Check: 5 gigs x $80 per gig = $400, which matches the total earned.
+Answer: 5
+
+### train-775
+We need how much change Clive gets after buying 80 olives.
+Step 1. Find how many jars he needs, because olives come 20 to a jar: 80 / 20 = 4 jars.
+Step 2. Find the cost of the jars at $1.50 each: 4 x 1.50 = $6.
+Step 3. Find the change by subtracting the cost from the $10 he has: 10 - 6 = $4.
+Check: $6 spent plus $4 change is $10, which is what he started with.
+Answer: 4
+
+### train-776
+We need the total weight of Melanie's food in pounds.
+Step 1. Convert the ounce items to pounds, because the answer must be in pounds and 1 pound = 16 ounces: 8 / 16 = 0.5 pounds each.
+Step 2. Note the three 8-ounce items: brie, raspberries and blueberries, so they weigh 0.5 + 0.5 + 0.5 = 1.5 pounds.
+Step 3. Add the items already in pounds: bread 1, tomatoes 1, zucchini 2, chicken 1.5, so 1 + 1 + 2 + 1.5 = 5.5 pounds.
+Step 4. Add both groups for the total: 1.5 + 5.5 = 7 pounds.
+Check: In ounces, 3 x 8 = 24 ounces plus 5.5 x 16 = 88 ounces gives 112 ounces, and 112 / 16 = 7 pounds.
+Answer: 7
+
+### train-777
+We need the number of emus in the flock.
+Step 1. Find how many heads and legs one emu has, because the 60 counts both: an emu is a bird with 1 head and 2 legs, so 1 + 2 = 3 heads and legs per emu.
+Step 2. Divide the total count by the count per emu: 60 / 3 = 20 emus.
+Check: 20 emus have 20 heads and 20 x 2 = 40 legs, and 20 + 40 = 60.
+Answer: 20
+
+### train-778
+We need the percentage chance that a random chocolate is a peanut cluster.
+Step 1. Find the number of nougats, which is twice the caramels: 3 x 2 = 6 nougats.
+Step 2. Find the number of truffles, which is the caramels plus 6: 3 + 6 = 9 truffles.
+Step 3. Find the total of caramels, nougats and truffles: 3 + 6 + 9 = 18 chocolates.
+Step 4. Find the peanut clusters, which are the rest of the 50: 50 - 18 = 32 peanut clusters.
+Step 5. Find the chance as a fraction of the total, then convert to a percent: 32 / 50 = 0.64, and 0.64 x 100 = 64 percent.
+Check: 64 percent of 50 is 0.64 x 50 = 32, matching the peanut clusters.
+Answer: 64
+
+### train-779
+We need the total pages Coral read over the three nights.
+Step 1. Find twice the night 1 pages, because night 2 is 2 less than twice night 1: 30 x 2 = 60 pages.
+Step 2. Subtract 2 to get night 2: 60 - 2 = 58 pages.
+Step 3. Find the sum of the first two nights, because night 3 is based on it: 30 + 58 = 88 pages.
+Step 4. Add 3 to get night 3: 88 + 3 = 91 pages.
+Step 5. Add all three nights: 30 + 58 + 91 = 179 pages.
+Check: Nights 1 and 2 total 88, and night 3 is 91, so 88 + 91 = 179.
+Answer: 179
+
+### train-780
+We need how many pancakes Bobby has left.
+Step 1. Find how many pancakes were eaten in total, by Bobby and by the dog: 5 + 7 = 12 pancakes.
+Step 2. Subtract the eaten pancakes from the 21 the recipe made: 21 - 12 = 9 pancakes.
+Check: 9 left plus 12 eaten is 9 + 12 = 21, the full batch.
+Answer: 9
+
+### train-781
+We need how many buttons Mark ends up with.
+Step 1. Find how many buttons Shane gave, which is 3 times Mark's starting 14: 14 x 3 = 42 buttons.
+Step 2. Find Mark's total after the gift: 14 + 42 = 56 buttons.
+Step 3. Sam takes half of Mark's buttons, so Mark keeps the other half: 56 / 2 = 28 buttons.
+Check: Sam also gets 28, and 28 + 28 = 56, the total Mark had before sharing.
+Answer: 28
+
+### train-782
+We need the total marks of Keith, Larry and Danny.
+Step 1. Find Larry's score, which is 3 times Keith's 3 points: 3 x 3 = 9 marks.
+Step 2. Find Danny's score, which is 5 more than Larry's: 9 + 5 = 14 marks.
+Step 3. Add all three scores: 3 + 9 + 14 = 26 marks.
+Check: Danny 14 minus Larry 9 is 5, and Larry 9 is 3 times Keith's 3, so the scores fit and sum to 26.
+Answer: 26
+
+### train-783
+We need how many coats and uniforms each lab tech gets.
+Step 1. Find the number of lab coats, which is 6 times the 12 uniforms: 12 x 6 = 72 coats.
+Step 2. Find the number of lab techs, which is half the number of uniforms: 12 / 2 = 6 techs.
+Step 3. Find the total coats and uniforms to be shared: 72 + 12 = 84 items.
+Step 4. Share them equally among the techs: 84 / 6 = 14 items each.
+Check: Each tech gets 72 / 6 = 12 coats and 12 / 6 = 2 uniforms, and 12 + 2 = 14.
+Answer: 14
+
+### train-784
+We need Hakimi's age.
+Step 1. Find the total age of the three friends, because an average is the total divided by the number of people: 40 x 3 = 120 years.
+Step 2. Subtract Molly's age to get Jared and Hakimi together: 120 - 30 = 90 years.
+Step 3. Remove the 10 extra years that Jared has, so what is left is two times Hakimi's age: 90 - 10 = 80 years.
+Step 4. Divide by 2 to get Hakimi's age: 80 / 2 = 40 years.
+Check: Hakimi 40, Jared 50, Molly 30 give 120, and 120 / 3 = 40, the given average.
+Answer: 40
+
+### train-785
+We need how many more correct answers Sergio has than Sylvia.
+Step 1. Find Sylvia's incorrect answers, one-fifth of the 50 questions: 50 / 5 = 10 incorrect.
+Step 2. Find Sylvia's correct answers: 50 - 10 = 40 correct.
+Step 3. Find Sergio's correct answers, since he made 4 mistakes: 50 - 4 = 46 correct.
+Step 4. Find the difference: 46 - 40 = 6 more correct answers.
+Check: Sylvia made 10 mistakes and Sergio 4, a difference of 10 - 4 = 6, which matches.
+Answer: 6
+
+### train-786
+We need the total amount Mark owes.
+Step 1. Find how many miles per hour he was over the limit: 75 - 30 = 45 mph.
+Step 2. Find the extra penalty at $2 per mph over: 45 x 2 = $90.
+Step 3. Add the base fine to get the fine before doubling: 50 + 90 = $140.
+Step 4. Double the fine for the school zone: 140 x 2 = $280.
+Step 5. Find the lawyer's cost at $80 per hour for 3 hours: 80 x 3 = $240.
+Step 6. Add the fine, court costs and lawyer: 280 + 300 + 240 = $820.
+Check: Without the fine he pays 300 + 240 = 540, and 820 - 540 = 280, which is the doubled fine.
+Answer: 820
+
+### train-787
+We need the total time taken by all eight runners.
+Step 1. Find the total time of the first five runners, at 8 hours each: 5 x 8 = 40 hours.
+Step 2. Find how many runners are left: 8 - 5 = 3 runners.
+Step 3. Find each of their times, 2 hours later than 8: 8 + 2 = 10 hours.
+Step 4. Find the total for those three: 3 x 10 = 30 hours.
+Step 5. Add both groups: 40 + 30 = 70 hours.
+Check: If all 8 took 8 hours that would be 64 hours, plus 3 runners x 2 extra hours = 6, gives 70.
+Answer: 70
+
+### train-788
+We need how many fewer hours Yella will use the computer this week.
+Step 1. Find this week's usage, at 8 hours a day for 7 days: 8 x 7 = 56 hours.
+Step 2. Subtract it from last week's 91 hours to find how much less: 91 - 56 = 35 hours.
+Check: 56 + 35 = 91, last week's usage.
+Answer: 35
+
+### train-789
+We need how many coats Andy can make.
+Step 1. Find the number of babies, at 6 per mink for 30 minks: 30 x 6 = 180 babies.
+Step 2. Find the total number of minks, adults plus babies: 30 + 180 = 210 minks.
+Step 3. Half of the total minks are set free, so he keeps half: 210 / 2 = 105 minks.
+Step 4. Find the number of coats at 15 skins each: 105 / 15 = 7 coats.
+Check: 7 coats x 15 skins = 105 skins, which is half of 210.
+Answer: 7
+
+### train-790
+We need the total amount everyone contributed.
+Step 1. Find Brittany's contribution, which is triple Niraj's $80: 80 x 3 = $240.
+Step 2. Find Angela's contribution, which is triple Brittany's: 240 x 3 = $720.
+Step 3. Add all three: 80 + 240 + 720 = $1040.
+Check: Angela is 9 times Niraj, 9 x 80 = 720, so the total is 80 x (1 + 3 + 9) = 80 x 13 = 1040.
+Answer: 1040
+
+### train-791
+We need the total classes taught by Eduardo and Frankie.
+Step 1. Find Frankie's classes, because "double" means two times Eduardo's 3 classes, and we need both teachers' counts before adding: 3 x 2 = 6 classes.
+Step 2. Add both teachers, because the question asks for the total taught by the two of them together: 3 + 6 = 9 classes.
+Check: Together they teach 3 times Eduardo's amount, 3 x 3 = 9.
+Answer: 9
+
+### train-792
+We need the number of asparagus spears the caterer needs.
+Step 1. Find Alex's guests, two thirds of 84: 84 / 3 = 28, and 28 x 2 = 56 guests.
+Step 2. Find the total guests: 84 + 56 = 140 guests.
+Step 3. Add the 10 extra plates: 140 + 10 = 150 plates.
+Step 4. Find the spears at 8 per plate: 150 x 8 = 1200 spears.
+Check: 1200 / 8 = 150 plates, and 150 - 10 = 140 = 84 + 56 guests.
+Answer: 1200
+
+### train-793
+We need how many ounces of coffee are left in the cup.
+Step 1. Find what he drinks on the way, one-quarter of 12 ounces: 12 / 4 = 3 ounces.
+Step 2. Find what he drinks at the office, half of the cup (the full 12-ounce cup, not the remainder): 12 / 2 = 6 ounces.
+Step 3. Find the total drunk so far: 3 + 6 = 9 ounces.
+Step 4. Find what remains: 12 - 9 = 3 ounces.
+Step 5. Subtract the 1 ounce he drinks later: 3 - 1 = 2 ounces.
+Check: He drank 3 + 6 + 1 = 10 ounces, and 12 - 10 = 2.
+Answer: 2
+
+### train-794
+We need how much Mr. Deane spends on all 35 liters.
+Step 1. Find today's cost for 10 liters at $1.4 per liter: 10 x 1.4 = $14.
+Step 2. Find Friday's price per liter after the $0.4 rollback: 1.4 - 0.4 = $1.0 per liter.
+Step 3. Find Friday's cost for 25 liters: 25 x 1.0 = $25.
+Step 4. Add both purchases: 14 + 25 = $39.
+Check: At $1.4 for all 35 liters he would pay 49; saving 0.4 x 25 = 10 gives 49 - 10 = 39.
+Answer: 39
+
+### train-795
+We need the rain in the first hour.
+Step 1. Call the first hour's rain x. The second hour is twice that plus 7, so it is 2x + 7.
+Step 2. Write the total for both hours: x + 2x + 7 = 22, so 3x + 7 = 22.
+Step 3. Subtract 7 from both sides: 3x = 22 - 7 = 15.
+Step 4. Divide by 3: x = 15 / 3 = 5 inches.
+Check: Second hour is 2 x 5 + 7 = 17 inches, and 5 + 17 = 22 inches.
+Answer: 5
+
+### train-796
+We need how many frogs must find a new pond.
+Step 1. Find the number of tadpoles, three times the 5 frogs: 5 x 3 = 15 tadpoles.
+Step 2. Find how many tadpoles survive, two-thirds of 15: 15 / 3 = 5, and 5 x 2 = 10 frogs.
+Step 3. Find the total frogs after they grow up, the original ones plus the new ones: 5 + 10 = 15 frogs.
+Step 4. Subtract the 8 frogs the pond can sustain: 15 - 8 = 7 frogs.
+Check: 8 stay and 7 leave, and 8 + 7 = 15 frogs in all.
+Answer: 7
+
+### train-797
+We need how many students like yellow best.
+Step 1. Find the students who answered green, half of the 30 students: 30 / 2 = 15 students.
+Step 2. Find the girls who answered pink, one-third of the 18 girls (not of the whole class): 18 / 3 = 6 students.
+Step 3. Find the rest of the class, who answered yellow: 30 - 15 - 6 = 9 students.
+Check: 15 + 6 + 9 = 30, the whole class.
+Answer: 9
+
+### train-798
+We need how many berries Samuel's birds eat in 4 days.
+Step 1. Find how many berries all 5 birds eat in one day, at 7 each: 7 x 5 = 35 berries per day.
+Step 2. Multiply by 4 days: 35 x 4 = 140 berries.
+Check: One bird eats 7 x 4 = 28 berries in 4 days, and 5 birds eat 28 x 5 = 140.
+Answer: 140
+
+### train-799
+We need how many peaches Brenda has left.
+Step 1. Convert 60 percent to a decimal: 60 / 100 = 0.6.
+Step 2. Find the fresh peaches: 250 x 0.6 = 150 peaches.
+Step 3. Throw away 15 of the fresh ones for being too small: 150 - 15 = 135 peaches.
+Check: 135 + 15 = 150, and 150 is 60 percent of 250.
+Answer: 135
+
+### train-800
+We need the total weight of dumbbells Parker uses.
+Step 1. Find the number of dumbbells after he adds two more to the 4: 4 + 2 = 6 dumbbells.
+Step 2. Find the total weight at 20 pounds each: 6 x 20 = 120 pounds.
+Check: The first 4 weigh 80 pounds and the added 2 weigh 40 pounds, and 80 + 40 = 120.
+Answer: 120
+
+### train-801
+We need Candace's average speed in miles per hour in the new shoes over the 4-hour hike.
+Step 1. Find her starting speed in the new shoes, twice her old 6 mph: 6 x 2 = 12 mph.
+Step 2. Note that the first blister comes after 2 hours, so she walks the first 2 hours at 12 mph.
+Step 3. Find her speed for the last 2 hours, after one blister slows her by 2 mph: 12 - 2 = 10 mph.
+Step 4. Find the distance: 12 x 2 = 24 miles plus 10 x 2 = 20 miles, so 24 + 20 = 44 miles.
+Step 5. Find the average speed over 4 hours: 44 / 4 = 11 mph.
+Check: The two halves are equal in time, so the average is (12 + 10) / 2 = 11 mph, still faster than 6 mph.
+Answer: 11
+
+### train-802
+We need the attendance on the second day.
+Step 1. Call the first day's attendance x. The second day is half of it, 0.5x, and the third day is triple the first day, 3x.
+Step 2. Add the days: x + 0.5x + 3x = 4.5x, and this equals 2700.
+Step 3. Find the first day: x = 2700 / 4.5 = 600 people.
+Step 4. Find the second day, half of the first: 600 / 2 = 300 people.
+Check: 600 + 300 + 1800 = 2700, the three-day total.
+Answer: 300
+
+### train-803
+We need the number of blue stripes.
+Step 1. Find the gold stripes, three times the 4 brown stripes: 4 x 3 = 12 gold stripes.
+Step 2. Find the blue stripes, five times the gold stripes: 12 x 5 = 60 blue stripes.
+Check: Blue is 3 x 5 = 15 times brown, and 15 x 4 = 60.
+Answer: 60
+
+### train-804
+We need how many more squares Betsy must sew.
+Step 1. Find the total squares in the quilt, 16 on each of the two sides: 16 + 16 = 32 squares.
+Step 2. Convert 25 percent to a decimal: 25 / 100 = 0.25.
+Step 3. Find the squares already sewn: 32 x 0.25 = 8 squares.
+Step 4. Find the squares still to sew: 32 - 8 = 24 squares.
+Check: 75 percent remains, and 0.75 x 32 = 24.
+Answer: 24
+
+### train-805
+We need how many more centimeters Mary must grow to reach 140 cm.
+Step 1. Find Mary's height, 2/3 of her brother's 180 cm: 180 / 3 = 60, and 60 x 2 = 120 cm.
+Step 2. Find the difference from the minimum height: 140 - 120 = 20 cm.
+Check: 120 + 20 = 140 cm, exactly the minimum.
+Answer: 20
+
+### train-806
+We need the pet store's profit.
+Step 1. Find 3 times what Brandon was paid: 100 x 3 = $300.
+Step 2. Add 5 to get the store's selling price: 300 + 5 = $305.
+Step 3. Profit is the selling price minus what the store paid: 305 - 100 = $205.
+Check: 100 + 205 = 305, the selling price.
+Answer: 205
+
+### train-807
+We need the total number of blocks in the four-layer pyramid.
+Step 1. The top layer has 1 block.
+Step 2. Find the second layer, three times the layer above: 1 x 3 = 3 blocks.
+Step 3. Find the third layer: 3 x 3 = 9 blocks.
+Step 4. Find the fourth layer: 9 x 3 = 27 blocks.
+Step 5. Add all four layers: 1 + 3 + 9 + 27 = 40 blocks.
+Check: The bottom layer 27 is more than half of 40, as expected when each layer triples.
+Answer: 40
+
+### train-808
+We need the sum of Ann's and Tom's ages 10 years from now.
+Step 1. Find Tom's age now, two times Ann's 6: 6 x 2 = 12 years.
+Step 2. Find Ann's age in 10 years: 6 + 10 = 16 years.
+Step 3. Find Tom's age in 10 years: 12 + 10 = 22 years.
+Step 4. Add them: 16 + 22 = 38 years.
+Check: Their sum now is 18, and each gains 10 years, so 18 + 20 = 38.
+Answer: 38
+
+### train-809
+We need how many dollars Tom spends on 1000 bricks.
+Step 1. Find half of the bricks: 1000 / 2 = 500 bricks.
+Step 2. Find the discounted price, 50 percent off $0.50: 0.50 x 0.5 = $0.25 per brick.
+Step 3. Find the cost of the discounted half: 500 x 0.25 = $125.
+Step 4. Find the cost of the full-price half: 500 x 0.50 = $250.
+Step 5. Add both: 125 + 250 = $375.
+Check: All at full price would be 1000 x 0.50 = 500; he saves 125 on the first half, and 500 - 125 = 375.
+Answer: 375
+
+### train-810
+We need the total amount Joe spends at the market.
+Step 1. Find the cost of the oranges, 3 at $4.50 each: 3 x 4.50 = $13.50.
+Step 2. Find the cost of the juices, 7 at 50 cents, which is $0.50 each: 7 x 0.50 = $3.50.
+Step 3. Find the cost of the honey, 3 jars at $5 each: 3 x 5 = $15.
+Step 4. Find how many pairs of plants he buys, because plants are priced 2 for $18: 4 / 2 = 2 pairs.
+Step 5. Find the cost of the plants: 2 x 18 = $36.
+Step 6. Add everything: 13.50 + 3.50 + 15 + 36 = $68.
+Check: Oranges and juice make 13.50 + 3.50 = 17, honey and plants make 15 + 36 = 51, and 17 + 51 = 68.
+Answer: 68
+
+### train-811
+We need how many times Enrique runs the shredder, reading the question as 2 contracts of 132 pages each.
+Step 1. Find the total number of pages, 2 contracts with 132 pages each: 2 x 132 = 264 pages.
+Step 2. Find how many shreddings it takes at 6 pages each time: 264 / 6 = 44 times.
+Check: 44 x 6 = 264 pages, which is all of both contracts.
+Answer: 44
+
+### train-812
+We need the number of cats at the start.
+Step 1. Find the number of dogs now, twice the 20 cats now: 20 x 2 = 40 dogs.
+Step 2. Find the dogs before the 20 new dogs were born: 40 - 20 = 20 dogs.
+Step 3. At the start the dogs were half the number of cats, so the cats were twice the dogs: 20 x 2 = 40 cats.
+Check: Originally 20 dogs is half of 40 cats, and after 20 births there are 40 dogs, twice the current 20 cats.
+Answer: 40
+
+### train-813
+We need how many biscuits Randy has left.
+Step 1. Find the biscuits after his father's gift: 32 + 13 = 45 biscuits.
+Step 2. Add his mother's gift: 45 + 15 = 60 biscuits.
+Step 3. Subtract the 20 his brother ate: 60 - 20 = 40 biscuits.
+Check: The gifts total 13 + 15 = 28, and 32 + 28 - 20 = 40.
+Answer: 40
+
+### train-814
+We need the total number of coins in each chest.
+Step 1. Find the gold coins per chest: 3500 / 5 = 700 coins.
+Step 2. Find the silver coins per chest: 500 / 5 = 100 coins.
+Step 3. Find the total bronze coins, twice the silver: 500 x 2 = 1000 coins.
+Step 4. Find the bronze coins per chest: 1000 / 5 = 200 coins.
+Step 5. Add the coins in one chest: 700 + 100 + 200 = 1000 coins.
+Check: All coins total 3500 + 500 + 1000 = 5000, and 5000 / 5 = 1000 per chest.
+Answer: 1000
+
+### train-815
+We need how many tadpoles Trent kept.
+Step 1. Find the percent he kept, because he let 75 percent go: 100 - 75 = 25 percent.
+Step 2. Convert 25 percent to a decimal: 25 / 100 = 0.25.
+Step 3. Find the number kept: 180 x 0.25 = 45 tadpoles.
+Check: He let go 180 x 0.75 = 135, and 135 + 45 = 180.
+Answer: 45
+
+### train-816
+We need the total number of people who attended the meeting.
+Step 1. Find the total number of students, because the standing students also attended even though they had no seats: 300 + 25 = 325 students.
+Step 2. Add the 30 teachers, because the question counts everyone who attended, not only students: 325 + 30 = 355 people.
+Check: Seated people are 300 + 30 = 330, and adding the 25 standing gives 355.
+Answer: 355
+
+### train-817
+We need the total pieces of candy the four friends caught.
+Step 1. Find Julie's candy, half of Tabitha's 22: 22 / 2 = 11 pieces.
+Step 2. Find Carlos's candy, twice Stan's 13: 13 x 2 = 26 pieces.
+Step 3. Add all four friends: 22 + 13 + 11 + 26 = 72 pieces.
+Check: Tabitha and Julie have 33, Stan and Carlos have 39, and 33 + 39 = 72.
+Answer: 72
+
+### train-818
+We need how many notebooks Jack has left.
+Step 1. Find Jack's notebooks, 13 more than Gerald's 8: 8 + 13 = 21 notebooks.
+Step 2. Find how many he gives away, to Paula and Mike: 5 + 6 = 11 notebooks.
+Step 3. Subtract to find what is left: 21 - 11 = 10 notebooks.
+Check: 10 left plus 11 given is 21, which is 13 more than 8.
+Answer: 10
+
+### train-819
+We need the total kilograms of oranges bought over three weeks.
+Step 1. Find the first week's purchase, the 10 kg plus the 5 kg extra: 10 + 5 = 15 kg.
+Step 2. Find each of the next two weeks' purchases, twice the first week: 15 x 2 = 30 kg per week.
+Step 3. Find the total for those two weeks: 30 x 2 = 60 kg.
+Step 4. Add the first week: 15 + 60 = 75 kg.
+Check: The three weeks are 15, 30 and 30, which is 5 times 15, and 5 x 15 = 75.
+Answer: 75
+
+### train-820
+We need how much Bill pays for health insurance in a year.
+Step 1. Find Bill's weekly pay: 25 x 30 = $750 per week.
+Step 2. Find his monthly pay, at 4 weeks per month: 750 x 4 = $3000 per month.
+Step 3. Find his yearly income, because the brackets are yearly amounts: 3000 x 12 = $36000.
+Step 4. $36000 is between $10,001 and $40,000, so the government pays 50 percent and Bill pays the other 50 percent: 500 x 0.5 = $250 per month.
+Step 5. Find his yearly cost: 250 x 12 = $3000.
+Check: The full plan costs 500 x 12 = 6000 a year, and half of 6000 is 3000.
+Answer: 3000
+
+### train-821
+We need Matt's age now.
+Step 1. Find James's age now, because he turned 27 three years ago: 27 + 3 = 30 years.
+Step 2. Find James's age in 5 years: 30 + 5 = 35 years.
+Step 3. Find Matt's age in 5 years, twice James's age then: 35 x 2 = 70 years.
+Step 4. Find Matt's age now, 5 years earlier: 70 - 5 = 65 years.
+Check: In 5 years Matt is 65 + 5 = 70 and James is 35, and 70 = 2 x 35.
+Answer: 65
+
+### train-822
+We need the bakery's profit from one hour of pies.
+Step 1. Find the number of pieces from 12 pies with 3 pieces each: 12 x 3 = 36 pieces.
+Step 2. Find the money from selling them at $4 per piece: 36 x 4 = $144.
+Step 3. Find the cost of making 12 pies at $0.5 each: 12 x 0.5 = $6.
+Step 4. Subtract the cost to get the money made: 144 - 6 = $138.
+Check: Each pie earns 3 x 4 - 0.5 = $11.50, and 12 x 11.50 = 138.
+Answer: 138
+
+### train-823
+We need the total number of turtles in the lake.
+Step 1. Find the percent of striped turtles that are babies, because 60 percent are adults: 100 - 60 = 40 percent.
+Step 2. The 4 babies are 40 percent of the striped turtles, so the striped total is 4 / 0.4 = 10 turtles.
+Step 3. Striped turtles are 1 in 4 of the males, so the males are 10 x 4 = 40 turtles.
+Step 4. Find the percent of males, since 60 percent are female: 100 - 60 = 40 percent.
+Step 5. The 40 males are 40 percent of all turtles: 40 / 0.4 = 100 turtles.
+Check: 100 turtles give 40 males, 40 / 4 = 10 striped, and 40 percent of 10 is 4 babies.
+Answer: 100
+
+### train-824
+We need how many video games Radhika owns now.
+Step 1. Find the games she was given on Christmas and her birthday: 12 + 8 = 20 games.
+Step 2. Find the games she already owned, half of that number: 20 / 2 = 10 games.
+Step 3. Add the old and new games: 10 + 20 = 30 games.
+Check: She owns 1.5 times the gifted games, and 1.5 x 20 = 30.
+Answer: 30
+
+### train-825
+We need how much money Nigel gave away.
+Step 1. Find twice the amount he originally had: 45 x 2 = $90.
+Step 2. Add $10 to get what he has now: 90 + 10 = $100.
+Step 3. Find what he had before his mother's $80, by undoing the gift: 100 - 80 = $20.
+Step 4. Find how much he gave away from the $45 he won: 45 - 20 = $25.
+Check: 45 - 25 = 20, then 20 + 80 = 100, which is 10 more than 2 x 45.
+Answer: 25
+
+### train-826
+We need how many students have no favorite subject.
+Step 1. Find the students who like Math, 1/5 of 30: 30 / 5 = 6 students.
+Step 2. Find the students who like English, 1/3 of 30: 30 / 3 = 10 students.
+Step 3. Find the remaining students, because the Science fraction is of the remaining, not of the total: 30 - 6 - 10 = 14 students.
+Step 4. Find the students who like Science, 1/7 of 14: 14 / 7 = 2 students.
+Step 5. Find those with no favorite: 14 - 2 = 12 students.
+Check: 6 + 10 + 2 + 12 = 30, the whole class.
+Answer: 12
+
+### train-827
+We need the average temperature for the week.
+Step 1. Find the total of the seven temperatures, because an average is the total divided by the number of days: 40 + 50 + 65 + 36 + 82 + 72 + 26 = 371 degrees.
+Step 2. Divide by the 7 days: 371 / 7 = 53 degrees.
+Check: 53 x 7 = 371, and 53 lies between the lowest 26 and highest 82.
+Answer: 53
+
+### train-828
+We need how much money each boy receives.
+Step 1. Find the total ratio parts: 5 + 7 = 12 parts.
+Step 2. Find the children per part: 180 / 12 = 15 children.
+Step 3. Find the number of boys, 5 parts: 5 x 15 = 75 boys.
+Step 4. Share $3900 among the boys: 3900 / 75 = $52.
+Check: 75 x 52 = 3900, and the girls are 7 x 15 = 105, with 75 + 105 = 180.
+Answer: 52
+
+### train-829
+We need the total time to free all three friends.
+Step 1. Find the time for one friend, who has one expensive pair (8 minutes) and one cheap pair (6 minutes): 8 + 6 = 14 minutes.
+Step 2. Multiply by 3 friends: 14 x 3 = 42 minutes.
+Check: Expensive pairs take 3 x 8 = 24 minutes, cheap pairs 3 x 6 = 18 minutes, and 24 + 18 = 42.
+Answer: 42
+
+### train-830
+We need the total pieces of bread thrown in the pond.
+Step 1. Find the bread not eaten by the first duck, which is the second duck's, the third duck's and what is left: 13 + 7 + 30 = 50 pieces.
+Step 2. The first duck ate half of all the bread, so these 50 pieces are the other half. Double them for the total: 50 x 2 = 100 pieces.
+Check: The first duck eats 100 / 2 = 50, and 50 + 13 + 7 + 30 = 100.
+Answer: 100
+
+### train-831
+We need how many stickers Zander gave to his two friends in total.
+Step 1. Find Andrew's stickers, 1/5 of 100: 100 / 5 = 20 stickers.
+Step 2. Find the remaining stickers, because Bill's fraction is of the remaining: 100 - 20 = 80 stickers.
+Step 3. Find Bill's stickers, 3/10 of 80: 80 / 10 = 8, and 8 x 3 = 24 stickers.
+Step 4. Add what both friends got: 20 + 24 = 44 stickers.
+Check: Zander keeps 80 - 24 = 56, and 56 + 44 = 100.
+Answer: 44
+
+### train-832
+We need how many minutes Janet saves each week.
+Step 1. Find the minutes she spends per day, looking plus complaining: 8 + 3 = 11 minutes.
+Step 2. Multiply by the 7 days in a week: 11 x 7 = 77 minutes.
+Check: Looking takes 8 x 7 = 56 and complaining 3 x 7 = 21 minutes a week, and 56 + 21 = 77.
+Answer: 77
+
+### train-833
+We need how many pairs of shoes Page has now.
+Step 1. Convert 30 percent to a decimal: 30 / 100 = 0.3.
+Step 2. Find the pairs donated: 80 x 0.3 = 24 pairs.
+Step 3. Find the pairs left: 80 - 24 = 56 pairs.
+Step 4. Add the 6 new pairs: 56 + 6 = 62 pairs.
+Check: She lost 24 and gained 6, a net loss of 18, and 80 - 18 = 62.
+Answer: 62
+
+### train-834
+We need how many feet farther Velma's flashlight can be seen than Veronica's.
+Step 1. Find Freddie's distance, three times Veronica's 1000 feet: 1000 x 3 = 3000 feet.
+Step 2. Find 5 times Freddie's distance: 3000 x 5 = 15000 feet.
+Step 3. Find Velma's distance, 2000 feet less: 15000 - 2000 = 13000 feet.
+Step 4. Find the difference from Veronica's: 13000 - 1000 = 12000 feet.
+Check: 1000 + 12000 = 13000 feet, which is 2000 less than 15000.
+Answer: 12000
+
+### train-835
+We need Cara's age.
+Step 1. Find her mom's age, 15 years younger than the grandmother's 75: 75 - 15 = 60 years.
+Step 2. Find Cara's age, 20 years younger than her mom: 60 - 20 = 40 years.
+Check: Cara is 15 + 20 = 35 years younger than her grandmother, and 75 - 35 = 40.
+Answer: 40
+
+### train-836
+We need the total apples bought by Diane and Cecile.
+Step 1. Find Diane's apples, because "twenty more than Cecile" means we add 20 to Cecile's 15: 15 + 20 = 35 apples.
+Step 2. Add both girls' apples, because "altogether" asks for the combined total, not just Diane's: 15 + 35 = 50 apples.
+Check: 35 - 15 = 20, so Diane did buy twenty more, and the total is 50.
+Answer: 50
+
+### train-837
+We need the total slices left over.
+Step 1. Find the total slices, 2 pizzas with 12 slices each: 2 x 12 = 24 slices.
+Step 2. Find Dean's slices, half of the 12-slice Hawaiian pizza: 12 / 2 = 6 slices.
+Step 3. Frank ate 3 slices of Hawaiian pizza.
+Step 4. Find Sammy's slices, a third of the 12-slice cheese pizza: 12 / 3 = 4 slices.
+Step 5. Find the total eaten: 6 + 3 + 4 = 13 slices.
+Step 6. Find the slices left: 24 - 13 = 11 slices.
+Check: Hawaiian has 12 - 9 = 3 left and cheese has 12 - 4 = 8 left, and 3 + 8 = 11.
+Answer: 11
+
+### train-838
+We need the final thermostat temperature.
+Step 1. Jerry doubles the initial 40 degrees: 40 x 2 = 80 degrees.
+Step 2. His dad reduces it by 30 degrees: 80 - 30 = 50 degrees.
+Step 3. His mother reduces it by 30 percent of the current 50, not by 30 degrees: 50 x 0.3 = 15 degrees, so 50 - 15 = 35 degrees.
+Step 4. His sister increases it by 24 degrees: 35 + 24 = 59 degrees.
+Check: Working backward, 59 - 24 = 35, 35 / 0.7 = 50, 50 + 30 = 80, 80 / 2 = 40.
+Answer: 59
+
+### train-839
+We need the total amount Leonard and Michael spent.
+Step 1. Find Leonard's sneakers, 2 pairs at $100: 2 x 100 = $200.
+Step 2. Find Leonard's total with the wallet: 50 + 200 = $250.
+Step 3. Find Michael's jeans, 2 pairs at $50: 2 x 50 = $100.
+Step 4. Find Michael's total with the backpack: 100 + 100 = $200.
+Step 5. Add both brothers: 250 + 200 = $450.
+Check: Items at $100 are 3 (300) and items at $50 are 3 (150), and 300 + 150 = 450.
+Answer: 450
+
+### train-840
+We need how many more red bouncy balls than yellow ones Kate bought.
+Step 1. Find the red balls: 7 x 18 = 126 balls.
+Step 2. Find the yellow balls: 6 x 18 = 108 balls.
+Step 3. Find the difference: 126 - 108 = 18 balls.
+Check: She has 7 - 6 = 1 more pack of red, and one pack holds 18 balls.
+Answer: 18
+
+### train-841
+We need how many pages Rob read.
+Step 1. Find the time he actually read, three-quarters of 3 hours: 3 x 0.75 = 2.25 hours.
+Step 2. Convert to minutes, because the reading rate is per fifteen minutes: 2.25 x 60 = 135 minutes.
+Step 3. Find the pages at one page every 15 minutes: 135 / 15 = 9 pages.
+Check: He reads 4 pages per hour, and 4 x 2.25 = 9 pages.
+Answer: 9
+
+### train-842
+We need how much more Anna spent on lunch than on breakfast.
+Step 1. Find the breakfast cost, adding the bagel and the orange juice: 0.95 + 0.85 = $1.80.
+Step 2. Find the lunch cost, adding the sandwich and the milk: 4.65 + 1.15 = $5.80.
+Step 3. Find the difference, because "how much more" means subtract the smaller meal cost from the larger: 5.80 - 1.80 = $4.
+Check: 1.80 + 4 = 5.80, the lunch cost.
+Answer: 4
+
+### train-843
+We need the total sacks from the first and second harvests.
+Step 1. The first harvest gives 20 sacks.
+Step 2. Find the increase for the second harvest, twenty percent of 20: 20 x 0.2 = 4 sacks.
+Step 3. Find the second harvest: 20 + 4 = 24 sacks.
+Step 4. Add both harvests: 20 + 24 = 44 sacks.
+Check: The second harvest is 1.2 times the first, 1.2 x 20 = 24, and 20 + 24 = 44.
+Answer: 44
+
+### train-844
+We need Jeff's average number of skips per round.
+Step 1. Round 1: Sam did 1 more than Jeff, so Jeff did 16 - 1 = 15 skips.
+Step 2. Round 2: Jeff did 3 fewer than Sam: 16 - 3 = 13 skips.
+Step 3. Round 3: Jeff did 4 more than Sam: 16 + 4 = 20 skips.
+Step 4. Round 4: Jeff did half of Sam's: 16 / 2 = 8 skips.
+Step 5. Find Jeff's total: 15 + 13 + 20 + 8 = 56 skips.
+Step 6. Find the average over 4 rounds: 56 / 4 = 14 skips.
+Check: 14 x 4 = 56, and 14 is a bit below Sam's 16, which fits.
+Answer: 14
+
+### train-845
+We need the cost of a full 64-liter tank of diesel.
+Step 1. Find the price per liter, because the tank size differs from the 36 liters we know the price of: 18 / 36 = 0.5 euros per liter.
+Step 2. Multiply by the 64 liters the tank holds: 64 x 0.5 = 32 euros.
+Check: 64 liters is a bit less than twice 36 liters, and 32 euros is a bit less than twice 18 euros.
+Answer: 32
+
+### train-846
+We need how many streetlights will remain unused.
+Step 1. Find how many streetlights are used, because each of the 15 squares gets 12 lights and we multiply to count them all: 15 x 12 = 180 streetlights.
+Step 2. Find the unused lights by subtracting the used ones from the 200 bought: 200 - 180 = 20 streetlights.
+Check: 180 used plus 20 unused is 200, the number bought.
+Answer: 20
+
+### train-847
+We need how much money Rita has left.
+Step 1. Find the cost of the dresses, 5 at $20: 5 x 20 = $100.
+Step 2. Find the cost of the pants, 3 pairs at $12: 3 x 12 = $36.
+Step 3. Find the cost of the jackets, 4 at $30: 4 x 30 = $120.
+Step 4. Find the total spending including $5 transportation: 100 + 36 + 120 + 5 = $261.
+Step 5. Subtract from her $400: 400 - 261 = $139.
+Check: 139 + 261 = 400, what she started with.
+Answer: 139
+
+### train-848
+We need the total gallons of gas the car uses over both days.
+Step 1. Find tomorrow's distance, 200 more miles than today's 400: 400 + 200 = 600 miles.
+Step 2. Find the total distance: 400 + 600 = 1000 miles.
+Step 3. Find the gas at 4 gallons per mile: 1000 x 4 = 4000 gallons.
+Check: Today uses 400 x 4 = 1600 and tomorrow 600 x 4 = 2400 gallons, and 1600 + 2400 = 4000.
+Answer: 4000
+
+### train-849
+We need the total sets of laces handed out.
+Step 1. Find the number of members, 4 teams of 10: 4 x 10 = 40 members.
+Step 2. Find the pairs of skates, 2 per member (one to compete, one backup): 40 x 2 = 80 pairs.
+Step 3. Find the laces at 3 sets per pair: 80 x 3 = 240 sets.
+Check: Each member gets 2 x 3 = 6 sets, and 40 x 6 = 240.
+Answer: 240
+
+### train-850
+We need how many stickers Oliver kept.
+Step 1. Find the stickers used, 1/3 of 135: 135 / 3 = 45 stickers.
+Step 2. Find the remaining stickers, because the 2/5 is a fraction of the remaining: 135 - 45 = 90 stickers.
+Step 3. Find the stickers given to his friend, 2/5 of 90: 90 / 5 = 18, and 18 x 2 = 36 stickers.
+Step 4. Find the stickers kept: 90 - 36 = 54 stickers.
+Check: 45 + 36 + 54 = 135, all his stickers.
+Answer: 54
+
+### train-851
+We need the travel time at 100 miles per hour.
+Step 1. Find the distance, because it stays the same at either speed: 50 x 4 = 200 miles.
+Step 2. Find the time at 100 mph, distance divided by speed: 200 / 100 = 2 hours.
+Check: Doubling the speed should halve the time, and 4 / 2 = 2 hours.
+Answer: 2
+
+### train-852
+We need how many hours Audrey slept without dreaming.
+Step 1. Find the dreaming time, 2/5 of 10 hours: 10 / 5 = 2, and 2 x 2 = 4 hours.
+Step 2. Find the time not dreaming: 10 - 4 = 6 hours.
+Check: Not dreaming is 3/5 of the night, and 3/5 of 10 is 6 hours.
+Answer: 6
+
+### train-853
+We need how much more coach A spent than coach B.
+Step 1. Find coach A's spending, 10 basketballs at $29: 10 x 29 = $290.
+Step 2. Find the cost of coach B's baseballs, 14 at $2.50: 14 x 2.50 = $35.
+Step 3. Add the bat to get coach B's total: 35 + 18 = $53.
+Step 4. Find the difference: 290 - 53 = $237.
+Check: 53 + 237 = 290, coach A's spending.
+Answer: 237
+
+### train-854
+We need how many milliliters of salt Jack gets.
+Step 1. Convert liters to milliliters, because the answer is asked in ml and 1 liter = 1000 ml: 2 x 1000 = 2000 ml.
+Step 2. Convert 20 percent to a decimal: 20 / 100 = 0.2.
+Step 3. Find the salt: 2000 x 0.2 = 400 ml.
+Check: 400 ml is one fifth of 2000 ml, and 20 percent is one fifth.
+Answer: 400
+
+### train-855
+We need how much more food Danny must order to reach $18.
+Step 1. Find the cost of the burgers, 2 at $3.20: 2 x 3.20 = $6.40.
+Step 2. Find the cost of the fries, 2 at $1.90: 2 x 1.90 = $3.80.
+Step 3. Find the cost of the milkshakes, 2 at $2.40: 2 x 2.40 = $4.80.
+Step 4. Find his total: 6.40 + 3.80 + 4.80 = $15.
+Step 5. Find how much more he needs: 18 - 15 = $3.
+Check: One of each item costs 3.20 + 1.90 + 2.40 = 7.50, two of each is 15, and 15 + 3 = 18.
+Answer: 3
+
+### train-856
+We need John's final weight.
+Step 1. Convert 10 percent to a decimal: 10 / 100 = 0.1.
+Step 2. Find the weight lost: 220 x 0.1 = 22 pounds.
+Step 3. Find his weight after losing it: 220 - 22 = 198 pounds.
+Step 4. Add the 2 pounds he gained back: 198 + 2 = 200 pounds.
+Check: His net loss is 22 - 2 = 20 pounds, and 220 - 20 = 200.
+Answer: 200
+
+### train-857
+We need the total weight in ounces of all the settings.
+Step 1. Find the settings for the tables, 15 tables with 8 each: 15 x 8 = 120 settings.
+Step 2. Add the 20 backup settings: 120 + 20 = 140 settings.
+Step 3. Find the silverware weight per setting, 3 pieces at 4 ounces: 3 x 4 = 12 ounces.
+Step 4. Find the plate weight per setting, 2 plates at 12 ounces: 2 x 12 = 24 ounces.
+Step 5. Find the weight of one setting: 12 + 24 = 36 ounces.
+Step 6. Find the total weight: 140 x 36 = 5040 ounces.
+Check: 5040 / 36 = 140 settings, which is 120 + 20.
+Answer: 5040
+
+### train-858
+We need the number of female guests from Jay's family.
+Step 1. Convert 60 percent to a decimal: 60 / 100 = 0.6.
+Step 2. Find the female guests: 240 x 0.6 = 144 guests.
+Step 3. Find the females from Jay's family, 50 percent of the females (not of all guests): 144 x 0.5 = 72 guests.
+Check: 72 is 30 percent of 240, and 0.6 x 0.5 = 0.3.
+Answer: 72
+
+### train-859
+We need the number of male alligators.
+Step 1. Find the percent of females that are adults, because 40 percent are juveniles: 100 - 40 = 60 percent.
+Step 2. The 15 adult females are 60 percent of the females, so the females are 15 / 0.6 = 25 alligators.
+Step 3. Half the alligators are male and half are female, so males equal females: 25 males.
+Check: 40 percent of 25 is 10 juveniles, and 25 - 10 = 15 adult females.
+Answer: 25
+
+### train-860
+We need the blanket's thickness after 4 folds.
+Step 1. After fold 1, the thickness doubles: 3 x 2 = 6 inches.
+Step 2. After fold 2: 6 x 2 = 12 inches.
+Step 3. After fold 3: 12 x 2 = 24 inches.
+Step 4. After fold 4: 24 x 2 = 48 inches.
+Check: Four doublings multiply by 2 x 2 x 2 x 2 = 16, and 3 x 16 = 48.
+Answer: 48
+
+### train-861
+We need the total daily allowance of the 60 students.
+Step 1. Find the students getting $6, 2/3 of 60: 60 / 3 = 20, and 20 x 2 = 40 students.
+Step 2. Find the rest of the students: 60 - 40 = 20 students.
+Step 3. Find the money for the first group: 40 x 6 = $240.
+Step 4. Find the money for the second group: 20 x 4 = $80.
+Step 5. Add both: 240 + 80 = $320.
+Check: The total is between 60 x 4 = 240 and 60 x 6 = 360, closer to 360 because more students get $6.
+Answer: 320
+
+### train-862
+We need how many students did not take part.
+Step 1. Find the students who took part, because one-third of the class means dividing the 39 students into 3 equal groups: 39 / 3 = 13 students.
+Step 2. Find the students who did not take part by subtracting the participants from the whole class: 39 - 13 = 26 students.
+Check: Two-thirds did not take part, and 13 x 2 = 26.
+Answer: 26
+
+### train-863
+We need how many boxes of stickers Dora got.
+Step 1. Find their combined money, $9 each: 9 x 2 = $18.
+Step 2. Find what is left after the $10 deck of cards: 18 - 10 = $8.
+Step 3. Find how many $2 boxes of stickers they can buy: 8 / 2 = 4 boxes.
+Step 4. Split the boxes evenly between the two girls: 4 / 2 = 2 boxes.
+Check: 4 boxes cost 4 x 2 = 8, and 10 + 8 = 18, all their money.
+Answer: 2
+
+### train-864
+We need the number of perfect apples.
+Step 1. Find the apples that are too small, 1/6 of 30: 30 / 6 = 5 apples.
+Step 2. Find the apples that are not ripe, 1/3 of 30: 30 / 3 = 10 apples.
+Step 3. Find the perfect apples, the rest: 30 - 5 - 10 = 15 apples.
+Check: 1/6 + 1/3 = 1/2 are bad, so half are perfect, and 30 / 2 = 15.
+Answer: 15
+
+### train-865
+We need Archibald's average apples per week over 7 weeks.
+Step 1. Find the apples in the first two weeks, 1 a day for 14 days: 1 x 14 = 14 apples.
+Step 2. The next three weeks he eats the same total as the first two weeks: 14 apples.
+Step 3. Find the apples in the last two weeks, 3 a day for 14 days: 3 x 14 = 42 apples.
+Step 4. Find the total: 14 + 14 + 42 = 70 apples.
+Step 5. Divide by 7 weeks: 70 / 7 = 10 apples per week.
+Check: 10 x 7 = 70 apples, and the weeks used are 2 + 3 + 2 = 7.
+Answer: 10
+
+### train-866
+We need the price of each of the other pieces.
+Step 1. Find the cost of the two known pieces: 49 + 81 = $130.
+Step 2. Find what the other pieces cost together: 610 - 130 = $480.
+Step 3. Find how many other pieces there are: 7 - 2 = 5 pieces.
+Step 4. Divide equally: 480 / 5 = $96.
+Check: 5 x 96 = 480, and 480 + 49 + 81 = 610.
+Answer: 96
+
+### train-867
+We need the length of the smallest model in inches.
+Step 1. Find the mid-size model, because 1/10th the size means dividing the full 240 inches by 10: 240 / 10 = 24 inches.
+Step 2. Find the smallest model, which is half of the mid-size model (not half of the full car): 24 / 2 = 12 inches.
+Check: The smallest is 1/20 of full size, and 240 / 20 = 12.
+Answer: 12
+
+### train-868
+We need how many pets remain.
+Step 1. Find the pets at the start, because the question asks about all pets together, puppies and kittens: 7 + 6 = 13 pets.
+Step 2. Find the total pets sold, two puppies and three kittens: 2 + 3 = 5 pets.
+Step 3. Subtract the sold pets from the starting pets to find those remaining: 13 - 5 = 8 pets.
+Check: 5 puppies and 3 kittens remain, and 5 + 3 = 8.
+Answer: 8
+
+### train-869
+We need the number of children.
+Step 1. Find the bars left for the children, because only the bars the parents did not eat were shared: 200 - 80 = 120 bars.
+Step 2. Find the number of children, because each child received 20 bars, so we divide the shared bars by 20: 120 / 20 = 6 children.
+Check: 6 x 20 = 120, and 120 + 80 = 200.
+Answer: 6
+
+### train-870
+We need the total time in years for all the goals.
+Step 1. Getting in shape takes 2 years.
+Step 2. Learning to climb takes twice that long: 2 x 2 = 4 years.
+Step 3. Find the climbing time, 7 summits at 5 months each: 7 x 5 = 35 months.
+Step 4. Add the 13 months of learning to dive, keeping months together: 35 + 13 = 48 months.
+Step 5. Convert months to years, 12 months per year: 48 / 12 = 4 years.
+Step 6. Add all the parts, including 2 years of diving: 2 + 4 + 4 + 2 = 12 years.
+Check: In months, 24 + 48 + 35 + 13 + 24 = 144 months, and 144 / 12 = 12 years.
+Answer: 12
+
+### train-871
+We need how many problems Georgia has left.
+Step 1. In the first 20 minutes she completed 10 problems.
+Step 2. In the next 20 minutes she completed twice as many: 10 x 2 = 20 problems.
+Step 3. Find the total completed: 10 + 20 = 30 problems.
+Step 4. Find the problems left: 75 - 30 = 45 problems.
+Check: 30 done plus 45 left is 75, the whole test.
+Answer: 45
+
+### train-872
+We need Betty's total spending.
+Step 1. Find the cost of drinks, 10 at $2: 10 x 2 = $20.
+Step 2. Find the cost of cakes, 5 at $10: 5 x 10 = $50.
+Step 3. Find the cost of ice creams, 100 at $5: 100 x 5 = $500.
+Step 4. Add them: 20 + 50 + 500 = $570.
+Check: Without the ice cream she spends 70, and 570 - 70 = 500 = 100 x 5.
+Answer: 570
+
+### train-873
+We need the laps Jasmine swims in five weeks.
+Step 1. Find the laps per week, because she swims only Monday through Friday, which is 5 days with 12 laps each: 12 x 5 = 60 laps.
+Step 2. Multiply the weekly laps by 5 weeks to get the total: 60 x 5 = 300 laps.
+Check: She swims 5 x 5 = 25 days, and 25 x 12 = 300.
+Answer: 300
+
+### train-874
+We need the number of 12-ounce steaks from 15 pounds of beef.
+Step 1. Convert pounds to ounces, because the steak size is in ounces and 1 pound = 16 ounces: 15 x 16 = 240 ounces.
+Step 2. Divide by 12 ounces per steak: 240 / 12 = 20 steaks.
+Check: A 12-ounce steak is 0.75 pounds, and 20 x 0.75 = 15 pounds.
+Answer: 20
+
+### train-875
+We need the number of carnations.
+Step 1. Find the roses, 2/5 of 40: 40 / 5 = 8, and 8 x 2 = 16 roses.
+Step 2. Find the roses and tulips together: 16 + 10 = 26 flowers.
+Step 3. Find the carnations, the rest: 40 - 26 = 14 carnations.
+Check: 16 + 10 + 14 = 40 flowers.
+Answer: 14
+
+### train-876
+We need how many cookies each child eats.
+Step 1. Find the total cookies, 3 packages of 25: 3 x 25 = 75 cookies.
+Step 2. Count the children, Aku plus his 4 friends: 1 + 4 = 5 children.
+Step 3. Share equally: 75 / 5 = 15 cookies.
+Check: 5 x 15 = 75, all the cookies.
+Answer: 15
+
+### train-877
+We need how many more employees drive than take public transportation.
+Step 1. Convert 60 percent to a decimal: 60 / 100 = 0.6.
+Step 2. Find the drivers: 200 x 0.6 = 120 employees.
+Step 3. Find the employees who do not drive: 200 - 120 = 80 employees.
+Step 4. Find those taking public transportation, half of the non-drivers (not half of all employees): 80 / 2 = 40 employees.
+Step 5. Find the difference: 120 - 40 = 80 employees.
+Check: 40 + 80 = 120, the number of drivers.
+Answer: 80
+
+### train-878
+We need the number of red bacon bits.
+Step 1. Find the cherry tomatoes, twice the 3 mushrooms: 3 x 2 = 6 tomatoes.
+Step 2. Find the pickles, 4 times the tomatoes: 6 x 4 = 24 pickles.
+Step 3. Find the bacon bits, 4 times the pickles: 24 x 4 = 96 bacon bits.
+Step 4. Find the red ones, one third of 96: 96 / 3 = 32 red bacon bits.
+Check: 32 x 3 = 96, and 96 = 3 x 2 x 4 x 4.
+Answer: 32
+
+### train-879
+We need how much Mark can bench press.
+Step 1. Find Dave's bench press, three times his 175 pounds: 175 x 3 = 525 pounds.
+Step 2. Find Craig's, 20 percent of Dave's: 525 x 0.2 = 105 pounds.
+Step 3. Find Mark's, 50 pounds less than Craig's: 105 - 50 = 55 pounds.
+Check: 55 + 50 = 105, and 105 / 525 = 0.2, which is 20 percent.
+Answer: 55

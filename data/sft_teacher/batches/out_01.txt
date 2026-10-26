@@ -1,0 +1,983 @@
+### train-110
+We need the number of trees of each fruit kind: plum, pear and apricot.
+Step 1. Find the total number of trees, because one tree is planted on every street: there are 18 streets, so 18 trees.
+Step 2. Find how many of these are fruit trees, because only every other tree is a fruit tree, which means half of them: 18 / 2 = 9 fruit trees.
+Step 3. Split the fruit trees equally among the 3 kinds (plum, pear, apricot): 9 / 3 = 3 trees of each kind.
+Check: 3 plum + 3 pear + 3 apricot = 9 fruit trees, and 9 fruit trees plus 9 other trees = 18 trees, one per street.
+Answer: 3
+
+### train-111
+We need the total cost of sheers and drapes for 3 windows.
+Step 1. Find the cost of the treatments for one window, because each window needs one pair of sheers and one pair of drapes: 40 + 60 = 100 dollars per window.
+Step 2. Multiply by the number of windows, because every window gets the same set: 100 x 3 = 300 dollars.
+Check: Sheers for all windows cost 40 x 3 = 120 dollars and drapes cost 60 x 3 = 180 dollars; 120 + 180 = 300 dollars, which matches.
+Answer: 300
+
+### train-112
+We need the price Betty paid for 1 kg of apples.
+Step 1. The total cost of the oranges was 12 dollars.
+Step 2. Find the total cost of the apples. "Two times cheaper" compares the totals, so the apples cost half of what the oranges cost: 12 / 2 = 6 dollars for all the apples.
+Step 3. Find the price of 1 kg of apples, because the 6 dollars paid for 3 kg: 6 / 3 = 2 dollars per kg.
+Check: 3 kg x 2 dollars = 6 dollars for apples, and 6 x 2 = 12 dollars, the cost of the oranges, so the apples were two times cheaper in total.
+Answer: 2
+
+### train-113
+We need Geordie's total weekly cost for tolls and gas driving to work and back.
+Step 1. Find the toll cost for the car trips. He drives the car 3 days, and each day has 2 trips (to work and back), so 3 x 2 = 6 car trips. Tolls: 6 x 12.50 = 75 dollars.
+Step 2. Find the toll cost for the motorcycle trips. He rides it 2 days, so 2 x 2 = 4 trips. Tolls: 4 x 7 = 28 dollars.
+Step 3. Find the total miles driven in the week, because gas depends on distance. Each day is 14 + 14 = 28 miles, and he commutes 5 days: 28 x 5 = 140 miles.
+Step 4. Find the gallons used. Both vehicles get 35 miles per gallon: 140 / 35 = 4 gallons.
+Step 5. Find the gas cost: 4 x 3.75 = 15 dollars.
+Step 6. Add tolls and gas: 75 + 28 + 15 = 118 dollars.
+Check: Tolls total 75 + 28 = 103 dollars and gas is 15 dollars; 118 - 15 = 103, consistent.
+Answer: 118
+
+### train-114
+We need the total cost of the crayons Jamal bought.
+Step 1. Find how many crayons are in one half dozen, because the crayons are counted in half dozens: a dozen is 12, so half a dozen is 12 / 2 = 6 crayons.
+Step 2. Find the total number of crayons in 4 half dozens: 4 x 6 = 24 crayons.
+Step 3. Find the total cost, because the price is per crayon: 24 x 2 = 48 dollars.
+Check: 4 half dozens is 2 dozens, which is 24 crayons; at 2 dollars each, 24 x 2 = 48 dollars.
+Answer: 48
+
+### train-115
+We need how much of the adoption fee James pays himself.
+Step 1. Find the amount the friend pays, because the friend covers 25% of the fee. Convert 25% to a decimal: 25 / 100 = 0.25. Then 0.25 x 200 = 50 dollars.
+Step 2. Subtract the friend's part from the full fee to get what James pays: 200 - 50 = 150 dollars.
+Check: James pays the other 75% of the fee: 0.75 x 200 = 150 dollars, which matches.
+Answer: 150
+
+### train-116
+We need how many more people watched the games this week than last week.
+Step 1. The second game had 80 people.
+Step 2. Find the first game's audience, because it had 20 fewer than the second game: 80 - 20 = 60 people.
+Step 3. Find the third game's audience, because it had 15 more than the second game: 80 + 15 = 95 people.
+Step 4. Find this week's total: 60 + 80 + 95 = 235 people.
+Step 5. Compare with last week's 200 people: 235 - 200 = 35 more people.
+Check: 200 + 35 = 235, which equals this week's total of 60 + 80 + 95.
+Answer: 35
+
+### train-117
+We need the percent of the animals that are monkeys after some birds are eaten.
+Step 1. Find how many birds are eaten, because two monkeys each eat one bird: 2 x 1 = 2 birds.
+Step 2. Find how many birds remain: 6 - 2 = 4 birds.
+Step 3. The monkeys are not eaten, so there are still 6 monkeys.
+Step 4. Find the total number of animals now: 6 + 4 = 10 animals.
+Step 5. Find the percent that are monkeys: 6 / 10 = 0.6, and 0.6 x 100 = 60 percent.
+Check: The birds are 4 / 10 = 40 percent, and 60 + 40 = 100 percent.
+Answer: 60
+
+### train-118
+We need the total number of rehabilitation centers visited by Lisa, Jude, Han and Jane.
+Step 1. Lisa visited 6 centers.
+Step 2. Find Jude's number. "Half fewer" than Lisa means half as many: 6 / 2 = 3 centers.
+Step 3. Find Han's number, which is 2 less than twice Jude's: 2 x 3 = 6, then 6 - 2 = 4 centers.
+Step 4. Find Jane's number, which is 6 more than twice Han's: 2 x 4 = 8, then 8 + 6 = 14 centers.
+Step 5. Add all four, since all centers are different: 6 + 3 + 4 + 14 = 27 centers.
+Check: Working back, (14 - 6) / 2 = 4 for Han, (4 + 2) / 2 = 3 for Jude, and 3 x 2 = 6 for Lisa, all consistent.
+Answer: 27
+
+### train-119
+We need Mary's garbage bill for a four-week month.
+Step 1. Find the weekly cost of the trash bins: 2 bins x 10 dollars = 20 dollars.
+Step 2. Find the weekly cost of the recycling bin: 1 x 5 = 5 dollars.
+Step 3. Find the total weekly cost: 20 + 5 = 25 dollars.
+Step 4. Find the monthly cost before the discount, since the month has exactly 4 weeks: 25 x 4 = 100 dollars.
+Step 5. Find the discount. 18% as a decimal is 0.18, so 0.18 x 100 = 18 dollars.
+Step 6. Subtract the discount, because it applies before the fine: 100 - 18 = 82 dollars.
+Step 7. Add the 20 dollar fine: 82 + 20 = 102 dollars.
+Check: 82 percent of 100 is 82, and adding the fine gives 102, a bit more than the undiscounted 100, which makes sense.
+Answer: 102
+
+### train-120
+We need the percent of Janet's grocery spending that went to meat, rounded to the nearest percent.
+Step 1. Broccoli: 3 pounds x 4 dollars = 12 dollars.
+Step 2. Oranges: 3 x 0.75 = 2.25 dollars.
+Step 3. Cabbage costs 3.75 dollars and bacon costs 3 dollars.
+Step 4. Chicken: 2 pounds x 3 dollars = 6 dollars.
+Step 5. Find the total spent: 12 + 2.25 + 3.75 + 3 + 6 = 27 dollars.
+Step 6. Find the meat cost, because only bacon and chicken are meat: 3 + 6 = 9 dollars.
+Step 7. Find the meat share: 9 / 27 = 0.333..., and 0.333 x 100 = 33.3 percent, which rounds to 33 percent.
+Check: 9 dollars is exactly one third of 27 dollars, and one third is about 33 percent.
+Answer: 33
+
+### train-121
+We need the total amount Tony paid for all the toys.
+Step 1. Find the cost of the Lego sets: 3 sets x 250 dollars = 750 dollars.
+Step 2. Find the cost of the toy swords: 7 x 120 = 840 dollars.
+Step 3. Find the cost of the play doughs: 10 x 35 = 350 dollars.
+Step 4. Add the three amounts to get the total: 750 + 840 + 350 = 1940 dollars.
+Check: 1940 - 350 = 1590, and 1590 - 840 = 750, which is the Lego cost, so the sum is right.
+Answer: 1940
+
+### train-122
+We need how many brownie pieces are left.
+Step 1. Find how many Tina ate. She ate one with lunch and one with dinner, so 2 per day for 5 days: 2 x 5 = 10 brownies.
+Step 2. Find how many her husband took: 1 per day for 5 days is 1 x 5 = 5 brownies.
+Step 3. The dinner guests shared 4 brownies.
+Step 4. Find the total eaten: 10 + 5 + 4 = 19 brownies.
+Step 5. Subtract from the 24 pieces: 24 - 19 = 5 brownies.
+Check: 5 left + 19 eaten = 24 pieces, the whole pan.
+Answer: 5
+
+### train-123
+We need the total minutes students spend in time-out.
+Step 1. Time-outs for running: 5.
+Step 2. Find time-outs for throwing food, which is 1 less than five times the running number: 5 x 5 = 25, then 25 - 1 = 24.
+Step 3. Find time-outs for swearing, which is 1/3 of the food-throwing number: 24 / 3 = 8.
+Step 4. Find the total number of time-outs: 5 + 24 + 8 = 37.
+Step 5. Convert to minutes, because each time-out lasts 5 minutes: 37 x 5 = 185 minutes.
+Check: Minutes by type are 25 + 120 + 40 = 185 minutes, which matches.
+Answer: 185
+
+### train-124
+We need the grams of sugar used in two minutes.
+Step 1. Find how many bars are made in two minutes, because the rate is 36 bars per minute: 36 x 2 = 72 bars.
+Step 2. Find the sugar for those bars, because each bar needs 1.5 grams: 72 x 1.5 = 108 grams.
+Check: Sugar per minute is 36 x 1.5 = 54 grams, and 54 x 2 = 108 grams.
+Answer: 108
+
+### train-125
+We need how many females in the town wear glasses.
+Step 1. Find the number of females, because the 30% applies to females only, not to the whole town: 5000 - 2000 = 3000 females.
+Step 2. Convert 30% to a decimal: 30 / 100 = 0.3.
+Step 3. Find the females who wear glasses: 0.3 x 3000 = 900 females.
+Check: 900 is less than half of 3000, which fits 30 percent, and 900 / 3000 = 0.3.
+Answer: 900
+
+### train-126
+We need Ayla's phone bill for one month.
+Step 1. Convert the call length to minutes, because the charge is per minute: 1 hour = 60 minutes.
+Step 2. Find the cost of one call: 60 x 0.05 = 3 dollars.
+Step 3. Find the number of calls in a month. A month is taken as 4 weeks, and she talks to 50 customers a week: 50 x 4 = 200 calls.
+Step 4. Find the monthly bill: 200 x 3 = 600 dollars.
+Check: One week costs 50 x 3 = 150 dollars, and 150 x 4 = 600 dollars.
+Answer: 600
+
+### train-127
+We need how many suckers Jen ate. We work backwards from Callie.
+Step 1. Find how many Taylor had: she ate 1 and gave 5 to Callie, so 1 + 5 = 6 suckers.
+Step 2. Find how many Harmony had: she kept 3 and passed 6 to Taylor, so 3 + 6 = 9 suckers.
+Step 3. Find how many Molly had: she ate 2 and gave 9 to Harmony, so 2 + 9 = 11 suckers.
+Step 4. Jen gave the rest to Molly after eating half, so the 11 Molly got is the other half of Jen's suckers. That means Jen ate the same amount: 11 suckers.
+Check: Jen had 11 + 11 = 22, ate 11, gave 11; Molly 11 - 2 = 9; Harmony 9 - 3 = 6; Taylor 6 - 1 = 5 for Callie. It works.
+Answer: 11
+
+### train-128
+We need how many more cents Gina must tip on a 26 dollar bill to reach 20%.
+Step 1. Find Gina's actual tip. 5% as a decimal is 0.05, so 0.05 x 26 = 1.30 dollars.
+Step 2. Find a good tip. 20% as a decimal is 0.20, so 0.20 x 26 = 5.20 dollars.
+Step 3. Find the difference: 5.20 - 1.30 = 3.90 dollars.
+Step 4. Convert to cents, because the question asks in cents: 3.90 x 100 = 390 cents.
+Check: The gap is 20% - 5% = 15%, and 0.15 x 26 = 3.90 dollars, which is 390 cents.
+Answer: 390
+
+### train-129
+We need how much money Amelia has left after the three courses.
+Step 1. The first course costs 15 dollars.
+Step 2. Find the second course cost, which is 5 dollars more than the first: 15 + 5 = 20 dollars.
+Step 3. Find the dessert cost, which is 25% of the second course. 25% is 0.25, so 0.25 x 20 = 5 dollars.
+Step 4. Find the total spent: 15 + 20 + 5 = 40 dollars.
+Step 5. Subtract from her 60 dollars: 60 - 40 = 20 dollars.
+Check: 20 left + 40 spent = 60 dollars, her starting amount.
+Answer: 20
+
+### train-130
+We need the number of face-masks made in a four-hour shift.
+Step 1. Convert the first hour to minutes, because the rate is per minutes: 1 hour = 60 minutes.
+Step 2. Find masks made in the first hour, one every 4 minutes: 60 / 4 = 15 masks.
+Step 3. Find the remaining time: 4 - 1 = 3 hours, which is 3 x 60 = 180 minutes.
+Step 4. Find masks made in that time, one every 6 minutes: 180 / 6 = 30 masks.
+Step 5. Add both parts: 15 + 30 = 45 masks.
+Check: At the slower rate he makes 60 / 6 = 10 masks per hour, so 3 hours give 30, plus 15 from the first hour is 45.
+Answer: 45
+
+### train-131
+We need how many miles Michelle drives.
+Step 1. Let Katie's miles be K. Michelle drives 3 times that, so Michelle = 3K.
+Step 2. Tracy drives 20 more than twice Michelle: Tracy = 2 x 3K + 20 = 6K + 20.
+Step 3. The three amounts add up to 1000 miles: K + 3K + 6K + 20 = 1000, so 10K + 20 = 1000.
+Step 4. Subtract 20 from both sides: 10K = 980.
+Step 5. Divide by 10: K = 98 miles for Katie.
+Step 6. Find Michelle's miles: 3 x 98 = 294 miles.
+Check: Tracy drives 2 x 294 + 20 = 608 miles, and 98 + 294 + 608 = 1000 miles.
+Answer: 294
+
+### train-132
+We need the speed in miles per hour to cross 5 miles in 10 minutes.
+Step 1. Convert 10 minutes to hours, because the speed must be in miles per hour: 10 / 60 = 1/6 hour.
+Step 2. Speed is distance divided by time: 5 / (1/6) = 5 x 6 = 30 miles per hour.
+Check: In one hour there are 6 periods of 10 minutes, and 6 x 5 miles = 30 miles, so 30 miles per hour.
+Answer: 30
+
+### train-133
+We need the height of the smallest tree.
+Step 1. Find half the height of the tallest tree: 108 / 2 = 54 feet.
+Step 2. Find the middle tree, which is 6 feet less than that half: 54 - 6 = 48 feet.
+Step 3. Find the smallest tree, which is 1/4 of the middle tree: 48 / 4 = 12 feet.
+Check: 12 x 4 = 48, 48 + 6 = 54, and 54 x 2 = 108 feet, the tallest tree.
+Answer: 12
+
+### train-134
+We need how much more Frank pays than Eman.
+Step 1. Find Frank's share of the joystick, which is 1/4 of 20 dollars: 20 / 4 = 5 dollars.
+Step 2. Find Eman's share of the joystick, which is the rest: 20 - 5 = 15 dollars.
+Step 3. Find Frank's total: table 140 + joystick part 5 = 145 dollars.
+Step 4. Find Eman's total: chair 100 + joystick part 15 = 115 dollars.
+Step 5. Find the difference: 145 - 115 = 30 dollars.
+Check: Together they pay 145 + 115 = 260 dollars, which equals 140 + 100 + 20 = 260 dollars, the full cost.
+Answer: 30
+
+### train-135
+We need the total number of fruits George and Amelia pick.
+Step 1. George picks 45 oranges.
+Step 2. Amelia picks 15 apples.
+Step 3. Find George's apples, which is 5 more than Amelia's: 15 + 5 = 20 apples.
+Step 4. Find Amelia's oranges, which is 18 fewer than George's: 45 - 18 = 27 oranges.
+Step 5. Add all the fruit: 45 + 20 + 27 + 15 = 107 fruits.
+Check: George has 45 + 20 = 65 and Amelia has 27 + 15 = 42; 65 + 42 = 107.
+Answer: 107
+
+### train-136
+We need the original number.
+Step 1. Let the number be x. Doubling it and adding 5 gives 2x + 5.
+Step 2. Half of the original number is x / 2, and 20 more than that is x / 2 + 20.
+Step 3. Set them equal: 2x + 5 = x / 2 + 20.
+Step 4. Multiply both sides by 2 to remove the fraction: 4x + 10 = x + 40.
+Step 5. Subtract x from both sides: 3x + 10 = 40.
+Step 6. Subtract 10: 3x = 30.
+Step 7. Divide by 3: x = 10.
+Check: 2 x 10 + 5 = 25, and half of 10 is 5, with 5 + 20 = 25. Both sides match.
+Answer: 10
+
+### train-137
+We need the points per game Donovan must average in the remaining games.
+Step 1. Find the total points needed for the season, because an average of 30 over 20 games means 30 x 20 = 600 points.
+Step 2. Find the points scored so far: 26 x 15 = 390 points.
+Step 3. Find the points still needed: 600 - 390 = 210 points.
+Step 4. Find the games left: 20 - 15 = 5 games.
+Step 5. Divide to get the needed average: 210 / 5 = 42 points per game.
+Check: 390 + 42 x 5 = 390 + 210 = 600 points, and 600 / 20 = 30.
+Answer: 42
+
+### train-138
+We need the new price of the bicycle after a 15% increase.
+Step 1. Convert 15% to a decimal: 15 / 100 = 0.15.
+Step 2. Find the increase: 0.15 x 220 = 33 dollars.
+Step 3. Add the increase to the old price: 220 + 33 = 253 dollars.
+Check: The new price is 115% of the old one: 1.15 x 220 = 253 dollars.
+Answer: 253
+
+### train-139
+We need how many friends were with Ron.
+Step 1. Find how many people ate, because each person ate 4 of the 12 slices: 12 / 4 = 3 people.
+Step 2. Those 3 people include Ron himself, so subtract him to count only friends: 3 - 1 = 2 friends.
+Check: Ron and 2 friends are 3 people, and 3 x 4 = 12 slices, the whole pizza.
+Answer: 2
+
+### train-140
+We need the latest time Pete can leave to reach LA by 0900.
+Step 1. Find the total travel time. The train takes 1 hour 20 minutes, which is 60 + 20 = 80 minutes. Add the 10-minute walk: 80 + 10 = 90 minutes.
+Step 2. Convert to hours and minutes: 90 minutes = 1 hour 30 minutes.
+Step 3. Subtract from the arrival time: 0900 minus 1 hour is 0800, and 0800 minus 30 minutes is 0730.
+Step 4. Written as a number, 0730 is 730.
+Check: Leaving at 0730, he reaches the station at 0740, and 1 hour 20 minutes later it is 0900.
+Answer: 730
+
+### train-141
+We need the total grams of sand Jason needs.
+Step 1. Find the area of the rectangular patch: 6 x 7 = 42 square inches.
+Step 2. Find the area of the square patch: 5 x 5 = 25 square inches.
+Step 3. Find the total area: 42 + 25 = 67 square inches.
+Step 4. Find the sand needed, at 3 grams per square inch: 67 x 3 = 201 grams.
+Check: Blue sand is 42 x 3 = 126 grams and red sand is 25 x 3 = 75 grams; 126 + 75 = 201 grams.
+Answer: 201
+
+### train-142
+We need the cost of 2 slices of cake and 1 cup of milk tea.
+Step 1. Find the cost of one slice of cake, which is three-fourths of 2.40 dollars: 2.40 / 4 = 0.60, then 0.60 x 3 = 1.80 dollars.
+Step 2. Find the cost of 2 slices: 1.80 x 2 = 3.60 dollars.
+Step 3. Add one milk tea: 3.60 + 2.40 = 6 dollars.
+Check: Each cake slice is cheaper than the tea, so 2 slices plus a tea should be under 3 x 2.40 = 7.20 dollars, and 6 dollars is.
+Answer: 6
+
+### train-143
+We need the total cost of Francis's and Kiera's breakfast.
+Step 1. Find the muffins they ate together: 2 + 2 = 4 muffins.
+Step 2. Find the cost of the muffins: 4 x 2 = 8 dollars.
+Step 3. Find the fruit cups together: 2 + 1 = 3 fruit cups.
+Step 4. Find the cost of the fruit cups: 3 x 3 = 9 dollars.
+Step 5. Add both: 8 + 9 = 17 dollars.
+Check: Francis paid 2 x 2 + 2 x 3 = 10 dollars and Kiera paid 2 x 2 + 1 x 3 = 7 dollars; 10 + 7 = 17.
+Answer: 17
+
+### train-144
+We need the total miles Rick traveled over all legs of the trip.
+Step 1. Find the first leg. The third leg of 40 miles is half of the first leg, so the first leg is 40 x 2 = 80 miles.
+Step 2. Find the second leg, which is twice the first: 80 x 2 = 160 miles.
+Step 3. The third leg is 40 miles.
+Step 4. Find the sum of the first three legs: 80 + 160 + 40 = 280 miles.
+Step 5. Find the final leg, which is twice all the other legs together: 280 x 2 = 560 miles.
+Step 6. Add all legs for the total: 280 + 560 = 840 miles.
+Check: The final leg is two thirds of the total, and 840 x 2 / 3 = 560 miles, which matches.
+Answer: 840
+
+### train-145
+We need the total distance Mairead covered running, walking and jogging.
+Step 1. She runs 40 miles.
+Step 2. Find the walking distance, which is 3/5 of the running distance: 40 / 5 = 8, then 8 x 3 = 24 miles.
+Step 3. The last part means she jogs five times the miles she walked: 24 x 5 = 120 miles.
+Step 4. Add all three distances: 40 + 24 + 120 = 184 miles.
+Check: 184 - 120 = 64, and 64 - 24 = 40, the running distance.
+Answer: 184
+
+### train-146
+We need the length of the dog's tail.
+Step 1. Let the body length be B. The tail is B / 2 and the head is B / 6.
+Step 2. The overall length is body + tail + head: B + B/2 + B/6 = 30 inches.
+Step 3. Write each part in sixths: 6B/6 + 3B/6 + B/6 = 10B/6 = 30.
+Step 4. Solve for B: 10B = 180, so B = 18 inches.
+Step 5. Find the tail, which is half the body: 18 / 2 = 9 inches.
+Check: The head is 18 / 6 = 3 inches, and 18 + 9 + 3 = 30 inches.
+Answer: 9
+
+### train-147
+We need the number of trees the lumberjack chopped down.
+Step 1. Find the pieces of firewood from one tree, because each tree gives 4 logs and each log gives 5 pieces: 4 x 5 = 20 pieces per tree.
+Step 2. Divide the total pieces by the pieces per tree: 500 / 20 = 25 trees.
+Check: 25 trees x 4 = 100 logs, and 100 logs x 5 = 500 pieces.
+Answer: 25
+
+### train-148
+We need the total pounds of food Peter buys.
+Step 1. Chicken: 16 pounds.
+Step 2. Find the hamburgers, which are half the chicken: 16 / 2 = 8 pounds.
+Step 3. Find the hot dogs, which are 2 pounds more than the hamburgers: 8 + 2 = 10 pounds.
+Step 4. Find the sides, which weigh half the hot dogs: 10 / 2 = 5 pounds.
+Step 5. Add everything: 16 + 8 + 10 + 5 = 39 pounds.
+Check: 39 - 5 = 34, 34 - 10 = 24, 24 - 8 = 16, the chicken.
+Answer: 39
+
+### train-149
+We need the average price per DVD Duke bought.
+Step 1. Find the cost of the first box movies: 10 x 2 = 20 dollars.
+Step 2. Find the cost of the second box movies: 5 x 5 = 25 dollars.
+Step 3. Find the total cost: 20 + 25 = 45 dollars.
+Step 4. Find the total number of DVDs: 10 + 5 = 15 DVDs.
+Step 5. Average price is total cost divided by number of DVDs: 45 / 15 = 3 dollars.
+Check: The average must lie between 2 and 5 dollars, closer to 2 since more DVDs cost 2; 3 dollars fits, and 15 x 3 = 45.
+Answer: 3
+
+### train-150
+We need the number of coconut flavored jelly beans.
+Step 1. Find the number of red jelly beans, which is three fourths of all 4000: 4000 / 4 = 1000, then 1000 x 3 = 3000 red jelly beans.
+Step 2. Find the coconut ones. The quarter is a quarter of the red jelly beans, not of the whole jar: 3000 / 4 = 750 jelly beans.
+Check: Coconut beans are 3/4 x 1/4 = 3/16 of the jar, and 4000 x 3 / 16 = 750.
+Answer: 750
+
+### train-151
+We need the amount Mr. Eithan kept in the savings account.
+Step 1. Find the wife's share, 2/5 of 2000: 2000 / 5 = 400, then 400 x 2 = 800 dollars.
+Step 2. Find what remains, because the next share is a fraction of the remaining amount: 2000 - 800 = 1200 dollars.
+Step 3. Find the first son's share, 2/5 of 1200: 1200 / 5 = 240, then 240 x 2 = 480 dollars.
+Step 4. Find what remains: 1200 - 480 = 720 dollars.
+Step 5. Find the second son's share, 40% of the remaining 720. 40% is 0.40, so 0.40 x 720 = 288 dollars.
+Step 6. Find what is left for savings: 720 - 288 = 432 dollars.
+Check: 800 + 480 + 288 + 432 = 2000 dollars, the whole check.
+Answer: 432
+
+### train-152
+We need the total pencils Donna and Marcia bought.
+Step 1. Find how many pencils Cindi bought, because she spent 30 dollars on pencils costing 0.50 dollars each: 30 / 0.50 = 60 pencils.
+Step 2. Find Marcia's pencils, which is double Cindi's: 60 x 2 = 120 pencils.
+Step 3. Find Donna's pencils, which is 3 times Marcia's: 120 x 3 = 360 pencils.
+Step 4. Add Donna and Marcia only, since the question does not include Cindi: 360 + 120 = 480 pencils.
+Check: Donna and Marcia together have 4 times Marcia's amount: 4 x 120 = 480.
+Answer: 480
+
+### train-153
+We need the total number of beanie babies Lori and Sydney have.
+Step 1. Find Sydney's number, because Lori has 15 times as many: 300 / 15 = 20 beanie babies.
+Step 2. Add both amounts: 300 + 20 = 320 beanie babies.
+Check: 20 x 15 = 300, which is Lori's amount, and together they have 16 x 20 = 320.
+Answer: 320
+
+### train-154
+We need how many tickets Alan handed out.
+Step 1. Let Alan's tickets be A. Marcy handed out 6 fewer than 5 times that: 5A - 6.
+Step 2. Together they handed out 150: A + 5A - 6 = 150, so 6A - 6 = 150.
+Step 3. Add 6 to both sides: 6A = 156.
+Step 4. Divide by 6: A = 26 tickets.
+Check: Marcy gave 5 x 26 - 6 = 124 tickets, and 26 + 124 = 150 tickets.
+Answer: 26
+
+### train-155
+We need the number of cars parked without paying.
+Step 1. Find the cars with valid tickets. 75% is 0.75, so 0.75 x 300 = 225 cars.
+Step 2. Find the cars with permanent passes, which is 1/5 of the valid ticket number (not of all cars): 225 / 5 = 45 cars.
+Step 3. Find all cars that paid: 225 + 45 = 270 cars.
+Step 4. Find the cars that did not pay: 300 - 270 = 30 cars.
+Check: 30 + 270 = 300 cars in the lot.
+Answer: 30
+
+### train-156
+We need the total cost of all of John's art.
+Step 1. Find the price of one of the first pieces, because 3 pieces cost 45000 dollars together: 45000 / 3 = 15000 dollars each.
+Step 2. Find how much more the next piece cost. 50% is 0.5, so 0.5 x 15000 = 7500 dollars more.
+Step 3. Find the price of the next piece: 15000 + 7500 = 22500 dollars.
+Step 4. Add it to the first three: 45000 + 22500 = 67500 dollars.
+Check: The four pieces equal 1 + 1 + 1 + 1.5 = 4.5 times 15000, and 4.5 x 15000 = 67500.
+Answer: 67500
+
+### train-157
+We need the total number of blocks Annie traveled.
+Step 1. Find the blocks for the trip to the coffee shop, walking then riding: 5 + 7 = 12 blocks.
+Step 2. She came home the same way, so the return trip is also 12 blocks. Double the one-way distance: 12 x 2 = 24 blocks.
+Check: Walking total is 5 x 2 = 10 and bus total is 7 x 2 = 14; 10 + 14 = 24 blocks.
+Answer: 24
+
+### train-158
+We need the acres of Joyce's new land that can grow vegetables.
+Step 1. Find the size of the new property, which is 10 times the old 2 acres: 2 x 10 = 20 acres.
+Step 2. Subtract the pond, where nothing can grow: 20 - 1 = 19 acres.
+Check: 19 usable acres plus 1 acre of pond is 20 acres, ten times the old 2 acres.
+Answer: 19
+
+### train-159
+We need the total number of hotdogs Matthew must cook.
+Step 1. Ella and Emma want 2 each, so the sisters together want 2 + 2 = 4 hotdogs.
+Step 2. Find Luke's amount. He eats twice as much as each sister: 2 x 2 = 4 hotdogs.
+Step 3. Find Hunter's amount, which is 1 and a half times the total of his sisters: 1.5 x 4 = 6 hotdogs.
+Step 4. Add everyone: 4 + 4 + 6 = 14 hotdogs.
+Check: 14 - 6 = 8, 8 - 4 = 4, the sisters' total, so the parts add up.
+Answer: 14
+
+### train-160
+We need how many more calories per dollar the burgers give than the burritos.
+Step 1. Find the burrito calories: 10 x 120 = 1200 calories.
+Step 2. Find calories per dollar for burritos, since they cost 6 dollars: 1200 / 6 = 200 calories per dollar.
+Step 3. Find the burger calories: 5 x 400 = 2000 calories.
+Step 4. Find calories per dollar for burgers, since they cost 8 dollars: 2000 / 8 = 250 calories per dollar.
+Step 5. Find the difference: 250 - 200 = 50 calories per dollar.
+Check: 250 x 8 = 2000 and 200 x 6 = 1200, so both rates are right, and 250 is 50 more than 200.
+Answer: 50
+
+### train-161
+We need how much money was in the cookie jar at first.
+Step 1. Doris spent 6 dollars.
+Step 2. Find Martha's spending, which is half of Doris's: 6 / 2 = 3 dollars.
+Step 3. Find the total spent: 6 + 3 = 9 dollars.
+Step 4. Add what is left to what was spent to get the starting amount: 15 + 9 = 24 dollars.
+Check: 24 - 6 - 3 = 15 dollars, which is what remained.
+Answer: 24
+
+### train-162
+We need how many cards each player gets.
+Step 1. Find the total cards after adding two: 52 + 2 = 54 cards.
+Step 2. Count the players: Aubrey plus two others is 1 + 2 = 3 players.
+Step 3. Split the cards evenly: 54 / 3 = 18 cards each.
+Check: 18 x 3 = 54 cards, the whole deck.
+Answer: 18
+
+### train-163
+We need the money Nathan makes selling his baskets.
+Step 1. Find the strawberries: 5 plants x 14 = 70 strawberries.
+Step 2. Find the strawberry baskets, 7 per basket: 70 / 7 = 10 baskets.
+Step 3. Find strawberry money: 10 x 9 = 90 dollars.
+Step 4. Find the tomatoes: 7 plants x 16 = 112 tomatoes.
+Step 5. Find the tomato baskets: 112 / 7 = 16 baskets.
+Step 6. Find tomato money: 16 x 6 = 96 dollars.
+Step 7. Add both: 90 + 96 = 186 dollars.
+Check: 186 - 96 = 90, and 90 / 9 = 10 baskets, matching the strawberry count.
+Answer: 186
+
+### train-164
+We need the pounds of feed Randy's pigs eat in a week.
+Step 1. Find the feed per day for both pigs, at 10 pounds per pig: 10 x 2 = 20 pounds per day.
+Step 2. Find the feed per week, since a week has 7 days: 20 x 7 = 140 pounds.
+Check: One pig eats 10 x 7 = 70 pounds a week, and two pigs eat 70 x 2 = 140 pounds.
+Answer: 140
+
+### train-165
+We need how many peanuts Darma can eat in 6 minutes.
+Step 1. Convert 6 minutes to seconds, because the rate is given per 15 seconds: 6 x 60 = 360 seconds.
+Step 2. Find how many 15-second periods fit in 360 seconds: 360 / 15 = 24 periods.
+Step 3. She eats 20 peanuts in each period: 24 x 20 = 480 peanuts.
+Check: In one minute she eats 4 x 20 = 80 peanuts, and 80 x 6 = 480 peanuts.
+Answer: 480
+
+### train-166
+We need the number of parents who rated Needs Improvement.
+Step 1. Find the percent who rated Excellent or Very Satisfactory: 15 + 60 = 75 percent.
+Step 2. Find the remaining percent: 100 - 75 = 25 percent.
+Step 3. Find how many parents that is. 25% is 0.25, so 0.25 x 120 = 30 parents.
+Step 4. Find those who rated Satisfactory, which is 80% of the remaining 30, not of all 120: 0.80 x 30 = 24 parents.
+Step 5. The rest rated Needs Improvement: 30 - 24 = 6 parents.
+Check: 6 is 20% of the remaining 30, since 0.20 x 30 = 6, and 80% + 20% = 100% of the remainder.
+Answer: 6
+
+### train-167
+We need the number of pencils Ashton has left.
+Step 1. Find the pencils he started with, 2 boxes of 14: 2 x 14 = 28 pencils.
+Step 2. Subtract the 6 pencils he gave to his brother, because giving pencils away lowers how many he has: 28 - 6 = 22 pencils.
+Check: If he gave the 6 pencils from one box, that box would have 14 - 6 = 8 left, and 8 + 14 = 22 pencils, which matches.
+Answer: 22
+
+### train-168
+We need the average pages per day the second-place reader read.
+Step 1. Find the pages DeShaun read: 60 books x 320 pages = 19200 pages.
+Step 2. Find the pages the second person read, which is 75% of DeShaun's. 75% is 0.75, so 0.75 x 19200 = 14400 pages.
+Step 3. Find the pages per day over the 80-day break: 14400 / 80 = 180 pages per day.
+Check: DeShaun read 19200 / 80 = 240 pages a day, and 75% of 240 is 180.
+Answer: 180
+
+### train-169
+We need how many more dollars per month the company must make.
+Step 1. Find the monthly amount needed for 60000 dollars a year, since a year has 12 months: 60000 / 12 = 5000 dollars per month.
+Step 2. Subtract what they make now: 5000 - 4000 = 1000 dollars more per month.
+Check: Currently they make 4000 x 12 = 48000 a year; the extra 1000 x 12 = 12000 brings it to 60000.
+Answer: 1000
+
+### train-170
+We need the number of full parking spots in the garage.
+Step 1. Find the total spots: 4 levels x 100 = 400 spots.
+Step 2. Open spots on level 1: 58.
+Step 3. Open spots on level 2, 2 more than level 1: 58 + 2 = 60.
+Step 4. Open spots on level 3, 5 more than level 2: 60 + 5 = 65.
+Step 5. Open spots on level 4: 31.
+Step 6. Find all open spots: 58 + 60 + 65 + 31 = 214.
+Step 7. Find the full spots, since every spot is open or full: 400 - 214 = 186.
+Check: 186 full + 214 open = 400 spots.
+Answer: 186
+
+### train-171
+We need the sum of the numbers on the four cards.
+Step 1. W is 200.
+Step 2. Find X, which is half of W: 200 / 2 = 100.
+Step 3. Find Y, which is the total of X and W: 100 + 200 = 300.
+Step 4. Z is 400.
+Step 5. Add all four: 200 + 100 + 300 + 400 = 1000.
+Check: W, X and Y together are 300 + 300 = 600, and 600 + 400 = 1000.
+Answer: 1000
+
+### train-172
+We need the number of daisies Kylie has left.
+Step 1. Find how many she has after her sister's gift: 5 + 9 = 14 daisies.
+Step 2. She gives half of all her daisies (not half of the original 5) to her mother, so she keeps the other half: 14 / 2 = 7 daisies.
+Check: 7 kept plus 7 given to her mother = 14 daisies, which is 5 + 9.
+Answer: 7
+
+### train-173
+We need the total cost of painting the house, which is the sum of all contributions.
+Step 1. Judson contributed 500 dollars.
+Step 2. Find how much more Kenny gave. 20% is 0.20, so 0.20 x 500 = 100 dollars more.
+Step 3. Find Kenny's contribution: 500 + 100 = 600 dollars.
+Step 4. Find Camilo's, which is 200 dollars more than Kenny's: 600 + 200 = 800 dollars.
+Step 5. Add all three: 500 + 600 + 800 = 1900 dollars.
+Check: 1900 - 800 = 1100, and 1100 - 600 = 500, Judson's amount.
+Answer: 1900
+
+### train-174
+We need the interest charged in the second month.
+Step 1. Find the first month's interest. 10% is 0.10, so 0.10 x 200 = 20 dollars.
+Step 2. Find the new loan total, because compounding adds this interest to the loan: 200 + 20 = 220 dollars.
+Step 3. Find the second month's interest on the new total: 0.10 x 220 = 22 dollars.
+Check: The second month's interest is a bit more than the first month's 20 dollars, as it should be with compounding.
+Answer: 22
+
+### train-175
+We need how many extra hours it takes to go 240 more miles.
+Step 1. Find the train's speed: 360 miles / 3 hours = 120 miles per hour.
+Step 2. Find the time for 240 miles at that speed: 240 / 120 = 2 hours.
+Check: 120 x 2 = 240 miles, so 2 hours is right.
+Answer: 2
+
+### train-176
+We need Carl's weight.
+Step 1. Find Al's weight. Ed weighs 146 pounds and is 38 pounds lighter than Al, so Al is heavier: 146 + 38 = 184 pounds.
+Step 2. Find Ben's weight. Al is 25 pounds heavier than Ben, so Ben is lighter: 184 - 25 = 159 pounds.
+Step 3. Find Carl's weight. Ben is 16 pounds lighter than Carl, so Carl is heavier: 159 + 16 = 175 pounds.
+Check: 175 - 16 = 159 for Ben, 159 + 25 = 184 for Al, and 184 - 38 = 146 for Ed.
+Answer: 175
+
+### train-177
+We need how many days 100 rabbits take to clear Wendi's grassland.
+Step 1. Find the area in square feet: 200 x 900 = 180000 square feet.
+Step 2. Convert to square yards, because the rabbit rate is in square yards. One square yard is 3 x 3 = 9 square feet: 180000 / 9 = 20000 square yards.
+Step 3. Find how much all the rabbits clear per day: 100 x 10 = 1000 square yards per day.
+Step 4. Find the days needed: 20000 / 1000 = 20 days.
+Check: 1000 square yards a day for 20 days is 20000 square yards, which is 180000 square feet.
+Answer: 20
+
+### train-178
+We need how much money Maci pays for the pens.
+Step 1. Convert the blue pen price to dollars: 10 cents = 0.10 dollars.
+Step 2. Find the cost of the blue pens: 10 x 0.10 = 1 dollar.
+Step 3. Find the price of a red pen, which is twice a blue pen: 0.10 x 2 = 0.20 dollars.
+Step 4. Find the cost of the red pens: 15 x 0.20 = 3 dollars.
+Step 5. Add both: 1 + 3 = 4 dollars.
+Check: In cents, 10 x 10 + 15 x 20 = 100 + 300 = 400 cents, which is 4 dollars.
+Answer: 4
+
+### train-179
+We need the year the third car was made.
+Step 1. Find the second car's year. The first car, from 1970, was made 10 years earlier than the second, so the second is later: 1970 + 10 = 1980.
+Step 2. Find the third car's year, 20 years after the second: 1980 + 20 = 2000.
+Check: 2000 is 30 years after 1970, and 10 + 20 = 30 years.
+Answer: 2000
+
+### train-180
+We need how much James paid for the beef.
+Step 1. Find the total weight: 5 packs x 4 pounds = 20 pounds.
+Step 2. Find the cost, at 5.50 dollars per pound: 20 x 5.50 = 110 dollars.
+Check: One pack costs 4 x 5.50 = 22 dollars, and 5 packs cost 22 x 5 = 110 dollars.
+Answer: 110
+
+### train-181
+We need the number of days until the roof collapses.
+Step 1. Find how many leaves make 500 pounds, since 1000 leaves weigh 1 pound: 500 x 1000 = 500000 leaves.
+Step 2. Find the days for that many leaves to fall, at 100 leaves per day: 500000 / 100 = 5000 days.
+Check: Each day adds 100 / 1000 = 0.1 pounds, and 500 / 0.1 = 5000 days.
+Answer: 5000
+
+### train-182
+We need the total minutes Luke and Paula spend commuting to work and back in a day.
+Step 1. Luke's bus ride to work takes 70 minutes.
+Step 2. Find Paula's bus ride, which is 3/5 of Luke's time: 70 / 5 = 14, then 14 x 3 = 42 minutes.
+Step 3. Find Luke's bike ride home. Being 5 times slower means it takes 5 times as long: 70 x 5 = 350 minutes.
+Step 4. Paula takes the bus home too, so her trip back is also 42 minutes.
+Step 5. Add all four trips: 70 + 42 + 350 + 42 = 504 minutes.
+Check: Luke spends 70 + 350 = 420 minutes and Paula 42 + 42 = 84 minutes; 420 + 84 = 504.
+Answer: 504
+
+### train-183
+We need the percent of all the snowballs that Janet made.
+Step 1. Find the total snowballs: 50 + 150 = 200 snowballs.
+Step 2. Find Janet's share as a fraction of the total: 50 / 200 = 0.25.
+Step 3. Convert to a percent: 0.25 x 100 = 25 percent.
+Check: Her brother made 150 / 200 = 75 percent, and 25 + 75 = 100 percent.
+Answer: 25
+
+### train-184
+We need the hours Carl drives in two weeks after his promotion.
+Step 1. Find his regular weekly hours: 2 hours a day x 7 days = 14 hours.
+Step 2. Add the 6 extra weekly hours: 14 + 6 = 20 hours per week.
+Step 3. Find two weeks of driving: 20 x 2 = 40 hours.
+Check: Over 14 days he drives 2 x 14 = 28 hours plus 6 x 2 = 12 extra hours; 28 + 12 = 40.
+Answer: 40
+
+### train-185
+We need the total length of Tim's trip.
+Step 1. He drove for 5 hours.
+Step 2. Find the time in traffic, which is twice the driving time: 5 x 2 = 10 hours.
+Step 3. Add both to get the whole trip: 5 + 10 = 15 hours.
+Check: The trip is 3 times the driving time, and 3 x 5 = 15 hours.
+Answer: 15
+
+### train-186
+We need the money earned from ticket sales.
+Step 1. Find the number of seats: 20 rows x 10 seats = 200 seats.
+Step 2. Find the seats sold, 3/4 of 200: 200 / 4 = 50, then 50 x 3 = 150 seats.
+Step 3. Find the money earned, at 10 dollars a ticket: 150 x 10 = 1500 dollars.
+Check: A full house would earn 200 x 10 = 2000 dollars, and 3/4 of 2000 is 1500 dollars.
+Answer: 1500
+
+### train-187
+We need the cost of feeding Sylvie's turtles.
+Step 1. Find how many half pounds are in 30 pounds, because food is measured per half pound: 30 / 0.5 = 60 half pounds.
+Step 2. Find the food needed, 1 ounce per half pound: 60 x 1 = 60 ounces.
+Step 3. Find the number of jars, at 15 ounces each: 60 / 15 = 4 jars.
+Step 4. Find the cost at 2 dollars a jar: 4 x 2 = 8 dollars.
+Check: 1 ounce per half pound is 2 ounces per pound, and 30 x 2 = 60 ounces, which is 4 jars.
+Answer: 8
+
+### train-188
+We need Mrs. Lim's revenue from the milk she sold.
+Step 1. Find this morning's milk, 18 gallons fewer than yesterday morning's 68: 68 - 18 = 50 gallons.
+Step 2. Find all the milk collected: 68 + 82 + 50 = 200 gallons.
+Step 3. Find the milk sold, because 24 gallons were left: 200 - 24 = 176 gallons.
+Step 4. Find the revenue at 3.50 dollars per gallon: 176 x 3.50 = 616 dollars.
+Check: 616 / 3.50 = 176 gallons, and 176 + 24 = 200 gallons collected.
+Answer: 616
+
+### train-189
+We need the total servings of vegetables from all three plots.
+Step 1. Each carrot plant produces 4 servings.
+Step 2. Find servings per corn plant, 5 times a carrot: 4 x 5 = 20 servings.
+Step 3. Find servings per green bean plant, half of a corn plant: 20 / 2 = 10 servings.
+Step 4. Find servings from the carrot plot, 9 plants: 9 x 4 = 36 servings.
+Step 5. Find servings from the corn plot: 9 x 20 = 180 servings.
+Step 6. Find servings from the green bean plot: 9 x 10 = 90 servings.
+Step 7. Add the plots: 36 + 180 + 90 = 306 servings.
+Check: One plant of each type gives 4 + 20 + 10 = 34 servings, and 34 x 9 = 306.
+Answer: 306
+
+### train-190
+We need the number of questions Grayson leaves unanswered.
+Step 1. Convert 2 hours to minutes, because each answer takes minutes: 2 x 60 = 120 minutes.
+Step 2. Find how many questions he answered, at 2 minutes each: 120 / 2 = 60 questions.
+Step 3. Find the unanswered questions: 100 - 60 = 40 questions.
+Check: 60 answers x 2 minutes = 120 minutes, which is 2 hours, and 60 + 40 = 100 questions.
+Answer: 40
+
+### train-191
+We need the percent of the fruit that is apples after Emily adds oranges.
+Step 1. Find the new number of oranges: 5 + 5 = 10 oranges.
+Step 2. The apples stay at 10.
+Step 3. Find the total fruit: 10 + 10 = 20 pieces.
+Step 4. Find the apple share: 10 / 20 = 0.5, and 0.5 x 100 = 50 percent.
+Check: Apples and oranges are now equal in number, so each must be half, which is 50 percent.
+Answer: 50
+
+### train-192
+We need how much Coco pays for running the oven 25 hours.
+Step 1. Find the energy used. The oven uses 2.4 kWh each hour, so for 25 hours: 2.4 x 25 = 60 kWh.
+Step 2. Find the cost at 0.10 dollars per kWh: 60 x 0.10 = 6 dollars.
+Check: One hour costs 2.4 x 0.10 = 0.24 dollars, and 0.24 x 25 = 6 dollars.
+Answer: 6
+
+### train-193
+We need how many people fit on the raft when 8 of them wear life jackets.
+Step 1. Find the capacity if everyone wears a life jacket: 21 - 7 = 14 people.
+Step 2. Find how much room one person with a jacket takes, measured in "no-jacket person" spaces. The raft holds 21 spaces, and 14 jacketed people fill it: 21 / 14 = 1.5 spaces each.
+Step 3. Find the room used by the 8 people with jackets: 8 x 1.5 = 12 spaces.
+Step 4. Find the room left for people without jackets: 21 - 12 = 9 spaces, so 9 more people.
+Step 5. Add both groups: 8 + 9 = 17 people.
+Check: 8 x 1.5 + 9 x 1 = 12 + 9 = 21 spaces, exactly the raft's room.
+Answer: 17
+
+### train-194
+We need how much money Arthur has left.
+Step 1. Find how much he spends, four-fifths of 200: 200 / 5 = 40, then 40 x 4 = 160 dollars.
+Step 2. Subtract from what he had: 200 - 160 = 40 dollars.
+Check: He keeps one fifth of his money, and 200 / 5 = 40 dollars.
+Answer: 40
+
+### train-195
+We need how many yards of floss are left over.
+Step 1. Find the floss needed for the class: 20 students x 1.5 yards = 30 yards.
+Step 2. Find the fewest packets needed. One packet has 35 yards, which is more than 30, so 1 packet is enough.
+Step 3. Find the leftover floss: 35 - 30 = 5 yards.
+Check: 30 yards used plus 5 left = 35 yards, one packet.
+Answer: 5
+
+### train-196
+We need the average temperature over the 3 days.
+Step 1. Add the temperatures, keeping the signs: -14 + (-8) = -22, then -22 + 1 = -21 degrees.
+Step 2. Divide by the number of days: -21 / 3 = -7 degrees.
+Check: The average should lie between the lowest, -14, and the highest, +1; -7 does, and -7 x 3 = -21.
+Answer: -7
+
+### train-197
+We need the total number of flowers for all 10 centerpieces.
+Step 1. Find the lilies per arrangement, twice the 3 snapdragons: 3 x 2 = 6 lilies.
+Step 2. Find the flowers in one arrangement: 8 + 12 + 3 + 6 = 29 flowers.
+Step 3. Find the flowers for 10 tables: 29 x 10 = 290 flowers.
+Check: Roses 80 + daisies 120 + snapdragons 30 + lilies 60 = 290 flowers.
+Answer: 290
+
+### train-198
+We need the total minutes Missy takes to serve dinner to all 12 patients.
+Step 1. Find the special-diet patients, one-third of 12: 12 / 3 = 4 patients.
+Step 2. Find the standard patients: 12 - 4 = 8 patients.
+Step 3. Find the time for standard patients: 8 x 5 = 40 minutes.
+Step 4. Find the serving time for a special patient, 20% longer than 5 minutes. 20% is 0.20, so 0.20 x 5 = 1 extra minute, and 5 + 1 = 6 minutes.
+Step 5. Find the time for special patients: 4 x 6 = 24 minutes.
+Step 6. Add both: 40 + 24 = 64 minutes.
+Check: Serving all 12 at 5 minutes would take 60 minutes; the 4 special patients add 4 x 1 = 4 minutes, giving 64.
+Answer: 64
+
+### train-199
+We need how much John spends on haircuts in a year.
+Step 1. Find how much hair grows between cuts. He cuts from 9 inches down to 6, so it must grow 9 - 6 = 3 inches.
+Step 2. Find the months between haircuts, at 1.5 inches per month: 3 / 1.5 = 2 months.
+Step 3. Find the haircuts per year: 12 / 2 = 6 haircuts.
+Step 4. Find the tip. 20% is 0.20, so 0.20 x 45 = 9 dollars.
+Step 5. Find the cost of one haircut with tip: 45 + 9 = 54 dollars.
+Step 6. Find the yearly cost: 6 x 54 = 324 dollars.
+Check: Without tips the year costs 6 x 45 = 270 dollars, and 1.2 x 270 = 324 dollars.
+Answer: 324
+
+### train-200
+We need what Kath pays for all the movie tickets.
+Step 1. Find the ticket price. The movie starts at 4 P.M., before 6 P.M., so it is 3 dollars less: 8 - 3 = 5 dollars.
+Step 2. Count the people. Kath herself, 2 siblings and 3 friends: 1 + 2 + 3 = 6 people.
+Step 3. Find the total: 6 x 5 = 30 dollars.
+Check: At the full price 6 tickets would cost 48 dollars, and saving 6 x 3 = 18 gives 48 - 18 = 30.
+Answer: 30
+
+### train-201
+We need how many burger slices are left for Era.
+Step 1. Find the total slices, since each of the 5 burgers is cut in halves: 5 x 2 = 10 slices.
+Step 2. Find what the friends got: 1 + 2 + 3 + 3 = 9 slices.
+Step 3. Find what is left: 10 - 9 = 1 slice.
+Check: 9 slices for friends plus 1 for Era = 10 slices, all 5 burgers.
+Answer: 1
+
+### train-202
+We need the hours Jennifer spends grooming in 30 days.
+Step 1. Find the minutes per day for 2 dogs at 20 minutes each: 2 x 20 = 40 minutes.
+Step 2. Find the minutes for 30 days: 40 x 30 = 1200 minutes.
+Step 3. Convert to hours, because the question asks in hours: 1200 / 60 = 20 hours.
+Check: 40 minutes is 2/3 of an hour, and 2/3 x 30 = 20 hours.
+Answer: 20
+
+### train-203
+We need how many weeks Austin must work to afford the bicycle.
+Step 1. Find his hours per week: 2 + 1 + 3 = 6 hours.
+Step 2. Find his weekly pay at 5 dollars an hour: 6 x 5 = 30 dollars.
+Step 3. Find the weeks needed: 180 / 30 = 6 weeks.
+Check: 6 weeks x 30 dollars = 180 dollars, the bicycle's price.
+Answer: 6
+
+### train-204
+We need the theater's total money on Friday from tickets and popcorn.
+Step 1. Matinee tickets: 32 x 5 = 160 dollars.
+Step 2. Evening tickets: 40 x 7 = 280 dollars.
+Step 3. Opening night tickets: 58 x 10 = 580 dollars.
+Step 4. Total ticket money: 160 + 280 + 580 = 1020 dollars.
+Step 5. Find the total customers: 32 + 40 + 58 = 130 customers.
+Step 6. Find the popcorn buyers, half of all customers: 130 / 2 = 65.
+Step 7. Popcorn money: 65 x 10 = 650 dollars.
+Step 8. Add tickets and popcorn: 1020 + 650 = 1670 dollars.
+Check: 1670 - 650 = 1020, the ticket money.
+Answer: 1670
+
+### train-205
+We need how much the aunt gave each sister.
+Step 1. Find Julia's money, half of Jade's 38 dollars: 38 / 2 = 19 dollars.
+Step 2. Find their combined money before the gift: 38 + 19 = 57 dollars.
+Step 3. Find the total the aunt gave: 97 - 57 = 40 dollars.
+Step 4. Split it equally between the 2 sisters: 40 / 2 = 20 dollars each.
+Check: Jade has 38 + 20 = 58, Julia has 19 + 20 = 39, and 58 + 39 = 97 dollars.
+Answer: 20
+
+### train-206
+We need the number of marbles of the fourth color.
+Step 1. Red marbles: 20.
+Step 2. Find the green marbles, three times the red: 20 x 3 = 60.
+Step 3. Find the yellow marbles, 20% of the green. 20% is 0.20, so 0.20 x 60 = 12.
+Step 4. Find the total, three times the green: 60 x 3 = 180 marbles.
+Step 5. Find red, green and yellow together: 20 + 60 + 12 = 92.
+Step 6. The rest are the other color: 180 - 92 = 88 marbles.
+Check: 20 + 60 + 12 + 88 = 180 marbles.
+Answer: 88
+
+### train-207
+We need how much money Ravi has, in cents.
+Step 1. Nickels: 6.
+Step 2. Find the quarters, 2 more than nickels: 6 + 2 = 8 quarters.
+Step 3. Find the dimes, 4 more than quarters: 8 + 4 = 12 dimes.
+Step 4. Find the nickel value at 5 cents each: 6 x 5 = 30 cents.
+Step 5. Find the quarter value at 25 cents each: 8 x 25 = 200 cents.
+Step 6. Find the dime value at 10 cents each: 12 x 10 = 120 cents.
+Step 7. Add the values: 30 + 200 + 120 = 350 cents.
+Check: 350 cents is 3.50 dollars, and 0.30 + 2.00 + 1.20 = 3.50 dollars.
+Answer: 350
+
+### train-208
+We need how many cookies were thrown on the floor.
+Step 1. Find the cookies Alice baked: 74 + 5 = 79 cookies.
+Step 2. Find the cookies Bob baked: 7 + 36 = 43 cookies.
+Step 3. Find all cookies baked: 79 + 43 = 122 cookies.
+Step 4. Subtract the edible ones to find the ones on the floor: 122 - 93 = 29 cookies.
+Check: 93 edible plus 29 dropped = 122 cookies baked.
+Answer: 29
+
+### train-209
+We need Kira's total time from the first to the third station, in minutes.
+Step 1. Find the travel time. She goes from station 1 to 2 and from 2 to 3, each 2 hours: 2 + 2 = 4 hours.
+Step 2. Convert to minutes: 4 x 60 = 240 minutes.
+Step 3. Add the 30-minute break: 240 + 30 = 270 minutes.
+Check: 270 minutes is 4 hours 30 minutes, which is 4 hours of travel plus half an hour of rest.
+Answer: 270
+
+### train-210
+We need how much of Ben's 1496 dollar bonus is left after the three expenses.
+Step 1. Kitchen, 1/22 of 1496: 1496 / 22 = 68 dollars.
+Step 2. Holidays, 1/4 of 1496: 1496 / 4 = 374 dollars.
+Step 3. Christmas gifts, 1/8 of 1496: 1496 / 8 = 187 dollars.
+Step 4. Find the total spent: 68 + 374 + 187 = 629 dollars.
+Step 5. Find what is left: 1496 - 629 = 867 dollars.
+Check: 867 + 629 = 1496 dollars, the whole bonus.
+Answer: 867
+
+### train-211
+We need how many gallons are still missing from the 350000 gallon tank.
+Step 1. Find the loss in the first 5 hours: 32000 x 5 = 160000 gallons.
+Step 2. Find the loss in the next 10 hours: 10000 x 10 = 100000 gallons.
+Step 3. Find the total lost: 160000 + 100000 = 260000 gallons.
+Step 4. Find the water added in 3 hours of filling: 40000 x 3 = 120000 gallons.
+Step 5. Find what is still missing: 260000 - 120000 = 140000 gallons.
+Check: The tank now holds 350000 - 260000 + 120000 = 210000 gallons, and 350000 - 210000 = 140000.
+Answer: 140000
+
+### train-212
+We need how many pencils Autumn has left.
+Step 1. She starts with 20 pencils.
+Step 2. Subtract the 7 misplaced ones: 20 - 7 = 13 pencils.
+Step 3. Subtract the 3 broken ones she threw away: 13 - 3 = 10 pencils.
+Step 4. Add the 4 she found: 10 + 4 = 14 pencils.
+Step 5. Add the 2 she bought: 14 + 2 = 16 pencils.
+Check: She lost 7 + 3 = 10 and gained 4 + 2 = 6, a net loss of 4, and 20 - 4 = 16.
+Answer: 16
+
+### train-213
+We need how many weeks James takes to write a 735-page book.
+Step 1. Find the hours he writes each night, from 1 PM to 4 PM: 4 - 1 = 3 hours.
+Step 2. Find the pages per night at 5 pages per hour: 3 x 5 = 15 pages.
+Step 3. Find the pages per week, since he writes every night, 7 nights: 15 x 7 = 105 pages.
+Step 4. Find the weeks needed: 735 / 105 = 7 weeks.
+Check: 105 x 7 = 735 pages, the whole book.
+Answer: 7
+
+### train-214
+We need the total number of corn cobs on the farm.
+Step 1. Find the total rows in both fields: 13 + 16 = 29 rows.
+Step 2. Find the cobs at 4 per row: 29 x 4 = 116 cobs.
+Check: The first field has 13 x 4 = 52 cobs and the second 16 x 4 = 64; 52 + 64 = 116.
+Answer: 116
+
+### train-215
+We need how many eggs each person gets.
+Step 1. Find the number of eggs in two dozen: 2 x 12 = 24 eggs.
+Step 2. Count the people sharing. Mark plus his three siblings is 1 + 3 = 4 people.
+Step 3. Divide the eggs equally: 24 / 4 = 6 eggs each.
+Check: 4 people x 6 eggs = 24 eggs, two dozen.
+Answer: 6
+
+### train-216
+We need how many more erasers Anya has than Andrea.
+Step 1. Find Anya's erasers, 4 times Andrea's 4: 4 x 4 = 16 erasers.
+Step 2. Find the difference, because the question asks how many more Anya has, not how many she has in total: 16 - 4 = 12 erasers.
+Check: Anya has 4 groups of 4 erasers and Andrea has 1 group, so Anya has 3 extra groups: 3 x 4 = 12 more.
+Answer: 12
+
+### train-217
+We need how many kilograms of Friday's tomatoes remain after giving 700 kg away.
+Step 1. Wednesday's harvest: 400 kg.
+Step 2. Find Thursday's harvest, half of Wednesday's: 400 / 2 = 200 kg.
+Step 3. Find Wednesday and Thursday together: 400 + 200 = 600 kg.
+Step 4. Find Friday's harvest from the 2000 kg total: 2000 - 600 = 1400 kg.
+Step 5. Subtract the 700 kg given away: 1400 - 700 = 700 kg.
+Check: 400 + 200 + 1400 = 2000 kg, and half of Friday's 1400 kg is 700 kg left.
+Answer: 700
+
+### train-218
+We need the percent of the gingerbread men that have red hats.
+Step 1. Count the cookies carefully. The 3 with both items are already included in the 6 with red hats and in the 9 with blue boots, so they must not be counted twice.
+Step 2. Find the total number of gingerbread men: 6 + 9 - 3 = 12.
+Step 3. Find the share with red hats: 6 / 12 = 0.5.
+Step 4. Convert to a percent: 0.5 x 100 = 50 percent.
+Check: Red hats only: 6 - 3 = 3; boots only: 9 - 3 = 6; both: 3. Total 3 + 6 + 3 = 12, and 6 of 12 is half.
+Answer: 50
+
+### train-219
+We need Theodore's monthly earnings after taxes.
+Step 1. Find the money from stone statues: 10 x 20 = 200 dollars.
+Step 2. Find the money from wooden statues: 20 x 5 = 100 dollars.
+Step 3. Find the earnings before tax: 200 + 100 = 300 dollars.
+Step 4. Find the tax. 10% is 0.10, so 0.10 x 300 = 30 dollars.
+Step 5. Subtract the tax: 300 - 30 = 270 dollars.
+Check: He keeps 90% of his earnings, and 0.90 x 300 = 270 dollars.
+Answer: 270

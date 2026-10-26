@@ -28,6 +28,7 @@ LABEL = {"base": "base", "sft_lora": "SFT", "dpo_lr5e6": "DPO", "sftdpo_lr5e6": 
          "rlhf_grpo": "GRPO (RM)", "sftgrpo": "SFT→GRPO", "ppo_rmtrunc_small": "PPO (RM)"}
 RM = "checkpoints/rm_trunc2/merged"
 PLOTS = RESULTS / "plots"
+SPLIT_NAME = {"dev": "GSM8K dev", "test": "GSM8K test", "svamp": "SVAMP"}
 # training log per arm; PPO logs no train_runtime, so its wall-clock comes from the log's first and last write
 TRAIN_LOG = {"sft_lora": "sft_lora.train", "dpo_lr5e6": "dpo_lr5e6.train", "sftdpo_lr5e6": "sftdpo_lr5e6.train",
              "grpo": "grpo.train", "rlhf_grpo": "rlhf_grpo.train", "sftgrpo": "sftgrpo.train",
@@ -127,99 +128,59 @@ def bars(res, split):
     ax.set_xticks(x, [LABEL[a] for a in arms], rotation=20)
     ax.set_ylabel("accuracy")
     ax.set_ylim(0, 1)
-    ax.set_title(f"GSM8K {split} (n={res['base']['n_prompts']}), Qwen2.5-0.5B-Instruct")
+    ax.set_title(f"{SPLIT_NAME[split]} (n={res['base']['n_prompts']}), Qwen2.5-0.5B-Instruct")
     ax.legend(ncol=4, loc="upper left")
     ax.grid(axis="y", alpha=0.3)
     fig.tight_layout()
     fig.savefig(PLOTS / f"methods_{split}.png", dpi=150)
 
 
-COLOR = {"greedy": "#2a78d6", "pass@1": "#eb6834", "pass@8": "#1baf7a", "strict@1": "#6250d6"}
-NAME = {"greedy": "greedy", "pass@1": "pass@1", "pass@8": "pass@8", "strict@1": "strict pass@1"}
-INK, MUTED, GRID, SURFACE = "#0b0b0b", "#52514e", "#e4e3df", "#fcfcfb"
-SPLIT_TITLE = {"test": "GSM8K test", "svamp": "SVAMP (transfer)", "dev": "GSM8K dev"}
-
-
-def style(ax):
-    ax.set_facecolor(SURFACE)
-    for s in ("top", "right", "left"):
-        ax.spines[s].set_visible(False)
-    ax.spines["bottom"].set_color(MUTED)
-    ax.tick_params(colors=MUTED, labelcolor=INK, length=0)
-    ax.grid(axis="x", color=GRID, lw=0.8)
-    ax.set_axisbelow(True)
-
-
-def forest(ax, diffs, arms, keys, label_key=None):
-    """One row per arm, one dot with a 95% interval per metric; diffs[arm][key] = (a, b, diff, lo, hi)."""
-    y = np.arange(len(arms))[::-1]
-    offsets = np.linspace(0.2, -0.2, len(keys)) if len(keys) > 1 else [0.0]
-    for off, k in zip(offsets, keys):
-        d = np.array([diffs[a][k][2:] for a in arms])
-        ax.hlines(y + off, d[:, 1], d[:, 2], color=COLOR[k], lw=2)
-        ax.plot(d[:, 0], y + off, "o", ms=6, color=COLOR[k], mec=SURFACE, mew=1.5, label=NAME[k])
-        if k == label_key:
-            for yi, (m, _, hi) in zip(y + off, d):
-                ax.text(hi + 0.006, yi, f"{m:+.3f}", va="center", fontsize=8, color=INK)
-    ax.axvline(0, color=MUTED, lw=1)
-    ax.set_yticks(y, [LABEL[a] for a in arms])
-    style(ax)
-
-
-def gains_plot(splits=("test", "svamp")):
-    """Paired difference from the base model, per method, on each split."""
-    arms = [a for a in ARMS if a != "base"]
-    keys = ["greedy", "pass@1", "pass@8"]
-    fig, axes = plt.subplots(1, len(splits), figsize=(11, 4.6), sharey=True, sharex=True, facecolor=SURFACE)
-    for ax, split in zip(axes, splits):
-        diffs = {a: paired_diff(f"base_{split}", f"{a}_{split}")[0] for a in arms}
-        forest(ax, diffs, arms, keys, label_key="pass@1")
-        ax.set_title(SPLIT_TITLE[split], color=INK, loc="left")
-        ax.set_xlabel("difference from base model (95% interval)", color=MUTED)
-    fig.legend(*axes[0].get_legend_handles_labels(), loc="upper center", ncol=len(keys), frameon=False, fontsize=9)
-    fig.tight_layout(rect=(0, 0, 1, 0.94))
-    fig.savefig(PLOTS / "gains.png", dpi=150, facecolor=SURFACE)
-
-
-def vs_sft_plot(splits=("test", "svamp")):
-    """Paired difference from the SFT model: what each method adds beyond SFT."""
-    arms = [a for a in ARMS if a not in ("base", "sft_lora")]
-    keys = ["greedy", "pass@1"]
-    fig, axes = plt.subplots(1, len(splits), figsize=(11, 4.0), sharey=True, sharex=True, facecolor=SURFACE)
-    for ax, split in zip(axes, splits):
-        diffs = {a: paired_diff(f"sft_lora_{split}", f"{a}_{split}")[0] for a in arms}
-        forest(ax, diffs, arms, keys, label_key="pass@1")
-        ax.set_title(SPLIT_TITLE[split], color=INK, loc="left")
-        ax.set_xlabel("difference from SFT model (95% interval)", color=MUTED)
-    fig.legend(*axes[0].get_legend_handles_labels(), loc="upper center", ncol=len(keys), frameon=False, fontsize=9)
-    fig.tight_layout(rect=(0, 0, 1, 0.94))
-    fig.savefig(PLOTS / "vs_sft.png", dpi=150, facecolor=SURFACE)
-
-
-def format_plot(split="test"):
+def format_bars(split="test"):
     """pass@1 (any final number) next to strict pass@1 (tagged, complete, correct) per method."""
     vals = {}
-    for a in ARMS:
-        if a == "base":
-            continue
+    for a in ARMS[1:]:
         d = paired_diff(f"base_{split}", f"{a}_{split}")[0]
-        vals.setdefault("base", {k: d[k][0] for k in ("pass@1", "strict@1")})
-        vals[a] = {k: d[k][1] for k in ("pass@1", "strict@1")}
-    y = np.arange(len(ARMS))[::-1]
-    fig, ax = plt.subplots(figsize=(8, 4.2), facecolor=SURFACE)
-    p1 = np.array([vals[a]["pass@1"] for a in ARMS])
-    st = np.array([vals[a]["strict@1"] for a in ARMS])
-    ax.hlines(y, np.minimum(p1, st), np.maximum(p1, st), color=GRID, lw=3)
-    for k, v in (("strict@1", st), ("pass@1", p1)):
-        ax.plot(v, y, "o", ms=8, color=COLOR[k], mec=SURFACE, mew=1.5, label=NAME[k])
-    ax.set_yticks(y, [LABEL[a] for a in ARMS])
-    ax.set_xlim(0, 0.6)
-    ax.set_xlabel("accuracy of sampled answers", color=MUTED)
-    ax.set_title(f"{SPLIT_TITLE[split]}: any final number vs the requested 'Answer: N' line", color=INK, loc="left")
-    style(ax)
-    ax.legend(loc="lower right", frameon=False, fontsize=9)
+        vals.setdefault("base", (d["pass@1"][0], d["strict@1"][0]))
+        vals[a] = (d["pass@1"][1], d["strict@1"][1])
+    x = np.arange(len(ARMS))
+    w = 0.35
+    fig, ax = plt.subplots(figsize=(11, 4.5))
+    ax.bar(x - w / 2, [vals[a][0] for a in ARMS], w, color="tab:orange", label="pass@1 (any final number)")
+    ax.bar(x + w / 2, [vals[a][1] for a in ARMS], w, color="tab:purple", label="strict pass@1 (ends with 'Answer: N')")
+    ax.set_xticks(x, [LABEL[a] for a in ARMS], rotation=20)
+    ax.set_ylabel("accuracy")
+    ax.set_ylim(0, 1)
+    ax.set_title(f"{SPLIT_NAME[split]} (n=300): answer format, Qwen2.5-0.5B-Instruct")
+    ax.legend(ncol=2, loc="upper left")
+    ax.grid(axis="y", alpha=0.3)
     fig.tight_layout()
-    fig.savefig(PLOTS / f"format_{split}.png", dpi=150, facecolor=SURFACE)
+    fig.savefig(PLOTS / f"format_{split}.png", dpi=150)
+
+
+# stages each method needs before it can be trained, counted into its total training time
+PREREQ = {"sftdpo_lr5e6": ["sft_lora"], "sftgrpo": ["sft_lora"], "rlhf_grpo": ["reward model v1"],
+          "ppo_rmtrunc_small": ["reward model rm_trunc2_q"]}
+
+
+def cost_plot(split="test"):
+    """Test pass@1 gain over base against total training hours (own run plus prerequisite stages)."""
+    fig, ax = plt.subplots(figsize=(8, 4.5))
+    for a in ARMS[1:]:
+        hours = sum(train_secs(TRAIN_LOG[s]) for s in [a] + PREREQ.get(a, [])) / 3600
+        _, _, diff, lo, hi = paired_diff(f"base_{split}", f"{a}_{split}")[0]["pass@1"]
+        ax.errorbar(hours, diff, yerr=[[diff - lo], [hi - diff]], fmt="o", color="tab:orange", capsize=3)
+        ax.annotate(f"{LABEL[a]}\n{hours:.1f} h", (hours, diff), xytext=(7, 0), textcoords="offset points",
+                    va="center")
+    ax.axhline(0, color="k", lw=0.8)
+    ax.set_xscale("log")
+    ax.set_xlim(0.3, 40)
+    ax.set_xticks([0.5, 1, 2, 5, 10], ["0.5", "1", "2", "5", "10"])
+    ax.set_xlabel("training wall-clock, hours (log scale, includes SFT / reward model stages it builds on)")
+    ax.set_ylabel("pass@1 minus base [95% CI]")
+    ax.set_title(f"{SPLIT_NAME[split]}: pass@1 gain against training time")
+    ax.grid(alpha=0.3)
+    fig.tight_layout()
+    fig.savefig(PLOTS / f"cost_{split}.png", dpi=150)
 
 
 def ppo_log(path):
@@ -263,19 +224,16 @@ def ppo_plot():
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--split", choices=["dev", "test", "svamp"], default="dev")
-    p.add_argument("--figures", action="store_true", help="only the README figures (gains, vs_sft, format_test)")
     args = p.parse_args()
     PLOTS.mkdir(exist_ok=True)
-    if args.figures:
-        gains_plot()
-        vs_sft_plot()
-        format_plot()
-        return
     md, res = table(args.split)
     fmt = format_table(args.split)
     (RESULTS / f"summary_{args.split}.md").write_text(md + "\n\n" + fmt + "\n")
     print(md + "\n\n" + fmt)
     bars(res, args.split)
+    if args.split == "test":
+        format_bars()
+        cost_plot()
     if args.split == "dev":
         ppo_plot()
         comp = compute_table()
