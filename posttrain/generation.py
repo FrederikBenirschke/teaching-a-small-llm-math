@@ -5,7 +5,7 @@ import time
 from mlx_lm import batch_generate, load
 from mlx_lm.sample_utils import make_sampler
 
-from common import MODEL, chat_prompt
+from posttrain.common import MODEL, chat_prompt
 
 
 def load_model(adapter: str | None = None, model: str = MODEL):

@@ -3,7 +3,7 @@
 The bootstrap resamples questions, not samples, because the 8 samples for one
 question are correlated. Both runs use the same resampled questions.
 
-    .venv/bin/python compare.py base_dev sft_lora_dev
+    .venv/bin/python -m posttrain.eval.compare base_dev sft_lora_dev
 """
 
 import argparse
@@ -14,7 +14,7 @@ from math import comb
 import numpy as np
 from transformers import AutoTokenizer
 
-from common import _TAGGED, MODEL, RESULTS, read_jsonl
+from posttrain.common import _TAGGED, MODEL, RESULTS, read_jsonl
 
 RM = "checkpoints/rm_trunc2/merged"
 

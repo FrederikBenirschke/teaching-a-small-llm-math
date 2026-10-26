@@ -3,10 +3,10 @@
 The reward is the exact-match grader, or a trained reward model if --reward-model
 is given. All other settings are the same in both cases.
 
-    .venv/bin/python train_grpo.py --name grpo                       # grader reward
-    .venv/bin/python train_grpo.py --name rlhf_grpo --reward-model checkpoints/rm
-    .venv/bin/python train_grpo.py --name smoke --max-steps 2
-    .venv/bin/python train_grpo.py --name sftgrpo --init checkpoints/sft_lora/merged
+    .venv/bin/python -m posttrain.train.grpo --name grpo                       # grader reward
+    .venv/bin/python -m posttrain.train.grpo --name rlhf_grpo --reward-model checkpoints/rm
+    .venv/bin/python -m posttrain.train.grpo --name smoke --max-steps 2
+    .venv/bin/python -m posttrain.train.grpo --name sftgrpo --init checkpoints/sft_lora/merged
 """
 
 import argparse
@@ -16,7 +16,7 @@ from datasets import Dataset
 from peft import LoraConfig
 from trl import GRPOConfig, GRPOTrainer
 
-from common import DATA, MODEL, ROOT, SYSTEM, is_correct, read_jsonl
+from posttrain.common import DATA, MODEL, ROOT, SYSTEM, is_correct, read_jsonl
 
 
 def grader_reward(completions, answer, **kwargs):

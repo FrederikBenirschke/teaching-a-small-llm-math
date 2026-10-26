@@ -8,7 +8,7 @@ Scores the base model's greedy dev answers in four forms:
 It also scores the --policy model's greedy answers. A reward model without the
 truncation bias scores full above half and half_eos.
 
-    .venv/bin/python probe_rm.py checkpoints/rm/merged checkpoints/rm_trunc/merged
+    .venv/bin/python -m posttrain.eval.probe_rm checkpoints/rm/merged checkpoints/rm_trunc/merged
 """
 
 import argparse
@@ -17,7 +17,7 @@ import numpy as np
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-from common import MODEL, ROOT, SYSTEM, is_correct, read_jsonl
+from posttrain.common import MODEL, ROOT, SYSTEM, is_correct, read_jsonl
 
 
 @torch.no_grad()

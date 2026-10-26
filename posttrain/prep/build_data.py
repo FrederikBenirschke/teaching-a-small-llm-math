@@ -9,8 +9,8 @@ data/dpo/{train,valid}.jsonl (correct, incorrect) pairs from the same prompt
 import argparse
 import random
 
-from common import DATA, SYSTEM, is_correct, read_jsonl, write_jsonl
-from generation import load_model, sample
+from posttrain.common import DATA, SYSTEM, is_correct, read_jsonl, write_jsonl
+from posttrain.generation import load_model, sample
 
 
 def main():

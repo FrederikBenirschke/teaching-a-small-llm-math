@@ -5,7 +5,7 @@ data/prompts/svamp.jsonl   SVAMP test split, 300 problems, {"question", "answer"
 
 from datasets import load_dataset
 
-from common import DATA, write_jsonl
+from posttrain.common import DATA, write_jsonl
 
 
 def main():

@@ -12,7 +12,7 @@ import random
 
 from datasets import load_dataset
 
-from common import DATA, SYSTEM, gold_answer, write_jsonl
+from posttrain.common import DATA, SYSTEM, gold_answer, write_jsonl
 
 
 def main():

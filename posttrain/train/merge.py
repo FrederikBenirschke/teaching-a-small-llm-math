@@ -1,9 +1,9 @@
 """Merge a LoRA adapter into the base weights and save a Hugging Face checkpoint.
 
-The merged directory is what evaluate.py --model and train_ppo.py --reward-model load.
+The merged directory is what eval/evaluate.py --model and train/ppo.py --reward-model load.
 
-    .venv/bin/python merge.py checkpoints/sft_lora            # -> checkpoints/sft_lora/merged
-    .venv/bin/python merge.py checkpoints/rm --seq-cls
+    .venv/bin/python -m posttrain.train.merge checkpoints/sft_lora            # -> checkpoints/sft_lora/merged
+    .venv/bin/python -m posttrain.train.merge checkpoints/rm --seq-cls
 """
 
 import argparse
@@ -14,7 +14,7 @@ import torch
 from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoModelForSequenceClassification, AutoTokenizer
 
-from common import MODEL
+from posttrain.common import MODEL
 
 
 def main():

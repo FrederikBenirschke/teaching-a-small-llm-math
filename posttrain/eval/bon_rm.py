@@ -6,8 +6,8 @@ sample. For reference it also prints pass@1 (random choice) and pass@8 (any samp
 correct). The interval on best-of-8 minus pass@1 is a bootstrap over questions.
 Whether each question's picked sample is correct is saved for compare.py.
 
-    .venv/bin/python bon_rm.py checkpoints/rm/merged checkpoints/rm_trunc2/merged
-    .venv/bin/python bon_rm.py checkpoints/rm_trunc2/merged --policy sft_lora --split test
+    .venv/bin/python -m posttrain.eval.bon_rm checkpoints/rm/merged checkpoints/rm_trunc2/merged
+    .venv/bin/python -m posttrain.eval.bon_rm checkpoints/rm_trunc2/merged --policy sft_lora --split test
 """
 
 import argparse
@@ -17,7 +17,7 @@ import numpy as np
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-from common import MODEL, ROOT, SYSTEM, read_jsonl
+from posttrain.common import MODEL, ROOT, SYSTEM, read_jsonl
 
 
 @torch.no_grad()

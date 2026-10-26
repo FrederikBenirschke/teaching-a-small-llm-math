@@ -4,8 +4,8 @@ Reads results/<arm>_<split>.json (evaluate.py), <arm>_<split>.bon.json (bon_rm.p
 and the per-problem samples for paired differences against the base model.
 Writes results/summary_<split>.md and results/plots/*.png.
 
-    .venv/bin/python summarize.py --split dev
-    .venv/bin/python summarize.py --split test
+    .venv/bin/python -m posttrain.report.summarize --split dev
+    .venv/bin/python -m posttrain.report.summarize --split test
 """
 
 import argparse
@@ -20,8 +20,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from common import _TAGGED, MODEL, RESULTS, ROOT, read_jsonl
-from compare import paired_diff
+from posttrain.common import _TAGGED, MODEL, RESULTS, ROOT, read_jsonl
+from posttrain.eval.compare import paired_diff
 
 ARMS = ["base", "sft_lora", "dpo_lr5e6", "sftdpo_lr5e6", "grpo", "rlhf_grpo", "sftgrpo", "ppo_rmtrunc_small"]
 LABEL = {"base": "base", "sft_lora": "SFT", "dpo_lr5e6": "DPO", "sftdpo_lr5e6": "SFT→DPO", "grpo": "GRPO (grader)",
@@ -134,6 +134,94 @@ def bars(res, split):
     fig.savefig(PLOTS / f"methods_{split}.png", dpi=150)
 
 
+COLOR = {"greedy": "#2a78d6", "pass@1": "#eb6834", "pass@8": "#1baf7a", "strict@1": "#6250d6"}
+NAME = {"greedy": "greedy", "pass@1": "pass@1", "pass@8": "pass@8", "strict@1": "strict pass@1"}
+INK, MUTED, GRID, SURFACE = "#0b0b0b", "#52514e", "#e4e3df", "#fcfcfb"
+SPLIT_TITLE = {"test": "GSM8K test", "svamp": "SVAMP (transfer)", "dev": "GSM8K dev"}
+
+
+def style(ax):
+    ax.set_facecolor(SURFACE)
+    for s in ("top", "right", "left"):
+        ax.spines[s].set_visible(False)
+    ax.spines["bottom"].set_color(MUTED)
+    ax.tick_params(colors=MUTED, labelcolor=INK, length=0)
+    ax.grid(axis="x", color=GRID, lw=0.8)
+    ax.set_axisbelow(True)
+
+
+def forest(ax, diffs, arms, keys, label_key=None):
+    """One row per arm, one dot with a 95% interval per metric; diffs[arm][key] = (a, b, diff, lo, hi)."""
+    y = np.arange(len(arms))[::-1]
+    offsets = np.linspace(0.2, -0.2, len(keys)) if len(keys) > 1 else [0.0]
+    for off, k in zip(offsets, keys):
+        d = np.array([diffs[a][k][2:] for a in arms])
+        ax.hlines(y + off, d[:, 1], d[:, 2], color=COLOR[k], lw=2)
+        ax.plot(d[:, 0], y + off, "o", ms=6, color=COLOR[k], mec=SURFACE, mew=1.5, label=NAME[k])
+        if k == label_key:
+            for yi, (m, _, hi) in zip(y + off, d):
+                ax.text(hi + 0.006, yi, f"{m:+.3f}", va="center", fontsize=8, color=INK)
+    ax.axvline(0, color=MUTED, lw=1)
+    ax.set_yticks(y, [LABEL[a] for a in arms])
+    style(ax)
+
+
+def gains_plot(splits=("test", "svamp")):
+    """Paired difference from the base model, per method, on each split."""
+    arms = [a for a in ARMS if a != "base"]
+    keys = ["greedy", "pass@1", "pass@8"]
+    fig, axes = plt.subplots(1, len(splits), figsize=(11, 4.6), sharey=True, sharex=True, facecolor=SURFACE)
+    for ax, split in zip(axes, splits):
+        diffs = {a: paired_diff(f"base_{split}", f"{a}_{split}")[0] for a in arms}
+        forest(ax, diffs, arms, keys, label_key="pass@1")
+        ax.set_title(SPLIT_TITLE[split], color=INK, loc="left")
+        ax.set_xlabel("difference from base model (95% interval)", color=MUTED)
+    fig.legend(*axes[0].get_legend_handles_labels(), loc="upper center", ncol=len(keys), frameon=False, fontsize=9)
+    fig.tight_layout(rect=(0, 0, 1, 0.94))
+    fig.savefig(PLOTS / "gains.png", dpi=150, facecolor=SURFACE)
+
+
+def vs_sft_plot(splits=("test", "svamp")):
+    """Paired difference from the SFT model: what each method adds beyond SFT."""
+    arms = [a for a in ARMS if a not in ("base", "sft_lora")]
+    keys = ["greedy", "pass@1"]
+    fig, axes = plt.subplots(1, len(splits), figsize=(11, 4.0), sharey=True, sharex=True, facecolor=SURFACE)
+    for ax, split in zip(axes, splits):
+        diffs = {a: paired_diff(f"sft_lora_{split}", f"{a}_{split}")[0] for a in arms}
+        forest(ax, diffs, arms, keys, label_key="pass@1")
+        ax.set_title(SPLIT_TITLE[split], color=INK, loc="left")
+        ax.set_xlabel("difference from SFT model (95% interval)", color=MUTED)
+    fig.legend(*axes[0].get_legend_handles_labels(), loc="upper center", ncol=len(keys), frameon=False, fontsize=9)
+    fig.tight_layout(rect=(0, 0, 1, 0.94))
+    fig.savefig(PLOTS / "vs_sft.png", dpi=150, facecolor=SURFACE)
+
+
+def format_plot(split="test"):
+    """pass@1 (any final number) next to strict pass@1 (tagged, complete, correct) per method."""
+    vals = {}
+    for a in ARMS:
+        if a == "base":
+            continue
+        d = paired_diff(f"base_{split}", f"{a}_{split}")[0]
+        vals.setdefault("base", {k: d[k][0] for k in ("pass@1", "strict@1")})
+        vals[a] = {k: d[k][1] for k in ("pass@1", "strict@1")}
+    y = np.arange(len(ARMS))[::-1]
+    fig, ax = plt.subplots(figsize=(8, 4.2), facecolor=SURFACE)
+    p1 = np.array([vals[a]["pass@1"] for a in ARMS])
+    st = np.array([vals[a]["strict@1"] for a in ARMS])
+    ax.hlines(y, np.minimum(p1, st), np.maximum(p1, st), color=GRID, lw=3)
+    for k, v in (("strict@1", st), ("pass@1", p1)):
+        ax.plot(v, y, "o", ms=8, color=COLOR[k], mec=SURFACE, mew=1.5, label=NAME[k])
+    ax.set_yticks(y, [LABEL[a] for a in ARMS])
+    ax.set_xlim(0, 0.6)
+    ax.set_xlabel("accuracy of sampled answers", color=MUTED)
+    ax.set_title(f"{SPLIT_TITLE[split]}: any final number vs the requested 'Answer: N' line", color=INK, loc="left")
+    style(ax)
+    ax.legend(loc="lower right", frameon=False, fontsize=9)
+    fig.tight_layout()
+    fig.savefig(PLOTS / f"format_{split}.png", dpi=150, facecolor=SURFACE)
+
+
 def ppo_log(path):
     """[(episode, kl, rlhf_reward)] from a TRL PPO training log."""
     pts = []
@@ -175,8 +263,14 @@ def ppo_plot():
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--split", choices=["dev", "test", "svamp"], default="dev")
+    p.add_argument("--figures", action="store_true", help="only the README figures (gains, vs_sft, format_test)")
     args = p.parse_args()
     PLOTS.mkdir(exist_ok=True)
+    if args.figures:
+        gains_plot()
+        vs_sft_plot()
+        format_plot()
+        return
     md, res = table(args.split)
     fmt = format_table(args.split)
     (RESULTS / f"summary_{args.split}.md").write_text(md + "\n\n" + fmt + "\n")

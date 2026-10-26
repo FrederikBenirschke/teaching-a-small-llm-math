@@ -11,4 +11,3 @@ checkpoints/
 *.safetensors
 .DS_Store
 .venv-ppo/
-tools/*.dylib

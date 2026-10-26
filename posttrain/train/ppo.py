@@ -3,8 +3,8 @@ and the frozen base model as reference.
 
 Runs in .venv-ppo: TRL 1.12 is the last release with trl.experimental.ppo.
 
-    .venv-ppo/bin/python train_ppo.py --reward-model checkpoints/rm/merged
-    .venv-ppo/bin/python train_ppo.py --smoke   # untrained reward head, 2 updates
+    .venv-ppo/bin/python -m posttrain.train.ppo --reward-model checkpoints/rm/merged
+    .venv-ppo/bin/python -m posttrain.train.ppo --smoke   # untrained reward head, 2 updates
 """
 
 import argparse
@@ -23,7 +23,7 @@ from transformers import (  # noqa: E402
 )
 from trl.experimental.ppo import PPOConfig, PPOTrainer  # noqa: E402
 
-from common import DATA, MODEL, ROOT, SYSTEM, read_jsonl  # noqa: E402
+from posttrain.common import DATA, MODEL, ROOT, SYSTEM, read_jsonl  # noqa: E402
 
 
 class SnapshotCallback(TrainerCallback):

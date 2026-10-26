@@ -11,8 +11,8 @@ import argparse
 import json
 from math import comb
 
-from common import DATA, MODEL, RESULTS, is_correct, read_jsonl, write_jsonl
-from generation import load_model, sample
+from posttrain.common import DATA, MODEL, RESULTS, is_correct, read_jsonl, write_jsonl
+from posttrain.generation import load_model, sample
 
 
 def pass_at(n: int, c: int, k: int) -> float:

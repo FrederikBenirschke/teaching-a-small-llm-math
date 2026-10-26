@@ -2,12 +2,12 @@
 
     sft   SFTTrainer on correct base-model samples; loss on the answer tokens only
     dpo   DPOTrainer on (correct, incorrect) pairs for the same prompt
-    rm    RewardTrainer on the same pairs; the result is used by train_grpo.py and train_ppo.py
+    rm    RewardTrainer on the same pairs; the result is used by train/grpo.py and train/ppo.py
 
 Uses LoRA unless --full is given.
 
-    .venv/bin/python train_offline.py --method sft --name sft_lora
-    .venv/bin/python train_offline.py --method sft --name sft_full --full --lr 1e-5
+    .venv/bin/python -m posttrain.train.offline --method sft --name sft_lora
+    .venv/bin/python -m posttrain.train.offline --method sft --name sft_full --full --lr 1e-5
 """
 
 import argparse
@@ -19,7 +19,7 @@ from peft import LoraConfig
 from transformers import AutoTokenizer
 from trl import DPOConfig, DPOTrainer, RewardConfig, RewardTrainer, SFTConfig, SFTTrainer
 
-from common import DATA, MODEL, ROOT, read_jsonl
+from posttrain.common import DATA, MODEL, ROOT, read_jsonl
 
 
 def _prompt(system, question):

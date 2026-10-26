@@ -1,4 +1,4 @@
-# GRPO with the 0/1 correctness reward in rewards.py (mlx-lm-lora).
+# GRPO with the 0/1 correctness reward in mlx/rewards.py (mlx-lm-lora).
 model: Qwen/Qwen2.5-0.5B-Instruct
 train: true
 fuse: false
@@ -13,7 +13,7 @@ beta: 0.04
 group_size: 8
 temperature: 0.8
 max_completion_length: 512
-reward_functions_file: rewards.py
+reward_functions_file: mlx/rewards.py
 reward_functions: gsm8k_correct
 batch_size: 2
 iters: 250
